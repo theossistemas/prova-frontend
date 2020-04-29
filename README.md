@@ -23,7 +23,7 @@ Abaixo, você tem o link do protótipo a ser seguido ou para servir de inspiraç
 https://www.figma.com/file/bSqhBBS9LdOehdEkJ6frDz/Teste-Frontend?node-id=0%3A1
      
      Não se limite ao protótipo a cima. 
-     Novas sugestões e funcionalidades será um diferencial.
+     Sugestões ou novas funcionalidades será um diferencial.
 
 ##
 
