@@ -18,7 +18,8 @@ Queremos que nos mostre todo seu conhecimento, com isso, toda regra de negócio,
 
 Use e abuse de seus conhecimentos e sugestões.
 
-- Link do protótipo a ser seguido ou para servir de inspiração:
+- Link do protótipo a ser seguido ou para servir de inspiração
+     (Não se limite ao layout, novas funcionalidades, recursos e sugestões será um diferencial)
 
 https://www.figma.com/file/bSqhBBS9LdOehdEkJ6frDz/Teste-Frontend?node-id=0%3A1
     
@@ -32,6 +33,7 @@ https://www.figma.com/file/bSqhBBS9LdOehdEkJ6frDz/Teste-Frontend?node-id=0%3A1
 - Clean Code
 
 
+
 ### Será um diferencial
 
 - Usar Node.js / Mongo para a persistência dos dados.
@@ -39,6 +41,7 @@ https://www.figma.com/file/bSqhBBS9LdOehdEkJ6frDz/Teste-Frontend?node-id=0%3A1
 - Lazy Loading.
 - Executar testes.
 - Workspaces (Multi projetos)
+
 
 
 ### O que será avaliado?
