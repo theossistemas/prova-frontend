@@ -60,11 +60,3 @@ https://www.figma.com/file/bSqhBBS9LdOehdEkJ6frDz/Teste-Frontend?node-id=0%3A1
     2. Realize o teste;
     3. Adicione seu currículo na raiz do repositório;
     4. Envie-nos o PULL-REQUEST para que seja avaliado;
-    
-    ou
-    
-    O código fonte deverá estar disponível no Github, Gitlab, Bitbucket ou outro
-    provedor Git através de um link. O projeto deverá ser de fácil reprodução local e 
-    para tal deve conter um README explicando os passos necessários.
-
-   
