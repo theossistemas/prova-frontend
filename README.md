@@ -19,7 +19,7 @@ Queremos que nos mostre todo seu conhecimento, com isso, toda regra de negócio,
 Use e abuse de seus conhecimentos e sugestões.
 
 - Link do protótipo a ser seguido ou para servir de inspiração
-* Não se limite ao layout.
+     Não se limite ao layout. Novas sugestões e funcionalidades será um diferencial.
 
 https://www.figma.com/file/bSqhBBS9LdOehdEkJ6frDz/Teste-Frontend?node-id=0%3A1
     
