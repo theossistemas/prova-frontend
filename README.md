@@ -17,13 +17,14 @@ O desafio proposto consiste em implementar uma aplicação onde temos um cadastr
 Queremos que nos mostre todo seu conhecimento, com isso, toda regra de negócio, fluxo de navegação, validações de formulários, noções de usabilidade, infra e layout ficará a seu critério.
 
 Use e abuse de seus conhecimentos e sugestões.
+##
 
 Link do protótipo a ser seguido ou para servir de inspiração.
 https://www.figma.com/file/bSqhBBS9LdOehdEkJ6frDz/Teste-Frontend?node-id=0%3A1
      
-     - Não se limite ao layout. Novas sugestões e funcionalidades será um diferencial.
+     Não se limite ao layout. Novas sugestões e funcionalidades será um diferencial.
 
-
+##
 
 
 ### Requisitos
