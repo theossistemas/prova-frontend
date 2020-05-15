@@ -19,7 +19,7 @@ export class DesenvolvedorComponent implements OnInit {
   devGit: any;
   dev: any;
 
-  // Via DI, nós temos o Form Builder
+  // Via DI, temos o Form Builder
   constructor(private fb: FormBuilder, private devService: DevService) { }
 
   ngOnInit(): void {
@@ -34,13 +34,13 @@ export class DesenvolvedorComponent implements OnInit {
   }
 
   // Salvando um dev com as validações
-  async salvar() {
+  salvar() {
     const dadosFormulario = this.formDev.value;
     console.log(dadosFormulario);
 
     try {
-      await this.devService.criarDev(dadosFormulario).subscribe(res => { this.devs.push(res) });
-      alert(`${dadosFormulario.nome} foi cadastrado com sucesso.`);
+      this.devService.criarDev(dadosFormulario).subscribe(res => { this.devs.push(res) });
+      alert(`Parabéns ${dadosFormulario.nome}! Cadastrado com sucesso.`);
       this.formDev.reset();
       this.formDevGithub.reset();
     } catch (error) {
@@ -48,6 +48,10 @@ export class DesenvolvedorComponent implements OnInit {
     }
   }
 
+  // Aqui eu faço a a busca do usuario na api do Github que está no meu service
+  // e instanciando um novo FormControl para atualizar os dados dos meus inputs
+  // através dos dados retornados. Utilizei a função como async await por que a minha
+  // variável global (devGit) estava vindo undefined na hora que eu setava no formDev
   async buscarGitDev() {
     const user_git = this.formDevGithub.value;
     await this.devService.getGitDev(user_git).then(dadosGit => this.devGit = dadosGit);
