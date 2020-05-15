@@ -1,0 +1,36 @@
+.content {
+  display: grid;
+  margin:100px 200px;
+  /* flex-direction: row; */
+  grid-template-areas: "h h h"
+                        "a m m"
+                        "f f f";
+}
+
+.card {
+  display: grid;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  background-color: #fafafa;
+  /* width: 30%; */
+  width: 200px;
+  margin: 20px 8px 16px;
+  padding: 16px;
+  line-height: 24px;
+  font-size:14px;
+}
+
+@media screen and (max-width: 600px) {
+  .card-container > *:not(.circle-link) ,
+  .terminal {
+    width: 100%;
+  }
+
+  .card:not(.highlight-card) {
+    margin: 8px 0;
+  }
+
+  .card.highlight-card span {
+    margin-left: 72px;
+  }
+}
