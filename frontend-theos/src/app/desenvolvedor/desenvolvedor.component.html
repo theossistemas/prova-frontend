@@ -1,1 +1,98 @@
-<p>desenvolvedor works!</p>
+<!-- <div class="div-form">
+    <form [formGroup]="formDev" (ngSubmit)="enviarDados()">
+
+        <div>
+            <label for="nome">Nome: </label>
+            <input type="text" formControlName="nome">
+        </div>
+
+        <br>
+        <div>
+            <button class="btn-cadastrar" [disabled]="!formDev.valid">
+                Cadastrar
+            </button>
+        </div>
+
+        <br>
+        <br>
+
+        <div>{{ formDev.value | json}}</div>
+        <div>{{ formDev.valid | json }}</div>
+    </form>
+</div> -->
+
+
+<div class="div-form">
+    <form method="POST" [formGroup]="formDev" (ngSubmit)="enviarDados()">
+
+        <button class="botao-github">
+            <img src="../../assets/git.svg" />
+            <span>Cadastrar com o GitHub</span>
+        </button>
+
+        <!-- <div>
+            <label>Usuário GitHub</label>
+            <input placeholder="Digite seu usuário do GitHub" formControlName="github_username" />
+        </div> -->
+
+        <hr color="#E2E8F0" />
+
+        <!-- <div>
+            <label>Avatar (URL)</label>
+            <input placeholder="Digite seu usuário do GitHub" formControlName="avatar_url" />
+        </div> -->
+
+        <div>
+            <label>Nome</label>
+            <input placeholder="Digite seu usuário do GitHub" formControlName="nome" />
+        </div>
+
+        <!-- <div>
+            <label>Email</label>
+            <input placeholder="Digite seu usuário do GitHub" formControlName="email" />
+        </div> -->
+
+        <!-- <div>
+            <label>Cidade</label>
+            <input placeholder="Digite seu usuário do GitHub" formControlName="cidade" />
+        </div> -->
+
+        <hr color="#E2E8F0" />
+
+        <span class="label-profissional">PROFISSIONAL</span>
+
+        <!-- <div style="margin-top: 60px">
+            <label>Formação</label>
+            <input placeholder="Digite seu usuário do GitHub" formControlName="formacao" />
+        </div> -->
+
+        <div>
+            <label>Tecnologias</label>
+            <textarea placeholder="ex: HTML/CSS, Vue, Angular..." formControlName="techs"></textarea>
+        </div> 
+
+        <div>
+            <button class="btn-cadastrar" [disabled]="!formDev.valid">
+                <span>Cadastrar</span>
+            </button>
+        </div>
+    </form>
+</div>
+
+<div class="listagem">
+    <div *ngFor="let d of devs">
+        <div class="listagem-item">
+            <div class="avatar">
+                <img src="{{d.avatar_url}}" />
+            </div>
+            <div class="item-dados">
+                <div class="nome-dev">{{d.name}}</div>
+                <div class="cidade-dev">{{d.cidade}}</div>
+                <div class="techs-dev">{{d.techs}}</div>
+            </div>
+            <a class="btn-acessar-git" href="https://github.com/{{d.github_username}}" target="_blank">
+                Acessar Github
+            </a>
+        </div>
+    </div>
+</div>

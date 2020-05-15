@@ -1,0 +1,180 @@
+.div-form {
+    position: absolute;
+    top: 76px;
+    width: 400px;
+    height: 833px;
+    background: #FFF;
+    border: 1px solid #CBD5E0;
+    box-sizing: border-box;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    margin-left: 180px;
+    margin-bottom: 38px;
+    padding: 32px;
+}
+
+form input {
+    width: 100%;
+    height: 40px;
+    border: 2px solid #A0AEC0;
+    box-sizing: border-box;
+    border-radius: 3px;
+    padding: 12px;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+form textarea {
+    width: 100%;
+    height: 90px;
+    border: 2px solid #A0AEC0;
+    box-sizing: border-box;
+    border-radius: 3px;
+    padding: 12px;
+    font-size: 13px;
+}
+
+form label {
+    font-weight: 500;
+    font-size: 12px;
+    color: #2D3748;
+}
+
+form hr {
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.label-profissional {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    color: #2D3748;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.botao-github {
+    width: 100%;
+    height: 42px;
+    cursor: pointer;
+    border: 2px solid #4A5568;
+    box-sizing: border-box;
+    border-radius: 3px;
+    background: #FFF;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s;
+}
+
+.botao-github span {
+    font-size: 14px;
+    color: #2D3748
+}
+
+.botao-github:hover {
+    filter: brightness(90%);
+    border: 2px solid #DDD
+}
+
+.botao-github img {
+    width: 19px;
+}
+
+.btn-cadastrar {
+    width: 100%;
+    height: 42px;
+    background: #48bb78;
+    border: 1px solid #38A169;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.075);
+    border-radius: 3px;
+    margin-top: 16px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.btn-cadastrar span {
+    color: #FFF;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.btn-cadastrar:disabled{
+    background-color: #ddd;
+    border: 1px solid #CBD5E0;
+}
+
+.listagem {
+    position: relative;
+    left: 45%;
+    border-radius: 3px;
+    display: grid;
+    grid-template-columns: auto auto;
+    margin: 25px;
+    width: 40%;
+}
+
+.listagem-item {
+    width: 300px;
+    height: 175px;
+    background: #1A202C;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.075);
+    border-radius: 3px;
+    margin: 10px;
+    position: relative;
+    margin-top: 40px;
+}
+
+.item-dados {
+    padding: 48px 0px 0px 16px;
+}
+
+.nome-dev {
+    font-style: normal;
+    font-weight: 500;
+    color: #FFF;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.cidade-dev {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    color: #FFFFFF;
+    line-height: 16px;
+    margin-bottom: 8px;
+}
+
+.techs-dev {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+}
+
+.btn-acessar-git {
+    text-decoration: none;
+    color: #68D391;
+    font-size: 14px;
+    margin-top: 21px;
+    margin-left: 16px;
+}
+
+.avatar {
+    box-sizing: border-box;
+    position: absolute;
+    left: 65%;
+    top: -25px;
+    background-blend-mode: normal;
+}
+
+.avatar img {
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+}
