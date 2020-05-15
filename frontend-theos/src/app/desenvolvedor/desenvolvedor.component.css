@@ -2,7 +2,7 @@
     position: absolute;
     top: 76px;
     width: 400px;
-    height: 833px;
+    height: 860px;
     background: #FFF;
     border: 1px solid #CBD5E0;
     box-sizing: border-box;
@@ -22,6 +22,7 @@ form input {
     padding: 12px;
     font-size: 13px;
     margin-bottom: 8px;
+    margin-top: 6px;
 }
 
 form textarea {
@@ -59,15 +60,20 @@ form hr {
     width: 100%;
     height: 42px;
     cursor: pointer;
-    border: 2px solid #4A5568;
+    border: 2px solid #5FA9ED;
+    background: #5FA9ED;
     box-sizing: border-box;
     border-radius: 3px;
-    background: #FFF;
     margin-bottom: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.5s;
+}
+
+.botao-github:disabled{
+    background-color: #ddd;
+    border: 1px solid #CBD5E0;
 }
 
 .botao-github span {
@@ -77,12 +83,14 @@ form hr {
 
 .botao-github:hover {
     filter: brightness(90%);
-    border: 2px solid #DDD
+    border: 3px solid #5FA9ED
 }
 
 .botao-github img {
     width: 19px;
 }
+
+
 
 .btn-cadastrar {
     width: 100%;

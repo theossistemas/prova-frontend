@@ -1,75 +1,54 @@
-<!-- <div class="div-form">
-    <form [formGroup]="formDev" (ngSubmit)="enviarDados()">
-
-        <div>
-            <label for="nome">Nome: </label>
-            <input type="text" formControlName="nome">
-        </div>
-
-        <br>
-        <div>
-            <button class="btn-cadastrar" [disabled]="!formDev.valid">
-                Cadastrar
-            </button>
-        </div>
-
-        <br>
-        <br>
-
-        <div>{{ formDev.value | json}}</div>
-        <div>{{ formDev.valid | json }}</div>
-    </form>
-</div> -->
-
-
 <div class="div-form">
-    <form method="POST" [formGroup]="formDev" (ngSubmit)="enviarDados()">
 
-        <button class="botao-github">
-            <img src="../../assets/git.svg" />
-            <span>Cadastrar com o GitHub</span>
-        </button>
-
-        <!-- <div>
+    <form [formGroup]="formDevGithub" (ngSubmit)="buscarGitDev()">
+        <div>
             <label>Usuário GitHub</label>
             <input placeholder="Digite seu usuário do GitHub" formControlName="github_username" />
-        </div> -->
-
-        <hr color="#E2E8F0" />
-
-        <!-- <div>
-            <label>Avatar (URL)</label>
-            <input placeholder="Digite seu usuário do GitHub" formControlName="avatar_url" />
-        </div> -->
-
-        <div>
-            <label>Nome</label>
-            <input placeholder="Digite seu usuário do GitHub" formControlName="nome" />
         </div>
 
-        <!-- <div>
-            <label>Email</label>
-            <input placeholder="Digite seu usuário do GitHub" formControlName="email" />
-        </div> -->
+        <button class="botao-github" [disabled]="!formDevGithub.valid">
+            <img src="../../assets/git.svg" />
+            <span>Buscar dados do GitHub</span>
+        </button>
 
-        <!-- <div>
-            <label>Cidade</label>
-            <input placeholder="Digite seu usuário do GitHub" formControlName="cidade" />
-        </div> -->
+        <hr color="#E2E8F0" />
+    </form>
+
+    <form method="POST" [formGroup]="formDev" (ngSubmit)="salvar()">
+
+        <div>
+            <label>Avatar (URL)</label>
+            <input placeholder="Digite seu avatar do GitHub" formControlName="avatar_url" />
+        </div>
+
+        <div>
+            <label>Nome * (Obrigatório)</label>
+            <input placeholder="Digite seu nome" formControlName="nome"/>
+        </div>
+
+        <div>
+            <label>Email</label>
+            <input placeholder="Digite seu email" formControlName="email" />
+        </div>
+
+        <div>
+            <label>Localidade * (Obrigatório)</label>
+            <input placeholder="Digite sua localidade" formControlName="cidade" />
+        </div>
 
         <hr color="#E2E8F0" />
 
         <span class="label-profissional">PROFISSIONAL</span>
 
-        <!-- <div style="margin-top: 60px">
+        <div style="margin-top: 60px">
             <label>Formação</label>
-            <input placeholder="Digite seu usuário do GitHub" formControlName="formacao" />
-        </div> -->
+            <input placeholder="Digite a sua formação acadêmica" formControlName="formacao" />
+        </div>
 
         <div>
-            <label>Tecnologias</label>
+            <label>Tecnologias * (Obrigatório)</label>
             <textarea placeholder="ex: HTML/CSS, Vue, Angular..." formControlName="techs"></textarea>
-        </div> 
+        </div>
 
         <div>
             <button class="btn-cadastrar" [disabled]="!formDev.valid">
@@ -86,7 +65,7 @@
                 <img src="{{d.avatar_url}}" />
             </div>
             <div class="item-dados">
-                <div class="nome-dev">{{d.name}}</div>
+                <div class="nome-dev">{{d.nome}}</div>
                 <div class="cidade-dev">{{d.cidade}}</div>
                 <div class="techs-dev">{{d.techs}}</div>
             </div>
