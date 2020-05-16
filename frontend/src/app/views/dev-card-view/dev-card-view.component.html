@@ -1,0 +1,14 @@
+<div class="divGeral">
+  <app-dev-form (refresh)="read()" [dev]="dev"></app-dev-form>
+  <div class="grid-container">
+    <div class="divSearchBar">
+      <mat-form-field class="searchBar" appearance="fill">
+        <input matInput />
+        <mat-icon matSuffix class="searchIcon">search</mat-icon>
+      </mat-form-field>
+    </div>
+    <li *ngFor="let dev of devs">
+      <app-dev-card (refresh)="read()" (edit)="readById($event)" [devInput]="dev"></app-dev-card>
+    </li>
+  </div>
+</div>

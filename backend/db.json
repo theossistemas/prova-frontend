@@ -1,0 +1,14 @@
+{
+  "devs": [
+    {
+      "id": 1,
+      "gitHubURL": "",
+      "avatarURL": "https://www.shareicon.net/data/512x512/2016/05/24/770139_man_512x512.png",
+      "nome": "João da Silva",
+      "email": "joao.silva@email.com",
+      "cidade": "Curitiba - PR",
+      "formacao": "Engenharia de Software",
+      "tecnologias": "Angular, Jquery, Vue"
+    }
+  ]
+}

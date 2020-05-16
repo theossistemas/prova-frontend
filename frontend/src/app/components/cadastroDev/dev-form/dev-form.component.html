@@ -1,0 +1,74 @@
+<mat-card class="materialCard">
+  <button mat-button class="botaoGit">
+    Cadastrar com GitHub
+  </button>
+  <form>
+    <mat-form-field appearance="fill" class="formFieldUsuarioGit">
+      <mat-label>Usuário GitHub</mat-label>
+      <input
+        matInput
+        disabled
+        class="inputUsuarioGit"
+        [(ngModel)]="dev.gitHubURL"
+        name="gitHubURL"
+      />
+    </mat-form-field>
+    <mat-divider class="materialDivider"></mat-divider>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Avatar(URL)"
+        [(ngModel)]="dev.avatarURL"
+        name="avatarURL"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Nome" [(ngModel)]="dev.nome" name="nome" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        placeholder="Ex. pat@example.com"
+        [(ngModel)]="dev.email"
+        name="email"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Cidade"
+        [(ngModel)]="dev.cidade"
+        name="cidade"
+      />
+    </mat-form-field>
+    <mat-divider class="materialDivider"></mat-divider>
+    <div class="labelProfissional">
+      <mat-label>PROFISSIONAL</mat-label>
+    </div>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Formação"
+        [(ngModel)]="dev.formacao"
+        name="formacao"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Tecnologias</mat-label>
+      <textarea
+        matInput
+        class="textAreaTec"
+        placeholder="Ex. HTML/CSS, Vue, Angular etc."
+        rows="11"
+        [(ngModel)]="dev.tecnologias"
+        name="tecnologias"
+      ></textarea>
+    </mat-form-field>
+  </form>
+  <div class="divBotaoCadastrar" type="submit">
+    <button mat-button class="botaoCadastrar" (click)="saveDev()">
+      Salvar
+    </button>
+  </div>
+</mat-card>

@@ -1,0 +1,27 @@
+<div class="divDevCard">
+  <div class="ball">
+    <div class="innerBall">
+      <div class="outerBall">
+        <img src="{{ dev.avatarURL }}" />
+      </div>
+    </div>
+  </div>
+  <mat-card class="devCard">
+    <div class="info">
+      <label class="nome">{{ dev.nome }}</label>
+      <label class="cidade">{{ dev.cidade }}</label>
+      <label class="tecnologias">{{ dev.tecnologias }}</label>
+    </div>
+    <div class="hoverInfo">
+      <a class="acessoGit" mat-button href="{{ dev.gitHubURL }}"
+        >Acessar GitHub</a
+      >
+      <button (click)="editarDev(dev.id)" mat-icon-button>
+        <mat-icon class="iconEdit">edit</mat-icon>
+      </button>
+      <button (click)="deletarDev(dev.id)" mat-icon-button>
+        <mat-icon class="iconDelete">delete</mat-icon>
+      </button>
+    </div>
+  </mat-card>
+</div>

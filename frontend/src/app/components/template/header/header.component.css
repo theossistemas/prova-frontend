@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  background-color: #1A202C;
+  font-style: none;
+}
+
+.header a {
+  position: absolute;
+  width: 198px;
+  height: 24px;
+  left: 180px;
+  top: 32px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 24px;
+  
+  display: flex;
+  align-items: center;
+  text-align: right;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.header i {
+  font-size: 32px;
+}
+
+.header .title-group {
+  padding-left: 15px;
+}
+
+.header .title-group i {
+  padding-right: 10px;
+}
