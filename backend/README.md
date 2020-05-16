@@ -9,3 +9,5 @@
 - Bibliotecas: Express, Axios, Mongoose, Cors.
 
 - Tentei modelar ao máximo o meu Backend e deixar o mais claro possível.
+
+- Para rodar o projeto basta fazer um "yarn add" ou "npm install" para instalar as bibliotecas no node_modules.
