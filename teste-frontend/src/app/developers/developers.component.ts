@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DevelopersService } from '../services/developers.service';
+import { Developers } from '../models/developers.model';
 
 @Component({
   selector: 'app-developers',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DevelopersComponent implements OnInit {
 
-  constructor() { }
+  developers: any;
+  erro: any;
+
+  constructor(private developersService: DevelopersService) {
+    this.getDev();
+  }
 
   ngOnInit(): void {
+  }
+
+  getDev(){
+    this.developersService.getDevelopers().subscribe(
+      ( data: Developers ) => {
+        this.developers = data;
+      },
+      ( error: any ) => {
+        this.erro = error;
+      }
+    );
   }
 
 }

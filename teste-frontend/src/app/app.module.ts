@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DevelopersComponent } from './developers/developers.component';
 import { HeaderComponent } from './header/header.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,9 +17,10 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     BrowserModule,
     // FontAwesomeModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
