@@ -1,0 +1,90 @@
+<div class="logo">
+  <img src="../../../assets/img/rectangle19.png" alt="" class="logo-photo">
+  <img src="../../../assets/img/cadastroDev.png" alt="" class="logo-photo">
+</div>
+
+<div class="register-form">
+  <app-github-search (userDataOutput)="userDataReceive($event)"></app-github-search>
+
+  <hr />
+
+  <form (ngSubmit)="addDeveloper()" [formGroup]="developerForm">
+    <div class="form-group">
+      <label class="control-label">Avatar(URL)
+        <small class="error" *ngIf="developerForm.controls.avatar.invalid && developerForm.dirty">
+          <strong>*</strong>
+        </small>
+      </label>
+      <div>
+        <input class="form-control" id="avatar" type="text" placeholder="Avatar" formControlName="avatar" />
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">Nome
+        <small class="error" *ngIf="developerForm.controls.name.invalid && developerForm.dirty">
+          <strong>*</strong>
+        </small>
+      </label>
+      <div>
+        <input class="form-control" id="name" type="text" placeholder="Nome" formControlName="name" />
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">Email
+        <small class="error" *ngIf="developerForm.controls.email.invalid && developerForm.dirty">
+          <strong>*</strong>
+        </small>
+      </label>
+      <div>
+        <input class="form-control" id="email" type="text" placeholder="E-mail (required)" formControlName="email">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">Cidade
+        <small class="error" *ngIf="developerForm.controls.city.invalid && developerForm.dirty">
+          <strong>*</strong>
+        </small>
+      </label>
+      <div>
+        <input class="form-control" id="city" type="text" placeholder="Cidade" formControlName="city" />
+      </div>
+    </div>
+
+    <hr />
+    <h6 style="text-align: center;">PROFISSIONAL</h6>
+
+    <br />
+    <div class="form-group">
+      <label class="control-label">Formação
+        <small class="error" *ngIf="developerForm.controls.formacao.invalid && developerForm.dirty">
+          <strong>*</strong>
+        </small>
+      </label>
+      <div>
+        <input class="form-control" id="formacao" type="text" placeholder="Formação" formControlName="formacao"
+          value="UTFPR - Universidade Tecnológica Federal do Paraná" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">Tecnologias
+        <small class="error" *ngIf="developerForm.controls.technologies.invalid && developerForm.dirty">
+          <strong>*</strong>
+        </small>
+      </label>
+      <div>
+        <input class="form-control" id="technologies" type="text" placeholder="Tecnologias"
+          formControlName="technologies" value="ASP.NET Core, SQL Server, DDD, CQRS" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input type="submit" [disabled]="developerForm.invalid" value="Cadastrar" class="btn btn-success button">&nbsp;
+    </div>
+  </form>
+</div>

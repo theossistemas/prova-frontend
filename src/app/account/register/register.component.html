@@ -1,0 +1,84 @@
+<div class="container">
+  <!-- <div class="card bg-light"> -->
+  <article class="card-body mx-auto" style="max-width: 400px;">
+    <h4 class="card-title mt-3 text-center">Create Account</h4>
+    <hr />
+    <br />
+    <!-- <p>
+        <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
+        <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
+      </p>
+      <p class="divider-text">
+        <span class="bg-light">OR</span>
+      </p> -->
+
+    <div class="alert alert-danger" *ngIf="errors?.length > 0">
+      <h5 id="msgReturn">Errors found:</h5>
+      <ul>
+        <li class="textSmaller" *ngFor="let error of errors">{{ error }}</li>
+      </ul>
+    </div>
+
+
+    <form novalidate (ngSubmit)="addAccount()" [formGroup]="registerForm">
+
+      <div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+          </div>
+          <input class="form-control" id="email" type="text" placeholder="E-mail (required)" formControlName="email"
+            [ngClass]="{'is-invalid': displayMessage.email }">
+
+        </div>
+      </div>
+      <!-- form-group// -->
+      <!-- <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+        </div>
+        <input id="countryCode" value="+" class="form-control" placeholder="Country Code" type="text"
+          style="max-width: 60px;">
+        <input id=" phoneNumber" class="form-control" placeholder="Phone number" type="text">
+      </div> -->
+
+      <!-- form-group end.// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+        </div>
+        <input class="form-control" id="password" type="password" placeholder="Password (required)"
+          formControlName="password" [ngClass]="{'is-invalid': displayMessage.password }" />
+      </div>
+
+
+      <!-- form-group// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+        </div>
+        <input class="form-control" id="passwordConfirm" type="password" placeholder="Password confirm (required)"
+          formControlName="passwordConfirm" [ngClass]="{'is-invalid': displayMessage.passwordConfirm }" />
+      </div>
+
+
+
+      <span class="text-danger">
+        <div *ngIf="displayMessage.password" [innerHTML]="displayMessage.password"></div>
+        <div *ngIf="displayMessage.passwordConfirm" [innerHTML]="displayMessage.passwordConfirm"></div>
+        <div class="text-danger" *ngIf="displayMessage.email" [innerHTML]="displayMessage.email"></div>
+      </span>
+
+      <br />
+      <!-- form-group// -->
+      <div class="form-group">
+        <button class="btn btn-success" id="Register" [disabled]="!registerForm.valid" type="submit">Register</button>
+      </div> <!-- form-group// -->
+      <p class="text-center">Have an account? <a href="account/login">Log In</a> </p>
+    </form>
+  </article>
+  <!-- </div> -->
+  <!-- card.// -->
+
+</div>
+<!--container end.//-->

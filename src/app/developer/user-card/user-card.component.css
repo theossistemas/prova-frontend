@@ -1,0 +1,50 @@
+.photo {
+  position: absolute;
+  border-radius: 50%;
+  right: 5%;
+  top: -35px;
+  background-blend-mode: normal;
+  box-sizing: border-box;
+  max-width: 70px;
+}
+
+.card {
+  min-height: 150px;
+  min-width: 250px;
+  background-color: #1A202C;
+  border-radius: 3px;
+  line-height: 2em;
+  color: #FFFFFF;
+  margin-bottom: 45px;
+  margin-right: 15px;
+}
+
+.card-body {
+  height: 100%;
+  margin-top: 15px;
+  overflow: hidden;
+}
+
+.card-title {
+  Font-Style: Medium;
+  Font-Size: 16px;
+}
+
+.card-subtitle {
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.card-edit {
+  font-weight: 300;
+  bottom: 10px;
+  float: right;
+
+}
+
+.card-link {
+  font-weight: 300;
+  float: left;
+  color: #68D391;
+  font-size: 12px;
+}

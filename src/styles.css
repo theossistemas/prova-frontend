@@ -1,0 +1,48 @@
+.main-container {
+  padding-top: 50px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 50px;
+  margin-right: 50px;
+  margin-left: auto;
+  overflow: hidden;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 10px;
+  background: #E5E5E5;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+input,
+select,
+file,
+textarea {
+  max-width: 350px;
+}
+
+.form-control {
+  font-size: small;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+.error {
+  color: #ff0000;
+}
+
+a {
+  color: #ff0000;
+
+}

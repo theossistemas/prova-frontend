@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col" *ngFor="let developer of developers">
+
+    <div class="card">
+      <img src="{{ developer.avatar }}" alt="profile-image" class="photo" />
+
+      <div class="card-body">
+        <h5 class="card-title">{{ developer.name }}</h5>
+        <p class="card-subtitle">{{ developer.city }}</p>
+        <p class="card-subtitle">{{ developer.technologies }}</p>
+        <div class="card-edit">
+
+          <a class="btn" style="color: brown;" (click)="deleteDeveloper(developer)">
+            <span class="fa fa-trash"></span>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

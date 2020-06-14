@@ -1,0 +1,17 @@
+<ul [ngSwitch]='userLogged()' class="">
+  <li *ngSwitchCase='false'>
+    <a [routerLink]="['account/login']">Sign IN</a>
+  </li>
+  <li *ngSwitchCase='false'>
+    <a [routerLink]=" ['account/register']">Sign UP</a>
+  </li>
+
+  <li *ngSwitchCase='true'>
+    <a href="javascript:void(0)">Hello {{ email }}!</a>
+  </li>
+  <li *ngSwitchCase='true'>
+    <a href="javascript:void(0)" (click)="logout()">
+      <i class="fas fa-sign-out-alt"></i> Logout
+    </a>
+  </li>
+</ul>

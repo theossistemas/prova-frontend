@@ -1,0 +1,22 @@
+.button {
+  width: 350px;
+}
+
+.register-form {
+  border-radius: 3px;
+  font-size: 12px;
+  line-height: 150%;
+  max-width: 390px;
+  padding: 20px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.logo-photo {
+  margin-left: 5px;
+}
