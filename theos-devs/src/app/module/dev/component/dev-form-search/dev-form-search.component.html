@@ -26,7 +26,13 @@
       </select>
     </div>
 
-    <button [disabled]="isFormInvalid()" (click)="onSubmit()" class="btn btn-md btn-secondary" type="submit">Buscar</button>
+    <button
+      [disabled]="isFormInvalid()"
+      (click)="onSubmit()"
+      class="btn btn-md btn-secondary"
+      type="submit">
+      <fa-icon [icon]="faSearch"></fa-icon> Buscar
+    </button>
   </form>
 </div>
 

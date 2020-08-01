@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { ServiceModule } from './service/service.module';
 
 @NgModule({
-  imports: [ServiceModule, HttpClientModule],
+  imports: [HttpClientModule, ServiceModule],
   exports: [ServiceModule]
 })
 export class CoreModule {}

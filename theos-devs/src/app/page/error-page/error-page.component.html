@@ -1,0 +1,11 @@
+<section >
+    <strong>Erro</strong>
+
+    <span>{{ codeError }}</span>
+
+    <p *ngIf="codeError === codeNotFound">Página não encontrada!</p>
+    <p *ngIf="codeError === codeInternalServerError">O servidor encontra-se indisponível!</p>
+
+    <fa-icon [icon]="faFrown"></fa-icon>
+  <a class="btn btn-sm btn-outline btn-primary" [routerLink]="'/home'">Ir para home</a>
+</section>

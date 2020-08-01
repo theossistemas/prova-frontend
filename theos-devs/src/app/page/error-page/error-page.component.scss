@@ -1,0 +1,36 @@
+section {
+  text-align: center;
+  strong {
+    display: block;
+    font-size: 0.25em;
+    color: var(--gray-2);
+    transform: translateY(20px);
+    font-size: 2em;
+  }
+  span {
+    position: relative;
+    z-index: 10;
+    color: var(--secondary-0);
+    font-size: 8em;
+  }
+  p {
+    font-size: 1em;
+    position: relative;
+    z-index: 10;
+    color: var(--gray-2);
+    transform: translateY(-15px);
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+  fa-icon {
+    display: block;
+    transform: translateY(-80px);
+    font-size: 10.5em;
+    color: var(--light-2);
+  }
+  a {
+    font-size: 1em;
+    display: inline-block;
+    transform: translateY(-80px);
+  }
+}
