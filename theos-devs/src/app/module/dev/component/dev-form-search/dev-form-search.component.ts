@@ -5,6 +5,7 @@ import { faSearch, faTimes, IconDefinition } from '@fortawesome/free-solid-svg-i
 import { Subscription } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { IbgeService } from '../../../../core/service/ibge/ibge.service';
+import { ToastService } from '../../../../core/service/toast/toast.service';
 import { InputSelect } from '../../../../shared/interface/input-select.interface';
 import { IbgeMunicipio } from '../../../../shared/model/ibge/ibge-municipio';
 import { IbgeUF } from '../../../../shared/model/ibge/ibge-uf';
@@ -39,7 +40,12 @@ export class DevFormSearchComponent implements OnInit, AfterViewInit, OnDestroy 
 
   private subs: Array<Subscription> = new Array<Subscription>();
 
-  constructor(private ibgeService: IbgeService, private formBuilder: FormBuilder, private router: Router) {}
+  constructor(
+    private ibgeService: IbgeService,
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private toastService: ToastService
+  ) {}
 
   ngOnInit(): void {
     this.createForm();
@@ -113,7 +119,7 @@ export class DevFormSearchComponent implements OnInit, AfterViewInit, OnDestroy 
         },
         (error) => {
           this.devFormSearch.get('estado').disable();
-          alert('Não foi possível obter a lista de estados.');
+          this.toastService.error('Não foi possível obter a lista de estados.');
         }
       );
   }

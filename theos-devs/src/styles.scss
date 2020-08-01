@@ -12,3 +12,6 @@
 @import './scss/reset';
 @import './scss/variables';
 @import './scss/width';
+
+@import '~ngx-toastr/toastr';
+@import './scss/toastr-custom';

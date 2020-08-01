@@ -1,0 +1,40 @@
+.toast-message a,
+.toast-message label {
+  color: var(--light-0);
+}
+.toast-message a:hover {
+  color: var(--gray-0);
+}
+.toast-close-button {
+  color: var(--light-0);
+  text-shadow: 0 1px var(--light-0);
+}
+.toast-close-button:hover,
+.toast-close-button:focus {
+  color: var(--dark-0);
+}
+.toast-container .ngx-toastr {
+  box-shadow: 0 0 12px var(--dark-3);
+  color: var(--light-0);
+}
+.toast-container .ngx-toastr:hover {
+  box-shadow: 0 0 12px var(--dark-0);
+}
+.ngx-toastr {
+  background-color: var(--dark-1);
+}
+.toast-success {
+  background-color: var(--secondary-0);
+}
+.toast-error {
+  background-color: var(--danger-0);
+}
+.toast-info {
+  background-color: var(--primary-0);
+}
+.toast-warning {
+  background-color: var(--warning-0);
+}
+.toast-progress {
+  background-color: var(--dark-0);
+}

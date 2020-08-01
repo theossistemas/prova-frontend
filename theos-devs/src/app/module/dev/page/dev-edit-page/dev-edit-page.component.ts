@@ -4,6 +4,7 @@ import { TitleService } from '../../../../core/service/title/title.service';
 import { DEV_CONFIG } from '../../dev.config';
 import { Dev } from '../../model/dev';
 import { DevService } from '../../service/dev.service';
+import { ToastService } from '../../../../core/service/toast/toast.service';
 
 @Component({
   selector: 'app-dev-edit-page',
@@ -17,7 +18,8 @@ export class DevEditPageComponent implements OnInit {
     private titleService: TitleService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private devService: DevService
+    private devService: DevService,
+    private toastService: ToastService
   ) {}
 
   ngOnInit(): void {
@@ -29,7 +31,7 @@ export class DevEditPageComponent implements OnInit {
     this.dev = this.devService.getById(id);
 
     if (!this.dev) {
-      alert(`Dev não encontrado.`);
+      this.toastService.error('Dev não encontrado.');
       this.router.navigateByUrl(`${DEV_CONFIG.pathFront}/list`);
       return;
     }

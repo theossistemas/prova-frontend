@@ -90,6 +90,15 @@
     }
   }
 }
+.btn-warning {
+  background-color: var(--warning-0);
+  color: var(--dark-3);
+  &:enabled {
+    &:hover {
+      background-color: var(--warning-2);
+    }
+  }
+}
 
 .btn-outline {
   background-color: transparent;
@@ -140,6 +149,14 @@
 .btn-outline.btn-danger {
   border-color: var(--danger-2);
   color: var(--danger-2);
+  &:focus,
+  &:hover {
+    background-color: transparent;
+  }
+}
+.btn-outline.btn-warning {
+  border-color: var(--warning-2);
+  color: var(--warning-2);
   &:focus,
   &:hover {
     background-color: transparent;

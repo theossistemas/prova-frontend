@@ -7,6 +7,7 @@ import { take } from 'rxjs/operators';
 import { GitHubService } from '../../../../core/service/git-hub/git-hub.service';
 import { IbgeService } from '../../../../core/service/ibge/ibge.service';
 import { LoadingService } from '../../../../core/service/loading/loading.service';
+import { ToastService } from '../../../../core/service/toast/toast.service';
 import { InputSelect } from '../../../../shared/interface/input-select.interface';
 import { IbgeMunicipio } from '../../../../shared/model/ibge/ibge-municipio';
 import { IbgeUF } from '../../../../shared/model/ibge/ibge-uf';
@@ -41,7 +42,8 @@ export class DevFormRegisterComponent implements OnInit, AfterViewInit, OnDestro
     private gitHubService: GitHubService,
     private ibgeService: IbgeService,
     private devService: DevService,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private toastService: ToastService
   ) {}
 
   ngOnInit(): void {
@@ -102,7 +104,9 @@ export class DevFormRegisterComponent implements OnInit, AfterViewInit, OnDestro
           }
         },
         (error) => {
-          alert(`Usuário "${this.devFormRegister.get('gitHubLogin').value}" não encontrado no GitHub.`);
+          this.toastService.error(
+            `Usuário "${this.devFormRegister.get('gitHubLogin').value}" não encontrado no GitHub.`
+          );
         },
         () => this.loadingService.hide()
       );
@@ -134,7 +138,7 @@ export class DevFormRegisterComponent implements OnInit, AfterViewInit, OnDestro
         },
         (error) => {
           this.devFormRegister.get('estado').disable();
-          alert('Não foi possível obter a lista de estados.');
+          this.toastService.error('Não foi possível obter a lista de estados.');
         }
       );
   }
@@ -153,7 +157,7 @@ export class DevFormRegisterComponent implements OnInit, AfterViewInit, OnDestro
 
   public onSubmit(): void {
     if (this.devFormRegister.invalid) {
-      alert('Por favor, verifique os campos obrigatórios.');
+      this.toastService.error('Por favor, verifique os campos obrigatórios.');
       return;
     }
     this.loadingService.show();
@@ -186,17 +190,17 @@ export class DevFormRegisterComponent implements OnInit, AfterViewInit, OnDestro
     this.loadingService.hide();
 
     if (this.dev) {
-      alert(`Dev ${this.dev.nome} cadastrado(a) com sucesso.`);
+      this.toastService.success(`Dev ${this.dev.nome} cadastrado(a) com sucesso.`);
       this.formReset();
     } else {
-      alert('Dev já cadastrado(a) com E-mail ou usuário do GitHub.');
+      this.toastService.error('Dev já cadastrado(a) com E-mail ou usuário do GitHub.');
     }
   }
 
   private updateDev(dev: Dev): void {
     this.dev = this.devService.update(dev);
     this.loadingService.hide();
-    alert(`Dev ${this.dev.nome} alterado com sucesso.`);
+    this.toastService.success(`Dev ${this.dev.nome} alterado com sucesso.`);
     this.loadDev(this.dev);
   }
 
