@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { PipeModule } from '../../../shared/pipe/pipe.module';
 import { DevBtnLinkAddDevComponent } from './dev-btn-link-add-dev/dev-btn-link-add-dev.component';
 import { DevFormRegisterComponent } from './dev-form-register/dev-form-register.component';
@@ -10,7 +11,7 @@ import { DevListComponent } from './dev-list/dev-list.component';
 
 @NgModule({
   declarations: [DevFormSearchComponent, DevListComponent, DevFormRegisterComponent, DevBtnLinkAddDevComponent],
-  imports: [CommonModule, ReactiveFormsModule, FontAwesomeModule, PipeModule],
+  imports: [CommonModule, ReactiveFormsModule, FontAwesomeModule, PipeModule, SweetAlert2Module],
   exports: [DevFormSearchComponent, DevListComponent, DevFormRegisterComponent, DevBtnLinkAddDevComponent]
 })
 export class DevComponentModule {}

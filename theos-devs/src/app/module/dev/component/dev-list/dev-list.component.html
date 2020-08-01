@@ -1,8 +1,18 @@
 <ul [ngClass]="{ 'flex-row-large' : flexRowLarge }" class="dev-list" *ngIf="devs?.length > 0; else empty">
   <li class="dev-item" *ngFor="let dev of devs">
     <div class="buttons">
-      <button (click)="editItem(dev)" type="button" class="btn btn-sm btn-primary mr-1"><fa-icon [icon]="faEdit"></fa-icon></button>
-      <button (click)="deleteItem(dev)" type="button" class="btn btn-sm btn-danger"><fa-icon [icon]="faTimes"></fa-icon></button>
+      <button
+        (click)="editItem(dev)"
+        type="button"
+        class="btn btn-sm btn-primary mr-1">
+        <fa-icon [icon]="faEdit"></fa-icon>
+      </button>
+      <button
+        [swal]="deleteSwal"
+        type="button"
+        class="btn btn-sm btn-danger">
+        <fa-icon [icon]="faTimes"></fa-icon>
+      </button>
     </div>
 
     <div>
@@ -24,6 +34,19 @@
         <fa-icon [icon]="faGithub"></fa-icon> GitHub
       </a>
     </div>
+
+    <swal
+      #deleteSwal
+      title="Atenção!"
+      text="Realmente deseja excluir o(a) Dev {{ dev.nome }}?"
+      icon="question"
+      [confirmButtonText]="'Sim'"
+      [cancelButtonText]="'Cancelar'"
+      [customClass]="'swal-custom'"
+      [showCancelButton]="true"
+      [focusCancel]="true"
+      (confirm)="deleteItem(dev)">
+    </swal>
 
   </li>
 </ul>

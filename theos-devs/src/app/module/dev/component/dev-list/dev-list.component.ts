@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faLightbulb, faEdit, faGraduationCap, faTimes, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faGraduationCap, faLightbulb, faTimes, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { ToastService } from '../../../../core/service/toast/toast.service';
 import { DEV_CONFIG } from '../../dev.config';
 import { Dev } from '../../model/dev';
 import { DevService } from '../../service/dev.service';
@@ -24,7 +25,7 @@ export class DevListComponent implements OnInit {
   @Input()
   public flexRowLarge: boolean = true;
 
-  constructor(private devService: DevService, private router: Router) {}
+  constructor(private devService: DevService, private router: Router, private toastService: ToastService) {}
 
   ngOnInit(): void {}
 
@@ -33,8 +34,7 @@ export class DevListComponent implements OnInit {
   }
 
   public deleteItem(dev: Dev): void {
-    if (confirm(`Realmente deseja excluir o(a) Dev ${dev.nome}?`)) {
-      this.devService.delete(dev.id);
-    }
+    this.devService.delete(dev.id);
+    this.toastService.success(`Dev ${dev.nome} excluído com sucesso!`);
   }
 }
