@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { TitleService } from '../../core/service/title/title.service';
@@ -11,7 +11,7 @@ import { DevService } from '../../module/dev/service/dev.service';
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss']
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent implements OnInit, OnDestroy {
   public devs: Array<Dev>;
 
   private subs: Array<Subscription> = new Array<Subscription>();
@@ -25,9 +25,7 @@ export class HomePageComponent implements OnInit {
 
     this.subs.push(
       this.devService.devsBS.subscribe((devs) => {
-        if (devs) {
-          this.devs = this.devService.getLastDevs();
-        }
+        this.devs = this.devService.getLastDevs();
       })
     );
   }

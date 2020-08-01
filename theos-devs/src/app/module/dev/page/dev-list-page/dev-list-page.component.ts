@@ -43,6 +43,14 @@ export class DevListPageComponent implements OnInit, OnDestroy {
       this.getDevs();
     }
 
+    this.initSubs();
+  }
+
+  ngOnDestroy(): void {
+    this.subs.forEach((sub) => sub.unsubscribe);
+  }
+
+  private initSubs(): void {
     this.subs.push(
       this.router.events.subscribe((event) => {
         this.devByParams = false;
@@ -54,12 +62,11 @@ export class DevListPageComponent implements OnInit, OnDestroy {
             this.getDevs();
           }
         }
+      }),
+      this.devService.devsBS.subscribe((devs) => {
+        this.devs = this.devService.getLastDevs();
       })
     );
-  }
-
-  ngOnDestroy(): void {
-    this.subs.forEach((sub) => sub.unsubscribe);
   }
 
   private getParams(): void {
