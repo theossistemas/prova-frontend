@@ -28,7 +28,7 @@
       </div>
       <div class="dev-especialidades">
         <fa-icon [class]="'color-secondary-0'" [icon]="faLightbulb"></fa-icon>
-        <p *ngIf="dev.especialidades">{{ dev.especialidades }}</p>
+        <p *ngIf="dev.especialidades" [innerHTML]="dev.especialidades | especialidade"></p>
       </div>
       <a class="dev-url btn btn-sm btn-outline btn-dark" *ngIf="dev.gitHubUser.html_url" [href]="dev.gitHubUser.html_url" target="_blank">
         <fa-icon [icon]="faGithub"></fa-icon> GitHub

@@ -71,6 +71,16 @@
   text-transform: initial;
 }
 
+.dev-especialidades {
+  .item {
+    border: 1px solid var(--gray-0);
+    padding: 0.1em 0.2em;
+    margin: 0.1em;
+    border-radius: 0.3em;
+    display: inline-block;
+  }
+}
+
 .dev-url {
   display: inline-block;
 }
