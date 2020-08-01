@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { GitHubService } from '../../../../core/service/git-hub/git-hub.service';
 import { IbgeService } from '../../../../core/service/ibge/ibge.service';
+import { LoadingService } from '../../../../core/service/loading/loading.service';
 import { InputSelect } from '../../../../shared/interface/input-select.interface';
 import { IbgeMunicipio } from '../../../../shared/model/ibge/ibge-municipio';
 import { IbgeUF } from '../../../../shared/model/ibge/ibge-uf';
@@ -39,7 +40,8 @@ export class DevFormRegisterComponent implements OnInit, AfterViewInit, OnDestro
     private formBuilder: FormBuilder,
     private gitHubService: GitHubService,
     private ibgeService: IbgeService,
-    private devService: DevService
+    private devService: DevService,
+    private loadingService: LoadingService
   ) {}
 
   ngOnInit(): void {
@@ -75,14 +77,18 @@ export class DevFormRegisterComponent implements OnInit, AfterViewInit, OnDestro
   }
 
   private loadDev(dev: Dev): void {
+    this.loadingService.show();
+
     setTimeout(() => {
+      this.loadingService.hide();
       this.devFormRegister.patchValue(dev);
       this.devFormRegister.get('estado').setValue(dev.estado.sigla);
       this.devFormRegister.get('cidade').setValue(dev.cidade.id);
-    }, 200)
+    }, 1000);
   }
 
   public getUserGitHub(): void {
+    this.loadingService.show();
     this.gitHubService
       .getUserByLogin(this.devFormRegister.get('gitHubLogin').value)
       .pipe(take(1))
@@ -97,7 +103,8 @@ export class DevFormRegisterComponent implements OnInit, AfterViewInit, OnDestro
         },
         (error) => {
           alert(`Usuário "${this.devFormRegister.get('gitHubLogin').value}" não encontrado no GitHub.`);
-        }
+        },
+        () => this.loadingService.hide()
       );
   }
 
@@ -149,16 +156,18 @@ export class DevFormRegisterComponent implements OnInit, AfterViewInit, OnDestro
       alert('Por favor, verifique os campos obrigatórios.');
       return;
     }
+    this.loadingService.show();
+
     this.dev = this.devFormRegister.value as Dev;
 
     this.ibgeService
-      .getEstadoByUf((this.dev.estado).toString())
+      .getEstadoByUf(this.dev.estado.toString())
       .pipe(take(1))
       .subscribe((ibgeUf) => {
         this.dev.estado = ibgeUf;
 
         this.ibgeService
-          .getMunicipioById((this.dev.cidade).toString())
+          .getMunicipioById(this.dev.cidade.toString())
           .pipe(take(1))
           .subscribe((ibgeMunicipio) => {
             this.dev.cidade = ibgeMunicipio;
@@ -174,16 +183,19 @@ export class DevFormRegisterComponent implements OnInit, AfterViewInit, OnDestro
 
   private createDev(dev: Dev): void {
     this.dev = this.devService.create(dev);
+    this.loadingService.hide();
+
     if (this.dev) {
       alert(`Dev ${this.dev.nome} cadastrado(a) com sucesso.`);
       this.formReset();
     } else {
-      alert('Dev com E-mail ou usuário do GitHub já cadastrado(a).');
+      alert('Dev já cadastrado(a) com E-mail ou usuário do GitHub.');
     }
   }
 
   private updateDev(dev: Dev): void {
     this.dev = this.devService.update(dev);
+    this.loadingService.hide();
     alert(`Dev ${this.dev.nome} alterado com sucesso.`);
     this.loadDev(this.dev);
   }
