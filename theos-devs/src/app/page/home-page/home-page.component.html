@@ -1,0 +1,21 @@
+<section class="last-devs-registered">
+  <div class="form-register">
+    <h3 class="title-page">Cadastrar Dev</h3>
+    <app-dev-form-register></app-dev-form-register>
+  </div>
+
+  <div class="last-devs">
+    <h3 *ngIf="devs?.length > 0" class="title-page">Últimos Devs cadastrados</h3>
+    <app-dev-list [devs]="devs" [flexRowLarge]="false"></app-dev-list>
+
+    <button
+      *ngIf="devs?.length > 0"
+      class="btn btn-md btn-secondary mt-2"
+      type="button"
+      (click)="goAllDevs()">
+      Ver mais
+    </button>
+  </div>
+</section>
+
+<app-dev-btn-link-add-dev></app-dev-btn-link-add-dev>

@@ -1,0 +1,46 @@
+@import '../../../scss/variables-media-query';
+
+.last-devs-registered {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-register {
+  display: none;
+}
+
+@media(min-width: $media-medium) {
+  .last-devs-registered {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .form-register {
+    display: block;
+    width: 35%;
+    padding: 0 3em 1em 3em;
+    border-right: 1px solid var(--light-3);
+  }
+
+  .last-devs {
+    width: 65%;
+    padding: 0 3em;
+  }
+
+  .title-page {
+    text-align: left;
+  }
+
+  app-dev-btn-link-add-dev {
+    display: none;
+  }
+}
+
+@media(min-width: $media-large) {
+  app-dev-list {
+    .dev-item {
+      width: 50%;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+<section class="devs-list">
+  <div *ngIf="devs?.length > 0">
+    <div class="devs-length">{{ devs.length }}</div>
+    <h3 class="title-page" [ngPlural]="devs.length">
+      <ng-template ngPluralCase="=1">{{ !devByParams ? 'Dev cadastrado' : 'Dev encontrado' }}</ng-template>
+      <ng-template ngPluralCase="other">{{ !devByParams ? 'Devs cadastrados' : 'Devs encontrados' }}</ng-template>
+    </h3>
+  </div>
+
+  <app-dev-list [devs]="devs"></app-dev-list>
+</section>
+
+<app-dev-btn-link-add-dev></app-dev-btn-link-add-dev>

@@ -1,0 +1,32 @@
+.form-search {
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+  margin: 0 auto;
+  input, select {
+    border: none;
+  }
+}
+.form-box-estado-cidade {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 1em;
+  select {
+    width: 50%;
+    margin: 0 0.5em;
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  small {
+    display: block;
+    width: 100%;
+  }
+}
+button[type="submit"] {
+  width: max-content;
+  margin: 0 auto;
+}

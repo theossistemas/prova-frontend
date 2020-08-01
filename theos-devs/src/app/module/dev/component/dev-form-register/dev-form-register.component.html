@@ -1,0 +1,67 @@
+<form [formGroup]="devFormRegister" class="form-register">
+  <input hidden formControlName="id" name="id" type="text">
+
+  <div class="github mb-2">
+    <h6 class="color-primary-0">Buscar no GitHub</h6>
+    <input formControlName="gitHubLogin" name="gitHubLogin" type="text" placeholder="Login">
+    <button
+      [disabled]="!devFormRegister.get('gitHubLogin').value || !devFormRegister.get('gitHubLogin').dirty"
+      (click)="getUserGitHub()"
+      class="btn btn-sm btn-secondary d-block mx-auto" type="button">
+      <fa-icon [icon]="faSearch"></fa-icon> Buscar
+    </button>
+  </div>
+
+  <div class="pessoal mb-2">
+    <h6 class="color-primary-0">Dados pessoais</h6>
+    <img class="photo"
+      *ngIf="devFormRegister.get('avatar').value"
+      [src]="devFormRegister.get('avatar').value"
+      [alt]="devFormRegister.get('nome').value">
+    <input formControlName="avatar" name="avatar" type="text" placeholder="Avatar (URL)">
+
+    <input formControlName="nome" name="nome" type="text" placeholder="* Nome">
+
+    <input
+      [ngClass]="{ 'mb-0' : devFormRegister.get('email').invalid && devFormRegister.get('email').dirty }"
+      formControlName="email"
+      name="email"
+      type="email"
+      placeholder="* E-mail">
+    <small
+      *ngIf="devFormRegister.get('email').invalid && devFormRegister.get('email').dirty"
+      class="d-block my-1 color-danger-0">
+      (informe um e-mail válido)
+    </small>
+
+    <select formControlName="estado" name="estado">
+      <option value="" selected disabled>* Estado...</option>
+      <option *ngFor="let estado of estados" value="{{ estado.sigla }}">{{ estado.nome }}</option>
+    </select>
+
+    <select formControlName="cidade" name="cidade">
+      <option value="" selected disabled>* Cidade...</option>
+      <option *ngFor="let municipio of municipios" value="{{ municipio.id }}">{{ municipio.nome }}</option>
+    </select>
+  </div>
+
+  <div class="profissional">
+    <h6 class="color-primary-0">Dados profissionais</h6>
+
+    <select formControlName="formacaoAcademica" name="formacaoAcademica">
+      <option value="" selected disabled>* Formação acadêmica...</option>
+      <option *ngFor="let formacaoAcademica of formacoesAcademicas" value="{{ formacaoAcademica.value }}">{{ formacaoAcademica.label }}</option>
+    </select>
+
+    <input formControlName="especialidades" name="especialidades" type="text" placeholder="* Especialidades (ex: Angular, React, Vue)">
+  </div>
+
+  <small class="d-block my-1 color-danger-0">(* campos obrigatórios)</small>
+  <button
+    [disabled]="devFormRegister.invalid"
+    (click)="onSubmit()"
+    class="btn btn-lg btn-secondary"
+    type="submit">
+    {{ !dev?.id ? 'Cadastrar' : 'Alterar' }}
+  </button>
+</form>

@@ -1,0 +1,8 @@
+@import '../scss/variables-media-query';
+
+main {
+  padding: 2em 1em 4em 1em;
+  width: 100%;
+  max-width: $media-large;
+  margin: auto;
+}

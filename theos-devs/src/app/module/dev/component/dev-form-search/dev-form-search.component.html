@@ -1,0 +1,32 @@
+<button class="btn btn-sm btn-light btn-outline" type="button" (click)="showFormSearchBtn()">
+  <fa-icon [icon]="showFormSearch ? faTimes : faSearch"></fa-icon>
+  {{ showFormSearch ? 'Fechar' : 'Filtrar Devs' }}
+</button>
+
+<div [hidden]="!showFormSearch">
+  <h6 class="color-secondary-0 mt-1">Filtrar Devs</h6>
+
+  <form [formGroup]="devFormSearch" class="form-search">
+    <input formControlName="especialidade" name="especialidade" type="text" placeholder="Especialidades (ex: Angular, React, Vue)">
+
+    <select formControlName="formacaoAcademica" name="formacaoAcademica">
+      <option value="" selected disabled>Formação acadêmica...</option>
+      <option *ngFor="let formacaoAcademica of formacoesAcademicas" value="{{ formacaoAcademica.value }}">{{ formacaoAcademica.label }}</option>
+    </select>
+
+    <div class="form-box-estado-cidade">
+      <select formControlName="estado" name="estado">
+        <option value="" selected disabled>Estado...</option>
+        <option *ngFor="let estado of estados" value="{{ estado.sigla }}">{{ estado.nome }}</option>
+      </select>
+
+      <select formControlName="cidade" name="cidade">
+        <option value="" selected disabled>Cidade...</option>
+        <option *ngFor="let municipio of municipios" value="{{ municipio.id }}">{{ municipio.nome }}</option>
+      </select>
+    </div>
+
+    <button [disabled]="isFormInvalid()" (click)="onSubmit()" class="btn btn-md btn-secondary" type="submit">Buscar</button>
+  </form>
+</div>
+

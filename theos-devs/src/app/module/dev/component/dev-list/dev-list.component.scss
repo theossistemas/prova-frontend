@@ -1,0 +1,130 @@
+@import '../../../../../scss/variables-media-query';
+
+.dev-list {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dev-item {
+  padding: 1.25em;
+  transition: 0.5s all;
+  background-color: var(--light-0);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 0.3em;
+  margin: 1em 0;
+  width: 100%;
+  border-top: 3px solid var(--secondary-1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  &:hover {
+    box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.25);
+  }
+  div {
+    width: 50%;
+  }
+  .buttons {
+    position: absolute;
+    top: -15px;
+    right: -10px;
+    width: max-content;
+    transition: 0.25s all;
+  }
+}
+
+.dev-avatar {
+  max-width: 80px;
+  border-radius: 50%;
+  border: 1px solid var(--light-2);
+}
+
+.dev-nome {
+  font-size: 1em;
+  color: var(--primary-0);
+  padding-bottom: 0;
+}
+
+.dev-cidade {
+  font-style: normal;
+  font-size: 0.75em;
+  display: block;
+  padding: 0.15em 0 0 0;
+}
+
+.dev-formacao-academica,
+.dev-especialidades {
+  padding: 0.5em 0 1em 0;
+  font-size: 0.65em;
+  text-transform: uppercase;
+  margin: 0 auto;
+  p {
+    margin-top: 0.5em;
+  }
+}
+
+.dev-formacao-academica {
+  text-transform: initial;
+}
+
+.dev-url {
+  display: inline-block;
+}
+
+@media (min-width: $media-extra-small) {
+  .dev-item {
+    margin: 1em 0.5em;
+    width: 45%;
+    flex-direction: column;
+    justify-content: space-between;
+    div {
+      width: 100%;
+    }
+  }
+
+  .dev-cidade {
+    padding: 0.15em 0 1.5em 0;
+  }
+}
+
+@media (min-width: $media-small) {
+  .dev-item {
+    width: 30%;
+    margin-right: 0.25em;
+    margin-left: 0.25em;
+    &:hover {
+      .buttons {
+        opacity: 1;
+      }
+    }
+  }
+
+  .dev-list {
+    justify-content: space-around;
+  }
+
+  .buttons {
+    opacity: 0;
+  }
+}
+
+@media (min-width: $media-large) {
+  .flex-row-large {
+    .dev-item {
+      flex-direction: row;
+      div {
+        width: 50%;
+      }
+      .buttons {
+        width: max-content;
+      }
+    }
+    .dev-cidade {
+      padding: 0.15em 0 0 0;
+    }
+  }
+}
