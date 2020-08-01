@@ -104,6 +104,7 @@ export class DevFormRegisterComponent implements OnInit, AfterViewInit, OnDestro
           }
         },
         (error) => {
+          this.loadingService.hide();
           this.toastService.error(
             `Usuário "${this.devFormRegister.get('gitHubLogin').value}" não encontrado no GitHub.`
           );
