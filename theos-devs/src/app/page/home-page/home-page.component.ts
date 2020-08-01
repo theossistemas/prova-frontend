@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { TitleService } from '../../core/service/title/title.service';
 import { DEV_CONFIG } from '../../module/dev/dev.config';
 import { Dev } from '../../module/dev/model/dev';
 import { DevService } from '../../module/dev/service/dev.service';
@@ -15,10 +16,14 @@ export class HomePageComponent implements OnInit {
 
   private subs: Array<Subscription> = new Array<Subscription>();
 
-  constructor(private devService: DevService, private router: Router) {}
+  constructor(private titleService: TitleService, private devService: DevService, private router: Router) {}
 
   ngOnInit(): void {
-    this.getDevs();this.subs.push(
+    this.titleService.set('Home');
+
+    this.getDevs();
+
+    this.subs.push(
       this.devService.devsBS.subscribe((devs) => {
         if (devs) {
           this.devs = this.devService.getLastDevs();

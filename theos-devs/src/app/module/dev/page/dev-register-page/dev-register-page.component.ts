@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TitleService } from '../../../../core/service/title/title.service';
 
 @Component({
   selector: 'app-dev-register-page',
@@ -6,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dev-register-page.component.scss']
 })
 export class DevRegisterPageComponent implements OnInit {
-  constructor() {}
+  public pageName: string = 'Cadastrar Dev';
 
-  ngOnInit(): void {}
+  constructor(private titleService: TitleService) {}
+
+  ngOnInit(): void {
+    this.titleService.set(this.pageName);
+  }
 }

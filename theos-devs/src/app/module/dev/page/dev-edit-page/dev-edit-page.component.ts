@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TitleService } from '../../../../core/service/title/title.service';
 import { DEV_CONFIG } from '../../dev.config';
 import { Dev } from '../../model/dev';
 import { DevService } from '../../service/dev.service';
@@ -12,7 +13,12 @@ import { DevService } from '../../service/dev.service';
 export class DevEditPageComponent implements OnInit {
   public dev: Dev;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private devService: DevService) {}
+  constructor(
+    private titleService: TitleService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private devService: DevService
+  ) {}
 
   ngOnInit(): void {
     let { id } = this.activatedRoute.snapshot.params;
@@ -23,8 +29,11 @@ export class DevEditPageComponent implements OnInit {
     this.dev = this.devService.getById(id);
 
     if (!this.dev) {
-      alert(`Dev não encontrado com ID: ${id}`);
+      alert(`Dev não encontrado.`);
       this.router.navigateByUrl(`${DEV_CONFIG.pathFront}/list`);
+      return;
     }
+
+    this.titleService.set(this.dev.nome);
   }
 }

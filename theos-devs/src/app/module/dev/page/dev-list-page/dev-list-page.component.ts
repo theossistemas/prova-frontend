@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router, Params } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { take } from 'rxjs/operators';
+import { TitleService } from '../../../../core/service/title/title.service';
 import { Dev } from '../../model/dev';
 import { DevSearch } from '../../model/dev-search';
 import { DevService } from '../../service/dev.service';
@@ -20,9 +20,16 @@ export class DevListPageComponent implements OnInit, OnDestroy {
 
   private subs: Array<Subscription> = new Array<Subscription>();
 
-  constructor(private devService: DevService, private activatedRoute: ActivatedRoute, private router: Router) {}
+  constructor(
+    private titleService: TitleService,
+    private devService: DevService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
+    this.titleService.set('Devs');
+
     this.getParams();
 
     if (
