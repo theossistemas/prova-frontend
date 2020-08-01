@@ -18,6 +18,7 @@
     <div>
       <img class="dev-avatar" [src]="dev.avatar" [alt]="dev.nome">
       <h1 class="dev-nome">{{ dev.nome }}</h1>
+      <a class="dev-email" href="mailto:{{ dev.email }}" target="_blank">{{ dev.email }}</a>
       <address class="dev-cidade">{{ dev.cidade.nome }} - {{ dev.estado.nome }}</address>
     </div>
 
