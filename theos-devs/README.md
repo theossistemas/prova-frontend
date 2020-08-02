@@ -7,11 +7,7 @@
 - API do IBGE para preenchimento dos campos de estado e cidade.
 - Pipes.
 - Lazy-loading.
-- Implementado bibliotecas como:
-angular-fontawesome
-ngx-sweetalert2
-ngx-spinner
-ngx-toastr
+- Implementado bibliotecas como: angular-fontawesome, ngx-sweetalert2, ngx-spinner e ngx-toastr.
 - Persistência dos dados em local storage.
 
 ---
