@@ -1,5 +1,21 @@
 # TheosDevs
 
+- Tentei cumprir as funcionalidades principais.
+- Novo layout.
+- Telas responsivas.
+- API GitHub para preenchimento de alguns dados do formulário de cadastro.
+- API do IBGE para preenchimento dos campos de estado e cidade.
+- Pipes.
+- Lazy-loading.
+- Implementado bibliotecas como:
+angular-fontawesome
+ngx-sweetalert2
+ngx-spinner
+ngx-toastr
+- Persistência dos dados em local storage.
+
+---
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
 
 ## Development server
