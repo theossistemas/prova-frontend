@@ -30,6 +30,8 @@ export class DevListPageComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.titleService.set('Devs');
 
+    this.initSubs();
+
     this.getParams();
 
     if (
@@ -42,8 +44,6 @@ export class DevListPageComponent implements OnInit, OnDestroy {
     } else {
       this.getDevs();
     }
-
-    this.initSubs();
   }
 
   ngOnDestroy(): void {

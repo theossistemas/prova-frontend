@@ -46,21 +46,18 @@ export class DevService {
   public search(devSearch: DevSearch): Array<Dev> {
     let devs: Array<Dev> = this.getAllLastDevs();
 
-    devSearch.especialidade && devs.length
-      ? (devs = devs.filter(
-          dev => dev.especialidades.toString().toLowerCase().includes(devSearch.especialidade)
-        ))
-      : undefined;
-
-    devSearch.formacaoAcademica && devs.length
-      ? (devs = devs.filter((dev) => dev.formacaoAcademica === (devSearch.formacaoAcademica as FormacaoAcademicaEnum)))
-      : undefined;
-
-    devSearch.estado && devs.length ? (devs = devs.filter((dev) => dev.estado.sigla === devSearch.estado)) : undefined;
-
-    devSearch.cidade && devs.length
-      ? (devs = devs.filter((dev) => dev.cidade.id.toString() === devSearch.cidade))
-      : undefined;
+    if (devSearch.especialidade && devs.length) {
+      (devs = devs.filter((dev) => dev.especialidades.toString().toLowerCase().includes(devSearch.especialidade)));
+    }
+    if (devSearch.formacaoAcademica && devs.length) {
+      (devs = devs.filter((dev) => dev.formacaoAcademica === (devSearch.formacaoAcademica as FormacaoAcademicaEnum)));
+    }
+    if (devSearch.estado && devs.length) {
+      (devs = devs.filter((dev) => dev.estado.sigla === devSearch.estado));
+    }
+    if (devSearch.cidade && devs.length) {
+      (devs = devs.filter((dev) => dev.cidade.id.toString() === devSearch.cidade));
+    }
 
     return devs;
   }
@@ -92,7 +89,7 @@ export class DevService {
   }
 
   public getById(id: number): Dev {
-    return this.getAll().filter((dev) => dev.id == id)[0];
+    return this.getAll().filter((dev) => dev.id.toString() === id.toString())[0];
   }
 
   private getLast(): Dev {
