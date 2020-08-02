@@ -9,11 +9,11 @@ export class EspecialidadePipe implements PipeTransform {
 
   transform(value: string, ...args: unknown[]): unknown {
     let html: string = '';
-    let especialidades: Array<string> = value.split(',').map((item) => item.trim());
+    const especialidades: Array<string> = value.split(',').map((item) => item.trim());
 
     especialidades.forEach((especialidade) => {
-      let span: HTMLSpanElement = this.renderer.createElement('span');
-      let text = this.renderer.createText(especialidade);
+      const span: HTMLSpanElement = this.renderer.createElement('span');
+      const text = this.renderer.createText(especialidade);
       this.renderer.appendChild(span, text);
       this.renderer.addClass(span, 'item');
 

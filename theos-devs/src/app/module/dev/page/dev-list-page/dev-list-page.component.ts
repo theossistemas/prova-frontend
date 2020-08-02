@@ -72,7 +72,7 @@ export class DevListPageComponent implements OnInit, OnDestroy {
   private getParams(): void {
     this.devSearch = new DevSearch();
 
-    let queryParams = this.activatedRoute.snapshot.queryParams;
+    const queryParams = this.activatedRoute.snapshot.queryParams;
 
     this.devSearch.especialidade = queryParams.especialidade;
     this.devSearch.formacaoAcademica = queryParams.formacaoAcademica;

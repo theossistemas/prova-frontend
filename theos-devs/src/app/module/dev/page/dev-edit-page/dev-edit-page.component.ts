@@ -23,7 +23,7 @@ export class DevEditPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    let { id } = this.activatedRoute.snapshot.params;
+    const { id } = this.activatedRoute.snapshot.params;
     this.getDev(id);
   }
 

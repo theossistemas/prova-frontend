@@ -5,8 +5,8 @@ import { Title } from '@angular/platform-browser';
 export class TitleService {
   constructor(private title: Title) {}
 
-  public set(string: string): void {
-    let newTitle = `${string ? string + ` |` : undefined} `;
+  public set(value: string): void {
+    const newTitle = `${value ? value + ` |` : undefined} `;
     this.title.setTitle(`${newTitle} TheòsDevs`);
   }
 

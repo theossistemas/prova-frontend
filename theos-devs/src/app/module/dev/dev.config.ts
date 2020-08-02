@@ -4,4 +4,4 @@ export const DEV_CONFIG = {
   pathFront: '/dev',
   storageKey: 'devs',
   itemsMaxList: 6
-}
+};
