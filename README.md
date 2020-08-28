@@ -30,7 +30,6 @@ https://www.figma.com/file/bSqhBBS9LdOehdEkJ6frDz/Teste-Frontend?node-id=0%3A1
 
 ### Requisitos
 
-- Utilizamos e damos preferência para o Framework Angular.
 - Formulário reativo.
 - Utilize a api do github https://developer.github.com/v3/,  como opção para preenchimento automático de alguns campos do formulário.
 - Clean Code
