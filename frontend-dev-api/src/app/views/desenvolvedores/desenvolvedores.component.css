@@ -1,0 +1,28 @@
+div {
+    padding: 5px;
+ }
+
+.card-desenvolvedor {
+    max-width: 300px;
+}
+  
+.card-desenvolvedor-image {
+    background-size: cover;
+}
+  
+.circle img {
+    background-color: #c8cecf;
+    border-radius: 100%;
+    height: 70px;
+    width: 70px;  
+    background-size: cover;
+}
+
+.actions {
+    bottom: 0;
+    align-items: flex-end;
+}
+.actions a:link {
+    text-decoration: none;
+    padding: 5px;
+}

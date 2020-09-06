@@ -1,0 +1,23 @@
+<div *ngFor="let desenvolvedor of desenvolvedores">
+    <mat-card class="card-desenvolvedor mat-elevation-z3">
+        <mat-card-header>
+            <div mat-card-avatar class="circle">
+                <img *ngIf="desenvolvedor.avatarURL" mat-card-image src="{{ desenvolvedor.avatarURL }}" alt="Foto do desenvolvedor">
+            </div>
+            <mat-card-title class="nome-desenvolvedor">{{ desenvolvedor.nome }}</mat-card-title>
+            <mat-card-subtitle>{{ desenvolvedor.formacao }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>{{ desenvolvedor.tecnologias }}</mat-card-content>
+        <mat-card-content>
+            <a *ngIf="desenvolvedor.githubURL" href="{{ desenvolvedor.githubURL }}" target="_blank">Acessar Github</a>
+        </mat-card-content>
+        <mat-card-actions class="actions">
+            <a class="material-icons" (click)="editDesenvolvedor()">
+                edit
+            </a>
+            <a class="material-icons red" (click)="deleteDesenvolvedor(desenvolvedor._id)">
+                delete
+            </a>
+        </mat-card-actions>
+    </mat-card>
+</div>

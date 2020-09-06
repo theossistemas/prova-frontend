@@ -1,0 +1,15 @@
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #eaf4f5;
+}
+
+.header a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.header .logo {
+    width: 160px;
+}
