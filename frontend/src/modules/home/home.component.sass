@@ -1,3 +1,28 @@
 .home
     display: grid
-    grid-template-columns: 1fr 1fr
+    grid-template-columns: 10% 30% 50% 10%
+
+app-form, app-devs
+    display: flex
+    justify-content: center
+    width: 100%
+    grid-column-start: 3
+
+app-form
+    display: flex
+    justify-content: center
+    position: relative
+    grid-column-start: 2
+
+@media screen and (max-width: 1295px)
+    .home
+        grid-template-rows: 1fr 1fr
+        grid-template-columns: 1fr
+
+    app-form
+        grid-column-start: 1
+        align-self: flex-start
+
+    app-devs
+        grid-row-start: 1
+        grid-column-start: 1
