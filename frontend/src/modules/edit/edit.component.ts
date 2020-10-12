@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Store, select } from '@ngrx/store'
 import { Observable } from 'rxjs'
-import { openEditDev } from '../../ngrx'
+import { openEditDev, editDev } from '../../ngrx'
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
@@ -14,7 +14,9 @@ export class EditComponent implements OnInit, AfterViewInit {
 
   openEditComponent: boolean = true;
 
-  openEditComponent$: Observable<any>;
+  devToEdit: any;
+
+  reducer$: Observable<any>;
 
   constructor(private store: Store<{ reducer: string }>) { }
 
@@ -30,13 +32,14 @@ export class EditComponent implements OnInit, AfterViewInit {
 
 
   ngAfterViewInit() {
-    this.openEditComponent$.subscribe(state => {
+    this.reducer$.subscribe(state => {
+      this.devToEdit = state.devToEdit
       this.openEditComponent = state.editDevOpened
     })
   }
 
   ngOnInit(): void {
-    this.openEditComponent$ = this.store.pipe(select('reducer'))
+    this.reducer$ = this.store.pipe(select('reducer'))
   }
 
   closeEdit() {
@@ -44,8 +47,11 @@ export class EditComponent implements OnInit, AfterViewInit {
   }
 
   editDev() {
-    // tem que pegar o id do usuario que sera editado
-    // atualizar as informações na lista do ngrx
-    console.log(this.editForm.value)
+    this.store.dispatch(editDev({ payload: {
+      id: this.devToEdit,
+      updatedUser: this.editForm.value
+    }}))
+    
+    this.closeEdit()
   }
 }

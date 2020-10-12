@@ -8,7 +8,7 @@
 
     <ng-container matColumnDef="avatar">
       <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
-      <td mat-cell *matCellDef="let row" (click)="openPage(row.avatar)" class="list__td list__td_image"><img src="{{ row.avatar }}" class="td__image"> </td>
+      <td mat-cell *matCellDef="let row" (click)="openGitHubUserPage(row.avatar)" class="list__td list__td_image"><img src="{{ row.avatar }}" class="td__image"> </td>
     </ng-container>
 
     <ng-container matColumnDef="name">
@@ -26,14 +26,14 @@
       <td mat-cell *matCellDef="let row" [style.color]="row.color" class="list__td list__td_techs"> {{ row.techs }} </td>
     </ng-container>
 
-    <ng-container matColumnDef="gitHubUrl">
+    <ng-container matColumnDef="gitHubUsername">
       <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
-      <td mat-cell *matCellDef="let row" [style.color]="row.color" (click)="openPage(row.gitHubUrl)" class="list__td list__td_access"> Acessar GitHub </td>
+      <td mat-cell *matCellDef="let row" [style.color]="row.color" (click)="openGitHubUserPage(row.gitHubUsername)" class="list__td list__td_access"> Acessar GitHub </td>
     </ng-container>
 
     <ng-container matColumnDef="edit">
       <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
-      <td mat-cell *matCellDef="let row" class="list__td list__td_edit" (click)="openEdit()"></td>
+      <td mat-cell *matCellDef="let row" class="list__td list__td_edit" (click)="openEdit(row.id)"></td>
     </ng-container>
 
     <ng-container matColumnDef="delete">

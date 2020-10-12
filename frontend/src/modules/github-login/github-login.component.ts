@@ -36,8 +36,14 @@ export class GithubLoginComponent implements OnInit, AfterViewInit {
   }
 
   async gitHubLogin() {
-    const userData = await this.gitHubLoginService.login(this.loginForm.controls['username'].value)
-    this.store.dispatch(applyGitHubUserInfos({ payload: userData }))
+    try {
+      const userData = await this.gitHubLoginService.login(this.loginForm.controls['username'].value)
+      
+      this.store.dispatch(applyGitHubUserInfos({ payload: userData }))
+      this.closeGitHubLogin()
+    } catch (err) {
+      console.log({ err })
+    }
   }
 
   closeGitHubLogin() {

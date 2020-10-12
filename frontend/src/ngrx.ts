@@ -7,7 +7,8 @@ enum ActionTypes {
     ApplyGitHubUserInfos = 'ApplyGitHubUserInfos',
     AddDev = 'AddDev',
     DeleteDev = 'DeleteDev',
-    EditDev = 'EditDev'
+    EditDev = 'EditDev',
+    SetDevToEdit = 'SetDevToEdit'
 }
 
 export const applyFilter = createAction(ActionTypes.ApplyFilter, props<{ payload: any }>())
@@ -16,21 +17,24 @@ export const openGithubLogin = createAction(ActionTypes.OpenGithubLogin, props<{
 export const openEditDev = createAction(ActionTypes.OpenEditDev, props<{ payload: any }>())
 export const addDev = createAction(ActionTypes.AddDev, props<{ payload: any }>())
 export const deleteDev = createAction(ActionTypes.DeleteDev, props<{ payload: any }>())
+export const editDev = createAction(ActionTypes.EditDev, props<{ payload: any }>())
+export const setDevToEdit = createAction(ActionTypes.SetDevToEdit, props<{ payload: any }>())
 
 const INITIAL_STATE = {
     filterValue: '',
     gitHubLoginOpened: false,
     editDevOpened: false,
     gitHubUserInfos: {},
+    devToEdit: null,
     userList: [
-        { id: 1, gitHubUrl: 'https://github.com/', avatar: 'https://avatars1.githubusercontent.com/u/99944?s=400&v=4', name: 'João da Silva', city: 'Maringá - PR', techs: 'Vue e React' },
-        { id: 2, gitHubUrl: 'https://github.com/', avatar: 'https://pbs.twimg.com/profile_images/950815117448499200/XVFH6rjh_400x400.jpg', name: 'Maria da Silva', city: 'Maringá - PR', techs: 'Vue e React' },
-        { id: 3, gitHubUrl: 'https://github.com/', avatar: 'https://pbs.twimg.com/profile_images/950815117448499200/XVFH6rjh_400x400.jpg', name: 'Maria da Silva', city: 'Maringá - PR', techs: 'Vue e React' },
-        { id: 4, gitHubUrl: 'https://github.com/', avatar: 'https://pbs.twimg.com/profile_images/950815117448499200/XVFH6rjh_400x400.jpg', name: 'Maria da Silva', city: 'Maringá - PR', techs: 'Vue e React' },
-        { id: 5, gitHubUrl: 'https://github.com/', avatar: 'https://pbs.twimg.com/profile_images/950815117448499200/XVFH6rjh_400x400.jpg', name: 'Maria da Silva', city: 'Maringá - PR', techs: 'Vue e React' },
-        { id: 6, gitHubUrl: 'https://github.com/', avatar: 'https://avatars1.githubusercontent.com/u/99944?s=400&v=4', name: 'João da Silva', city: 'Maringá - PR', techs: 'Vue e React' },
-        { id: 7, gitHubUrl: 'https://github.com/', avatar: 'https://avatars1.githubusercontent.com/u/99944?s=400&v=4', name: 'João da Silva', city: 'Maringá - PR', techs: 'Vue e React' },
-        { id: 8, gitHubUrl: 'https://github.com/', avatar: 'https://avatars1.githubusercontent.com/u/99944?s=400&v=4', name: 'João da Silva', city: 'Maringá - PR', techs: 'Vue e React' },
+        { id: 0, gitHubUsername: '', avatar: 'https://avatars1.githubusercontent.com/u/99944?s=400&v=4', name: 'João da Silva', city: 'Maringá - PR', techs: 'Vue e React' },
+        { id: 1, gitHubUsername: '', avatar: 'https://pbs.twimg.com/profile_images/950815117448499200/XVFH6rjh_400x400.jpg', name: 'Maria da Silva', city: 'Maringá - PR', techs: 'Vue e React' },
+        { id: 2, gitHubUsername: '', avatar: 'https://pbs.twimg.com/profile_images/950815117448499200/XVFH6rjh_400x400.jpg', name: 'Maria da Silva', city: 'Maringá - PR', techs: 'Vue e React' },
+        { id: 3, gitHubUsername: '', avatar: 'https://pbs.twimg.com/profile_images/950815117448499200/XVFH6rjh_400x400.jpg', name: 'Maria da Silva', city: 'Maringá - PR', techs: 'Vue e React' },
+        { id: 4, gitHubUsername: '', avatar: 'https://pbs.twimg.com/profile_images/950815117448499200/XVFH6rjh_400x400.jpg', name: 'Maria da Silva', city: 'Maringá - PR', techs: 'Vue e React' },
+        { id: 5, gitHubUsername: '', avatar: 'https://avatars1.githubusercontent.com/u/99944?s=400&v=4', name: 'João da Silva', city: 'Maringá - PR', techs: 'Vue e React' },
+        { id: 6, gitHubUsername: '', avatar: 'https://avatars1.githubusercontent.com/u/99944?s=400&v=4', name: 'João da Silva', city: 'Maringá - PR', techs: 'Vue e React' },
+        { id: 7, gitHubUsername: '', avatar: 'https://avatars1.githubusercontent.com/u/99944?s=400&v=4', name: 'João da Silva', city: 'Maringá - PR', techs: 'Vue e React' },
     ]
 }
 
@@ -59,4 +63,12 @@ export const reducer = createReducer(
     on(openEditDev, (state, { payload }) => ({
         ...state,
         editDevOpened: payload
+    })),
+    on(editDev, (state, { payload }) => ({
+        ...state,
+        userList: [payload.updatedUser, ...state.userList.filter(user => user.id !== payload.id)]
+    })),
+    on(setDevToEdit, (state, { payload }) => ({
+        ...state,
+        devToEdit: payload
     })))

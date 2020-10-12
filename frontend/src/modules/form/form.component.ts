@@ -11,7 +11,9 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class FormComponent implements OnInit, AfterViewInit {
 
-  public gitHubUserInfos$: Observable<any>;
+  public reducer$: Observable<any>;
+
+  usersQuantity: number;
 
   userForm = new FormGroup({
     gitHubUser: new FormControl(''),
@@ -26,11 +28,12 @@ export class FormComponent implements OnInit, AfterViewInit {
   constructor(private store: Store<{ reducer: any }>) { }
 
   ngOnInit(): void {
-    this.gitHubUserInfos$ = this.store.pipe(select('reducer'))
+    this.reducer$ = this.store.pipe(select('reducer'))
   }
 
   ngAfterViewInit() {
-    this.gitHubUserInfos$.subscribe(state => {
+    this.reducer$.subscribe(state => {
+      this.usersQuantity = state.userList.length
       this.userForm.controls['gitHubUser'].setValue(state.gitHubUserInfos.username)
       this.userForm.controls['avatar'].setValue(state.gitHubUserInfos.avatar)
       this.userForm.controls['name'].setValue(state.gitHubUserInfos.name)
@@ -44,12 +47,13 @@ export class FormComponent implements OnInit, AfterViewInit {
 
   userRegister() {
     this.store.dispatch(addDev({ 
-      payload: { 
+      payload: {
+        id: this.usersQuantity + 1,
         avatar: this.userForm.controls['avatar'].value,
         name: this.userForm.controls['name'].value,
         city: this.userForm.controls['city'].value,
         techs: this.userForm.controls['techs'].value,
-        gitHubUrl: `https://github.com/${this.userForm.controls['gitHubUser'].value}`
+        gitHubUsername: `${this.userForm.controls['gitHubUser'].value}`
       }}))
   }
 }

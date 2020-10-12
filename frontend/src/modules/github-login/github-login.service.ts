@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../environments/environment'
 
 const BASE_URL = `https://api.github.com`
 
@@ -20,8 +21,10 @@ export class GithubLoginService {
 
   async login(username: string) {
 
+    const PERSONAL_ACCESS_TOKEN = atob(environment.gitHubToken)
+
     const headers = {
-      'Authorization': `Basic ${btoa(`lucas-oliveira17:96f2566bf32a84bd250f50197cee27c36eab64a1`)}`
+      'Authorization': `Basic ${btoa(`lucas-oliveira17:${PERSONAL_ACCESS_TOKEN}`)}`
     }
 
     const requestOptions = {
@@ -29,7 +32,7 @@ export class GithubLoginService {
     }
 
     const res: any = await this.http.get(`${BASE_URL}/users/${username}`, requestOptions).toPromise().catch(err => {
-      console.error(err)
+      throw err;
     })
 
     const userReturn: UserReturn = {

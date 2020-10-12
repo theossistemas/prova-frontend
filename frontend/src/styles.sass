@@ -24,7 +24,7 @@ h1
 
 .mat-paginator-outer-container
     position: absolute
-    top: 0%
+    top: 50%
     width: 100%
 
 .mat-paginator-container
@@ -38,6 +38,9 @@ h1
 .mat-icon-button
     background: transparent
 
+    &:hover
+        opacity: .6
+
 .mat-icon-button.mat-button-disabled
     color: transparent
 
@@ -49,6 +52,8 @@ tbody
     column-gap: 32px
 
 app-form, app-devs
+    display: flex
+    justify-content: center
     width: 100%
 
 app-form

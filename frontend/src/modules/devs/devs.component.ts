@@ -4,7 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Store, select } from '@ngrx/store'
 import { Observable } from 'rxjs'
-import { deleteDev, openEditDev } from '../../ngrx'
+import { deleteDev, openEditDev, setDevToEdit } from '../../ngrx'
 
 export interface UserData {
   id: number;
@@ -12,8 +12,10 @@ export interface UserData {
   name: string;
   city: string;
   techs: string;
-  gitHubUrl: string;
+  gitHubUsername: string;
 }
+
+const BASE_URL = `https://github.com/`
 
 let ELEMENTS: UserData[] = []
 
@@ -23,7 +25,7 @@ let ELEMENTS: UserData[] = []
   styleUrls: ['./devs.component.sass']
 })
 export class DevsComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['id', 'avatar', 'name', 'city', 'techs', 'gitHubUrl', 'delete', 'edit'];
+  displayedColumns: string[] = ['id', 'avatar', 'name', 'city', 'techs', 'gitHubUsername', 'delete', 'edit'];
   dataSource: MatTableDataSource<UserData>;
 
   public reducer$: Observable<any>;
@@ -59,15 +61,16 @@ export class DevsComponent implements OnInit, AfterViewInit {
     }
   }
 
-  openPage(url: string) {
-    window.open(url, '_blank')
+  openGitHubUserPage(url: string) {
+    window.open(`${BASE_URL}/${url}`, '_blank')
   }
 
   deleteDev(id: number) {
     this.store.dispatch(deleteDev({ payload: id }))
   }
 
-  openEdit() {
+  openEdit(id: number) {
+    this.store.dispatch(setDevToEdit({ payload: id }))
     this.store.dispatch(openEditDev({ payload: true }))
   }
 }
