@@ -1,0 +1,110 @@
+.devs__list
+    width: 100%
+    font-family: 'Roboto'
+    padding: 0px 40px
+    margin-top: 10%
+
+.list__rows:hover .list__td
+    &_access
+        display: block
+
+    &_edit
+        display: block
+
+    &_remove
+        display: block
+
+.list
+    &__rows
+        display: grid
+        height: auto
+        grid-gap: 8px
+        background-color: #1A202C
+        color: white
+        padding: 16px
+        position: relative
+        width: 300px
+        height: 175px
+        border-radius: 3px
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr
+        grid-template-columns: 2fr 1fr 28px
+        
+        &:hover
+            cursor: pointer
+            opacity: .9
+            transition: all .2s ease-in
+
+    &__th
+        &_id
+            display: none
+
+    &__td
+        border: none
+        font-size: 14px
+        align-self: center
+
+        &_id
+            display: none
+        
+        &_image
+            justify-self: end
+            position: absolute
+            background-color: transparent
+            left: 62%
+            bottom: 70%
+        
+        &_name
+            font-size: 16px
+            font-weight: 500
+            grid-row-start: 2
+
+        &_address
+            grid-row-start: 3
+
+        &_techs
+            grid-row-start: 4
+
+        &_edit
+            justify-self: flex-end
+            grid-row-start: 5
+            width: 14px
+            height: 20px
+            background-image: url("../../assets/edit.svg")
+            background-size: contain
+            background-repeat: no-repeat
+            display: none
+
+            &:hover
+                cursor: pointer
+
+        &_remove
+            justify-self: flex-end
+            grid-row-start: 5
+            width: 22px
+            height: 20px
+            background-image: url("../../assets/trash-2.svg")
+            background-size: contain
+            background-repeat: no-repeat
+            display: none
+
+            &:hover
+                cursor: pointer
+
+        &_access
+            color: #68D391
+            cursor: pointer
+            transition: all 0.3s ease-in
+            grid-row-start: 5
+            display: none
+
+            &:hover
+                cursor: pointer
+
+    &__headers
+        display: none
+
+.td__image
+    width: 88px
+    height: 88px
+    border: 2px solid #1A202C
+    border-radius: 50%

@@ -1,0 +1,57 @@
+*
+    box-sizing: border-box
+
+body, html
+    width: 100%
+    height: 100%
+    margin: 0
+
+section
+    width: 100%
+
+h1
+    margin: 0
+
+
+// Disable paginator items
+.mat-paginator-range-label, .mat-paginator-page-size
+    display: none!important
+
+// Adjust arrows
+.home__devs
+    position: relative
+    width: fit-content
+
+.mat-paginator-outer-container
+    position: absolute
+    top: 0%
+    width: 100%
+
+.mat-paginator-container
+    padding: 0!important
+
+.mat-paginator-range-actions
+    width: 100%
+    display: flex
+    justify-content: space-between
+
+.mat-icon-button
+    background: transparent
+
+.mat-icon-button.mat-button-disabled
+    color: transparent
+
+tbody
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-gap: 32px
+    row-gap: 60px
+    column-gap: 32px
+
+app-form, app-devs
+    width: 100%
+
+app-form
+    display: flex
+    justify-content: center
+    position: relative

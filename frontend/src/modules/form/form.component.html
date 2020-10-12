@@ -1,0 +1,42 @@
+<div class="form__wrapper">
+    <form class="home__form" [formGroup]="userForm" (ngSubmit)="userRegister()">
+        <div class="form__github">
+            <div class="github__button" (click)="openGitHubLogin()">
+                <div class="button__logo"></div>
+                <label class="button__label">Cadastrar com GitHub</label>
+            </div>
+            <label class="github__label">Usuário GitHub</label>
+            <input type="text" formControlName="gitHubUser" class="github__input" disabled>
+        </div>
+        <hr class="form__trace">
+        <div class="form__group form__group_avatar">
+            <label class="form__label">Avatar (URL)</label>
+            <input type="text" formControlName="avatar" class="form__input">
+        </div>
+        <div class="form__group">
+            <label class="form__label">Nome</label>
+            <input type="text" formControlName="name" class="form__input">
+        </div>
+        <div class="form__group">
+            <label class="form__label">Email</label>
+            <input type="text" formControlName="email" class="form__input">
+        </div>
+        <div class="form__group">
+            <label class="form__label">Cidade</label>
+            <input type="text" formControlName="city" class="form__input">
+        </div>
+        <hr class="form__trace">
+        <h1 class="professional__title">
+            PROFISSIONAL
+        </h1>
+        <div class="form__group">
+            <label class="professional__label">Formação</label>
+            <input type="text" formControlName="education" class="professional__input">
+        </div>
+        <div class="form__group">
+            <label class="professional__label">Tecnologias</label>
+            <textarea type="text" formControlName="techs" placeholder="ex: HTML/CSS, Vue, Angular etc." class="professional__textarea"></textarea>
+        </div>
+        <button type="submit" class="form__button">Cadastrar</button>
+    </form>
+</div>

@@ -1,0 +1,16 @@
+<section class="modal" [ngStyle]="{'display': (openGitHubLogin === true) ? 'flex' : 'none' }">
+    <div class="modal__login">
+        <div class="modal__close" (click)="closeGitHubLogin()">
+            <span class="close__span">x</span>
+        </div>
+        <div class="login__logo"></div>
+        <div class="login__text"><span class="text__content">Cadastre-se com seu usuário GitHub</span></div>
+        <form class="login__form" [formGroup]="loginForm" (ngSubmit)="gitHubLogin()">
+            <div class="login__wrapper">
+                <div class="form__label">Nome de usuário ou E-mail</div>
+                <input type="text" formControlName="username" class="form__input form__input_username">
+            </div>
+            <button type="submit" class="login__button">Entrar</button>
+        </form>
+    </div>
+</section>
