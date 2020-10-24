@@ -12,12 +12,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
+import { DevListComponent } from './dev-list/dev-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DevCardComponent,
     NavbarComponent,
+    DevListComponent,
   ],
   imports: [
     BrowserModule,
