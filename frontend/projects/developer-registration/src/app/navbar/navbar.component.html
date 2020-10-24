@@ -8,8 +8,8 @@
   >
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/devs">Devs Cadastrados</a>
-      <a mat-list-item routerLink="/new">Cadastrar Novo</a>
+      <a mat-list-item routerLink="/devs" (click)="toggleMenu()">Devs Cadastrados</a>
+      <a mat-list-item routerLink="/new" (click)="toggleMenu()">Cadastrar Novo</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -24,8 +24,6 @@
       </button>
       <span class="title" color="primary">Theós Sistemas Eclesiais</span>
     </mat-toolbar>
-    <div class="content">
-        <router-outlet></router-outlet>
-    </div>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
