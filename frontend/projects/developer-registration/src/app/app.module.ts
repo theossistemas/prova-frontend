@@ -13,6 +13,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { DevListComponent } from './dev-list/dev-list.component';
+import { DevEditComponent } from './dev-edit/dev-edit.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { faGithubSquare } from '@fortawesome/free-brands-svg-icons';
 
 @NgModule({
   declarations: [
@@ -20,6 +25,7 @@ import { DevListComponent } from './dev-list/dev-list.component';
     DevCardComponent,
     NavbarComponent,
     DevListComponent,
+    DevEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,9 +37,16 @@ import { DevListComponent } from './dev-list/dev-list.component';
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    FontAwesomeModule,
   ],
   providers: [
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIcons(faGithubSquare);
+  }
+}

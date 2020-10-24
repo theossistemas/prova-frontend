@@ -1,0 +1,90 @@
+label {
+    font-weight: bold;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.github-registry {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-height: max-content;
+    padding: 10px;
+}
+.github-registry span {
+    padding-right: 5px;
+}
+
+.or-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+}
+
+h2 {
+    align-self: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    flex-wrap: wrap;
+}
+
+form button {
+    min-width: 120px;
+    max-width: 120px;
+    align-self: center;
+}
+
+form button > span {
+    padding-right: 50px;
+}
+
+.field-container {
+    display: grid;
+    padding: 10px 0px;
+}
+
+.field-container label {
+    font-size: small;
+    padding-bottom: 5px;
+}
+
+.field-container input {
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, .250);
+    height: 25px;
+    font-size: medium;
+    padding: 5px 10px;
+}
+
+.field-container textarea {
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, .250);
+    height: 180px;
+    font-size: medium;
+    padding: 5px 10px;
+}
+
+.registry {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.personal-registry {
+    margin: 10px;
+}
+
+.professional-registry {
+    margin: 10px;
+}

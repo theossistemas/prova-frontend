@@ -1,0 +1,58 @@
+<div class="form-container">
+    
+    <div class="github-registry">
+        <h2>Cadastrar com GitHub</h2>
+        <div class="field-container">
+            <label>Usuário GitHub</label>
+            <input required />
+        </div>
+        <button mat-raised-button type="submit">
+            <span class="github-span">Cadastrar</span>
+            <fa-icon class="fa-2x" [icon]="['fab', 'github-square']" ></fa-icon>
+        </button>
+    </div>
+    
+    <div class="or-container">
+        <h1>ou</h1>
+    </div>
+    
+    <form [formGroup]="editDevForm" (ngSubmit)="onSubmit()">
+        <h2>Preencha suas Infoma&ccedil;&otilde;es</h2>
+        <div class="registry">
+            <div class="personal-registry">
+                <div class="field-container">
+                    <label>Avatar URL</label>
+                    <input matInput formControlName="avatarURL" required />
+                </div>
+                <div class="field-container">
+                    <label>Nome</label>
+                    <input matInput formControlName="name" required />
+                </div>
+                <div class="field-container">
+                    <label>Email</label>
+                    <input matInput formControlName="email" required />
+                </div>
+                <div class="field-container">
+                    <label>Cidade</label>
+                    <input matInput formControlName="city" required />
+                </div>
+            </div>
+    
+            <div class="professional-registry">
+                <div class="field-container">
+                    <label>Gradua&ccedil;&atilde;o</label>
+                    <input matInput formControlName="graduation" required />
+                </div>
+                <div class="field-container">
+                    <label>Tecnologias</label>
+                    <textarea matInput placeholder="ex: HTML/CSS, Vue, Angular, etc..." formControlName="techStack" required ></textarea>
+                </div>
+            </div>
+        </div>
+        
+        <button mat-raised-button type="submit">
+            <span>Cadastrar</span>
+            <mat-icon>save</mat-icon>
+        </button>
+    </form>
+</div>
