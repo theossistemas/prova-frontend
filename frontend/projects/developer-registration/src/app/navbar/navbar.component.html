@@ -1,0 +1,31 @@
+<mat-sidenav-container>
+  <mat-sidenav
+    #drawer
+    fixedInViewport="true"
+    [attr.role]="isHandset$ ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="isOpened"
+  >
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/devs">Devs Cadastrados</a>
+      <a mat-list-item routerLink="/new">Cadastrar Novo</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="toggleMenu()"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="title" color="primary">Theós Sistemas Eclesiais</span>
+    </mat-toolbar>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
