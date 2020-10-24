@@ -28,7 +28,7 @@
               "projects/developer-registration/src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "projects/developer-registration/src/custom-theme.scss",
               "projects/developer-registration/src/styles.scss"
             ],
             "scripts": []
