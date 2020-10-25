@@ -23,6 +23,7 @@ $custom-theme:         mat-light-theme((
     } 
     .mat-card-header img {
         border: 2px solid mat-color($custom-theme-primary);
+        background-color: mat-color($custom-theme-accent);
     }
     .mat-card-content {
         background-color: mat-color($custom-theme-accent);
