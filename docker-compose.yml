@@ -1,6 +1,26 @@
 version: '3'
 
 services: 
+    backend-theos:
+        image: petersonsalme/backend-theos:v1
+        container_name: backend_theos
+        hostname: backend_theos
+        restart: on-failure
+        build: 
+            context: .
+            dockerfile: docker/backend/Dockerfile
+        environment: 
+            GET_HOST_FROM: dns
+            MONGODB_URI: mongodb://peterson:peterson@mongodb:27017/devs
+        ports: 
+            - 8000:8000
+        depends_on: 
+            - mongodb
+        links:
+            - mongodb
+        networks: 
+            - network_theos
+
     mongodb:
         image: mongo:latest
         container_name: mongodb_theos
@@ -11,7 +31,7 @@ services:
             MONGO_INITDB_ROOT_PASSWORD: example
             MONGO_INITDB_DATABASE: devs
         volumes: 
-            - ./backend/database/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+            - ./backend/src/database/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
         ports: 
             - 27017:27017
         networks: 
