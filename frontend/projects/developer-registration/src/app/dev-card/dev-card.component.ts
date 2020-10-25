@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DevInfo } from 'projects/developer-registration/src/entities/dev-info';
+import { environment } from '../../environments/environment';
 import { DevService } from '../../services/dev.service';
 
 @Component({
@@ -32,5 +33,23 @@ export class DevCardComponent implements OnInit {
       },
       err => console.error(err)
     );
+  }
+
+  defaultAvatarURL(): string {
+    return  '../../assets/default-avatar.png';
+  }
+
+  githubLocation(dev: DevInfo): string {
+    let githubURL = environment.githubURL;
+
+    if (!githubURL || githubURL.trim().length === 0) {
+      throw new Error('GitHub Env not configured');
+    }
+
+    if (!githubURL.endsWith('/')) {
+      githubURL += '/';
+    }
+
+    return githubURL.concat(dev.github);
   }
 }

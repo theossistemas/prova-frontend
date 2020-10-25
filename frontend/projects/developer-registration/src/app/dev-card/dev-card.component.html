@@ -1,6 +1,6 @@
 <mat-card>
     <mat-card-header class="backgroud primary">
-        <img mat-card-avatar mat-card-md-image [src]="dev.avatarURL" />
+        <img mat-card-avatar mat-card-md-image [src]="dev.avatarURL || defaultAvatarURL()" />
         <div>
             <mat-card-title>{{ dev.name }}</mat-card-title>
             <mat-card-subtitle>{{ dev.graduation }}</mat-card-subtitle>
@@ -11,8 +11,8 @@
         <p>{{ dev.techStack }}</p>
     </mat-card-content>
     <mat-card-footer>
-        <div>
-            <a href="" target="_blank">Acessar GitHub</a>
+        <div class="github-link">
+            <a *ngIf="dev.github" [href]="githubLocation(dev)" target="_blank">Acessar GitHub</a>
         </div>
         <mat-card-actions>
             <button mat-icon-button (click)="editDev()"><mat-icon>edit</mat-icon></button>
