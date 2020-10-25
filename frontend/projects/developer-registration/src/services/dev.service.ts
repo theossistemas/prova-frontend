@@ -8,11 +8,24 @@ import { environment } from '../environments/environment';
   providedIn: 'root'
 })
 export class DevService {
+  private path = environment.apiURL.concat('/devs/');
 
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<DevInfo[]> {
-    return this.http.get<DevInfo[]>(environment.apiURL + '/devs');
+    return this.http.get<DevInfo[]>(this.path);
+  }
+
+  getOne(id: string): Observable<DevInfo> {
+    return this.http.get<DevInfo>(this.path.concat(id));
+  }
+
+  put(id: string, dev: DevInfo): Observable<DevInfo> {
+    return this.http.put<DevInfo>(this.path.concat(id), dev);
+  }
+
+  delete(id: string): Observable<void> {
+    return this.http.delete<void>(this.path.concat(id));
   }
 
 }
