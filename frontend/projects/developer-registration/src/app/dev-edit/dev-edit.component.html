@@ -1,10 +1,12 @@
 <div class="form-container">
     
+    <form [formGroup]="editDevForm" (ngSubmit)="onSubmit()">
+
     <div class="github-registry">
         <h2>Cadastrar com GitHub</h2>
         <div class="field-container">
             <label>Usuário GitHub</label>
-            <input required />
+            <input matInput formControlName="github" required />
         </div>
         <button mat-raised-button type="submit">
             <span class="github-span">Cadastrar</span>
@@ -12,13 +14,9 @@
         </button>
     </div>
     
-    <div class="or-container">
-        <h1>ou</h1>
-    </div>
     
-    <form [formGroup]="editDevForm" (ngSubmit)="onSubmit()">
+    <div class="registry">
         <h2>Preencha suas Infoma&ccedil;&otilde;es</h2>
-        <div class="registry">
             <div class="personal-registry">
                 <div class="field-container">
                     <label>Avatar URL</label>
