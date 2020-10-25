@@ -1,9 +1,23 @@
 const { isValidObjectId } = require('mongoose');
 const DevModel = require('../entity/dev');
 
+function transformToDTO(document) {
+    return {
+        id: document._id,
+        github: document.github,
+        avatarURL: document.avatarURL,
+        name: document.name,
+        email: document.email,
+        city: document.city,
+        gratuation: document.gratuation,
+        techStack: document.techStack,
+    };
+}
+
 module.exports = {
     getAll: async (req, res) => {
-        res.send(await DevModel.find({}));
+        const devs = await DevModel.find({}).map(transformToDTO);
+        res.send(devs);
     },
     getOne: async (req, res) => {
         const { id } = req.params;
@@ -13,7 +27,9 @@ module.exports = {
             return;
         }
 
-        res.send(await DevModel.findById(id));
+        const dev = await DevModel.findById(id);
+
+        res.send(transformToDTO(dev));
     },
     post: async (req, res) => {
         const data = new DevModel(req.body);
