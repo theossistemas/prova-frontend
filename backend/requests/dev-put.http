@@ -1,0 +1,11 @@
+PUT http://localhost:8000/devs/5f94bee234acb1628f542c2c HTTP/1.1
+content-type: application/json
+
+{
+    "avatarURL": "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz",
+    "name": "xxxxxxxxxxxxxxxxxxxxxxxx",
+    "email": "ccccccccccccccccccccccccc",
+    "city": "ddddddddddddddddd",
+    "gratuation": "fffffffffffffffff",
+    "techStack": "44444444444444444"
+}

@@ -1,0 +1,11 @@
+POST http://localhost:8000/devs HTTP/1.1
+content-type: application/json
+
+{
+    "avatarURL": "a",
+    "name": "a",
+    "email": "mail",
+    "city": "maringa",
+    "gratuation": "ae",
+    "techStack": "a"
+}
