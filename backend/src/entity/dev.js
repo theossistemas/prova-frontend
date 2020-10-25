@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const DevSchema = new Schema({
-    github: {type: String, required: true},
+    github: {type: String},
     avatarURL: {type: String, required: true},
     name: {type: String, required: true, max: 100},
     email: {type: String, required: true, max: 50},
     city: {type: String, required: true, max: 100},
-    gratuation: {type: String, required: true, max: 100},
+    graduation: {type: String, required: true, max: 100},
     techStack: {type: String, required: true},
 });
 
