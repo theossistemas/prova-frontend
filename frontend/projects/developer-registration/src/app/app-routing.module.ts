@@ -5,8 +5,8 @@ import { DevListComponent } from './dev-list/dev-list.component';
 
 const routes: Routes = [
   { path: 'devs', component: DevListComponent },
-  { path: 'new', component: DevEditComponent },
-  { path: 'edit', component: DevEditComponent }
+  { path: 'new-dev', component: DevEditComponent },
+  { path: 'edit-dev/:id', component: DevEditComponent }
 ];
 
 @NgModule({
