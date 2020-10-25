@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DevInfo } from 'projects/developer-registration/dev-info';
+import { DevInfo } from 'projects/developer-registration/src/entities/dev-info';
 
 @Component({
   selector: 'app-dev-card',

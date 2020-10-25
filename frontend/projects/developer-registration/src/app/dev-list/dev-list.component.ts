@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DevInfo } from 'projects/developer-registration/dev-info';
-import { DevService } from 'projects/developer-registration/dev.service';
+import { DevInfo } from 'projects/developer-registration/src/entities/dev-info';
+import { DevService } from 'projects/developer-registration/src/services/dev.service';
 
 @Component({
   selector: 'app-dev-list',
