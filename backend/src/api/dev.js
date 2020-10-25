@@ -9,15 +9,19 @@ function transformToDTO(document) {
         name: document.name,
         email: document.email,
         city: document.city,
-        gratuation: document.gratuation,
+        graduation: document.graduation,
         techStack: document.techStack,
     };
 }
 
 module.exports = {
     getAll: async (req, res) => {
-        const devs = await DevModel.find({}).map(transformToDTO);
-        res.send(devs);
+        try {
+            const devs = await DevModel.find({});
+            res.send(devs.map(transformToDTO));
+        } catch(err) {
+            res.status(500).send(err);
+        }
     },
     getOne: async (req, res) => {
         const { id } = req.params;
@@ -43,22 +47,29 @@ module.exports = {
         res.status(201).send(await data.save());
     },
     put: async (req, res) => {
-        const { id } = req.params;
-        const data = req.body;
+        try {
+            const { id } = req.params;
+            const data = req.body;
+            
+            console.log('put(', id, ')');
 
-        if (!isValidObjectId(id)) {
-            res.status(400).send({ message: 'ID Param is invalid' });
-            return;
-        }
-        
-        const model = new DevModel(data);
-        const errors = model.validateSync();
-        if (errors) {
-            res.status(400).send(errors);
-            return;
-        }
+            if (!isValidObjectId(id)) {
+                res.status(400).send({ message: 'ID Param is invalid' });
+                return;
+            }
+            
+            const model = new DevModel(data);
+            const errors = model.validateSync();
+            if (errors) {
+                res.status(400).send(errors);
+                return;
+            }
 
-        res.status(200).send(await DevModel.findByIdAndUpdate(id, { $set: data }, { new: true }));
+            const updated = await DevModel.findByIdAndUpdate(id, { $set: data }, { new: true });
+            res.status(200).send(updated);
+        } catch (error) {
+            console.error(error);
+        }
     },
     delete: async (req, res) => {
         const { id } = req.params;
