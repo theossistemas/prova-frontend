@@ -13,7 +13,10 @@ export class DevListComponent implements OnInit {
   constructor(private devService: DevService) { }
 
   ngOnInit(): void {
-    this.devService.getAll().subscribe((result) => this.devList = result);
+    this.devService.getAll().subscribe(
+      result => this.devList.push(...result),
+      err => console.error(err)
+    );
   }
 
 }
