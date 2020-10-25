@@ -20,6 +20,10 @@ export class DevService {
     return this.http.get<DevInfo>(this.path.concat(id));
   }
 
+  post(dev: DevInfo): Observable<DevInfo> {
+    return this.http.post<DevInfo>(this.path, dev);
+  }
+
   put(id: string, dev: DevInfo): Observable<DevInfo> {
     return this.http.put<DevInfo>(this.path.concat(id), dev);
   }
