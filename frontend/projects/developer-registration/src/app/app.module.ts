@@ -18,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faGithubSquare } from '@fortawesome/free-brands-svg-icons';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { faGithubSquare } from '@fortawesome/free-brands-svg-icons';
     ReactiveFormsModule,
     MatFormFieldModule,
     FontAwesomeModule,
+    HttpClientModule,
   ],
   providers: [
   ],
