@@ -25,14 +25,9 @@ export class DevEditComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const { id } = params;
-      this.devService.getOne(id).subscribe(
-        dev => {
-          this.id = id;
-          this.dev = dev;
-          this.editDevForm.patchValue(dev);
-        },
-        err => console.error(err)
-      );
+      if (id) {
+        this.loadDev(id);
+      }
     });
   }
 
@@ -45,7 +40,24 @@ export class DevEditComponent implements OnInit {
         () => this.router.navigateByUrl('/devs'),
         (err) => console.error(err)
       );
+      return;
     }
+
+    this.devService.post(this.dev).subscribe(
+      () => this.router.navigateByUrl('/devs'),
+      (err) => console.error(err)
+    );
+  }
+
+  private loadDev(id: string): void {
+    this.devService.getOne(id).subscribe(
+      dev => {
+        this.id = id;
+        this.dev = dev;
+        this.editDevForm.patchValue(dev);
+      },
+      err => console.error(err)
+    );
   }
 
 }
