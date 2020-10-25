@@ -1,8 +1,3 @@
 <div class="devs-container">
-    <app-dev-card></app-dev-card>
-    <app-dev-card></app-dev-card>
-    <app-dev-card></app-dev-card>
-    <app-dev-card></app-dev-card>
-    <app-dev-card></app-dev-card>
-    <app-dev-card></app-dev-card>
+    <app-dev-card *ngFor="let d of devList" [dev]="d"></app-dev-card>
 </div>
