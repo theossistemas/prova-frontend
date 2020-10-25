@@ -1,14 +1,14 @@
 <mat-card>
     <mat-card-header class="backgroud primary">
-        <img mat-card-avatar mat-card-md-image src="./../../assets/Peterson_2500-2500.jpg" />
+        <img mat-card-avatar mat-card-md-image [src]="dev.avatarURL" />
         <div>
-            <mat-card-title>Peterson Salme</mat-card-title>
-            <mat-card-subtitle>Software Engineer</mat-card-subtitle>
+            <mat-card-title>{{ dev.name }}</mat-card-title>
+            <mat-card-subtitle>{{ dev.gratuation }}</mat-card-subtitle>
         </div>
     </mat-card-header>
     <mat-card-content>
-        <p>Maringá - PR</p>
-        <p>Angular, Vue.js</p>
+        <p>{{ dev.city }}</p>
+        <p>{{ dev.techStack }}</p>
     </mat-card-content>
     <mat-card-footer>
         <div>

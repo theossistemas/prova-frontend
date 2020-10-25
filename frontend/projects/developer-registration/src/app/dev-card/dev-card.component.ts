@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DevInfo } from 'projects/developer-registration/dev-info';
 
 @Component({
   selector: 'app-dev-card',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dev-card.component.scss']
 })
 export class DevCardComponent implements OnInit {
+  @Input() dev: DevInfo;
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.dev.name);
   }
 
 }
