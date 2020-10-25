@@ -3,7 +3,7 @@
         <img mat-card-avatar mat-card-md-image [src]="dev.avatarURL" />
         <div>
             <mat-card-title>{{ dev.name }}</mat-card-title>
-            <mat-card-subtitle>{{ dev.gratuation }}</mat-card-subtitle>
+            <mat-card-subtitle>{{ dev.graduation }}</mat-card-subtitle>
         </div>
     </mat-card-header>
     <mat-card-content>
@@ -15,8 +15,8 @@
             <a href="" target="_blank">Acessar GitHub</a>
         </div>
         <mat-card-actions>
-            <button mat-icon-button><mat-icon>edit</mat-icon></button>
-            <button mat-icon-button><mat-icon>delete</mat-icon></button>
+            <button mat-icon-button (click)="editDev()"><mat-icon>edit</mat-icon></button>
+            <button mat-icon-button (click)="deleteDev()"><mat-icon>delete</mat-icon></button>
         </mat-card-actions>
     </mat-card-footer>
 </mat-card>
