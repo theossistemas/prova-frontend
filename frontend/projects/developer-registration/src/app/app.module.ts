@@ -22,6 +22,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
+import { StoreModule } from '@ngrx/store';
+import * as devListReducer from '../reducers/dev-list.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { DevListEffects } from '../effects/dev-list.effects';
+import { ReactiveComponentModule } from '@ngrx/component';
 
 @NgModule({
   declarations: [
@@ -53,6 +58,13 @@ import { ToastrModule } from 'ngx-toastr';
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
+    ReactiveComponentModule,
+    StoreModule.forRoot({
+      devList: devListReducer.reducer
+    }),
+    EffectsModule.forRoot([
+      DevListEffects
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent],

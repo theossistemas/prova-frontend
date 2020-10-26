@@ -13,7 +13,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class DevCardComponent implements OnInit {
   @Input() dev: DevInfo;
-  @Input() devList: DevInfo[];
+  @Input() devList: DevInfo[] = [];
 
   constructor(
     private router: Router,
