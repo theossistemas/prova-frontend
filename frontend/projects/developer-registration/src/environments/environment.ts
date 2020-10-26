@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   apiURL: 'http://localhost:8000',
   githubURL: 'https://github.com',
+  githubAPI: 'https://api.github.com',
 };
 
 /*
