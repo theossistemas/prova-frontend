@@ -6,8 +6,8 @@
 
     <div class="panel-registry">
       <div class="field-container">
-        <label>Usuário GitHub</label>
-        <input matInput formControlName="github" required />
+        <label for="github">Usuário GitHub</label>
+        <input matInput id="github" formControlName="github" />
       </div>
 
       <div class="field-container">
@@ -28,39 +28,40 @@
 
       <div class="panel-registry">
         <div class="field-container">
-          <label>Avatar URL</label>
-          <input matInput formControlName="avatarURL" required />
+          <label for="avatarURL">Avatar URL</label>
+          <input matInput id="avatarURL" formControlName="avatarURL" />
         </div>
 
         <div class="field-container">
-          <label>Nome</label>
-          <input matInput formControlName="name" required />
+          <label for="name">Nome *</label>
+          <input matInput id="name" formControlName="name" />
         </div>
 
         <div class="field-container">
-          <label>Email</label>
-          <input matInput formControlName="email" required />
+          <label for="email">Email *</label>
+          <input matInput id="email" formControlName="email" />
         </div>
 
         <div class="field-container">
-          <label>Cidade</label>
-          <input matInput formControlName="city" required />
+          <label for="city">Cidade *</label>
+          <input matInput id="city" formControlName="city" />
         </div>
       </div>
 
       <div class="panel-registry">
+
         <div class="field-container">
-          <label>Gradua&ccedil;&atilde;o</label>
-          <input matInput formControlName="graduation" required />
+          <label for="graduation">Gradua&ccedil;&atilde;o *</label>
+          <input matInput name="graduation" formControlName="graduation" />
         </div>
 
         <div class="field-container">
-          <label>Tecnologias</label>
+          <label for="techStack">Tecnologias *</label>
           <textarea
             matInput
+            id="techStack"
             placeholder="ex: HTML/CSS, Vue, Angular, etc..."
             formControlName="techStack"
-            required
           ></textarea>
         </div>
       </div>
@@ -68,7 +69,7 @@
 
     <div class="panel-registry">
       <div class="field-container">
-        <button mat-raised-button type="submit">
+        <button mat-raised-button type="submit" [disabled]="!editDevForm.valid">
           <span>Cadastrar</span>
           <mat-icon>save</mat-icon>
         </button>
