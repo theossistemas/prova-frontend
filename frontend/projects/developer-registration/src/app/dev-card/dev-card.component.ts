@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { DevInfo } from 'projects/developer-registration/src/entities/dev-info';
 import { environment } from '../../environments/environment';
 import { DevService } from '../../services/dev.service';
+import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-dev-card',
@@ -15,7 +17,9 @@ export class DevCardComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private devService: DevService
+    private devService: DevService,
+    private ngxSpinnerService: NgxSpinnerService,
+    private toastrService: ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -26,13 +30,24 @@ export class DevCardComponent implements OnInit {
   }
 
   deleteDev(): void {
+    this.ngxSpinnerService.show();
+
     this.devService.delete(this.dev.id).subscribe(
-      () => {
-        const index = this.devList.findIndex(d => d.id === this.dev.id);
-        this.devList.splice(index, 1);
-      },
-      err => console.error(err)
+      () => this.completeDeleteAction(),
+      err => {
+        this.ngxSpinnerService.hide();
+        this.toastrService.error('Falha ao deletar desenvolvedor.');
+        console.error(err);
+      }
     );
+  }
+
+  private completeDeleteAction(): void {
+    this.ngxSpinnerService.hide();
+    const index = this.devList.findIndex(d => d.id === this.dev.id);
+    const deletedDev = this.devList[index];
+    this.devList.splice(index, 1);
+    this.toastrService.success('Desenvolvedor ' + deletedDev.name + ' excluído.');
   }
 
   defaultAvatarURL(): string {
@@ -43,6 +58,7 @@ export class DevCardComponent implements OnInit {
     let githubURL = environment.githubURL;
 
     if (!githubURL || githubURL.trim().length === 0) {
+      this.toastrService.error('Falha ao construir URL do GitHub do Usuário.');
       throw new Error('GitHub Env not configured');
     }
 
