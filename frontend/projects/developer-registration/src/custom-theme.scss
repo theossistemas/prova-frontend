@@ -1,0 +1,57 @@
+@import '~@angular/material/_theming.scss';
+@import '~ngx-toastr/toastr';
+
+@include mat-core();
+
+$custom-theme-primary: mat-palette($mat-blue-grey, 800);
+$custom-theme-accent:  mat-palette($mat-cyan, 50);
+$custom-theme-warn:    mat-palette($mat-red);
+$custom-theme:         mat-light-theme((
+    color: (
+      primary: $custom-theme-primary,
+      accent:  $custom-theme-accent,
+      warn:    $custom-theme-warn,  
+    )
+));
+
+@mixin set-general-styles() {
+    form {
+        span, label {
+            color: mat-color($custom-theme-primary);
+        }
+        input, textarea {
+            background-color: white;
+            &.ng-invalid:not(.ng-untouched) {
+                &:not(:focus) {
+                    border: 1px solid mat-color($custom-theme-warn) !important;
+                    box-shadow: 0px 0px 2px 2px rgba(255, 0, 0, .5);
+                }
+            }
+        }
+    }
+}
+
+@mixin set-card-styles() {
+    .mat-card {
+        background-color: mat-color($custom-theme-primary);
+        color: mat-color($custom-theme-accent);
+    }
+    .mat-card-subtitle {
+        color: mat-color($custom-theme-accent);
+    } 
+    .mat-card-header img {
+        border: 2px solid mat-color($custom-theme-primary);
+        background-color: mat-color($custom-theme-accent);
+    }
+    .mat-card-content {
+        background-color: mat-color($custom-theme-accent);
+        color: mat-color($custom-theme-primary);
+    }
+    .mat-card-footer a {
+        color: mat-color($custom-theme-accent);
+    }
+}
+
+@include angular-material-theme($custom-theme);
+@include set-general-styles();
+@include set-card-styles();

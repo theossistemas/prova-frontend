@@ -1,0 +1,12 @@
+POST http://localhost:8000/devs HTTP/1.1
+content-type: application/json
+
+{
+    "github": "petersonsalme",
+    "avatarURL": "../../assets/default-avatar.png",
+    "name": "Peterson Vieira Salme",
+    "email": "mail@temp.com",
+    "city": "Maringá",
+    "graduation": "Sistemas de Informação",
+    "techStack": "Angular, Java, Node.js, Go"
+}
