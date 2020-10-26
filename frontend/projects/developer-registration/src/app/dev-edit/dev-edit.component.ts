@@ -4,6 +4,7 @@ import { MatFormFieldControl } from '@angular/material/form-field';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DevInfo } from '../../entities/dev-info';
 import { DevService } from '../../services/dev.service';
+import { GithubService } from '../../services/github.service';
 
 @Component({
   selector: 'app-dev-edit',
@@ -19,7 +20,8 @@ export class DevEditComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
-    private devService: DevService
+    private devService: DevService,
+    private githubService: GithubService
   ) { }
 
   ngOnInit(): void {
@@ -55,6 +57,19 @@ export class DevEditComponent implements OnInit {
         this.id = id;
         this.dev = dev;
         this.editDevForm.patchValue(dev);
+      },
+      err => console.error(err)
+    );
+  }
+
+  importDataFromGithub(): void {
+    const githubUsername = this.editDevForm.controls.github.value;
+    this.githubService.getInfo(githubUsername).subscribe(
+      githubInfo => {
+        this.editDevForm.get('avatarURL').setValue(githubInfo.avatarURL);
+        this.editDevForm.get('name').setValue(githubInfo.name);
+        this.editDevForm.get('email').setValue(githubInfo.email);
+        this.editDevForm.get('city').setValue(githubInfo.location);
       },
       err => console.error(err)
     );

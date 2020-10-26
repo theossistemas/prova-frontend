@@ -1,7 +1,7 @@
 <form [formGroup]="editDevForm" (ngSubmit)="onSubmit()">
   <div class="form-container">
     <div class="panel-title">
-      <span>Cadastrar com GitHub</span>
+      <span>Importar dados do GitHub</span>
     </div>
 
     <div class="panel-registry">
@@ -11,8 +11,8 @@
       </div>
 
       <div class="field-container">
-        <button mat-raised-button type="submit">
-          <span class="github-span">Cadastrar</span>
+        <button mat-raised-button (click)="importDataFromGithub()" type="button">
+          <span class="github-span">Buscar</span>
           <fa-icon class="fa-2x" [icon]="['fab', 'github-square']"></fa-icon>
         </button>
       </div>
@@ -25,7 +25,7 @@
     </div>
 
     <div class="info-registry">
-      
+
       <div class="panel-registry">
         <div class="field-container">
           <label>Avatar URL</label>
