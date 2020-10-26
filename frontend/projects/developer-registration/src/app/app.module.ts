@@ -20,6 +20,8 @@ import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontaweso
 import { faGithubSquare } from '@fortawesome/free-brands-svg-icons';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { CommonModule } from '@angular/common';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,13 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     FontAwesomeModule,
     HttpClientModule,
     NgxSpinnerModule,
+    CommonModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      // positionClass: 'toast-top-full-width',
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

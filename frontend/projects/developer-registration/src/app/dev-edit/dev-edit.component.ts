@@ -6,6 +6,7 @@ import { DevService } from '../../services/dev.service';
 import { GithubService } from '../../services/github.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { GithubInfo } from '../../entities/github-info';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-dev-edit',
@@ -24,6 +25,7 @@ export class DevEditComponent implements OnInit {
     private devService: DevService,
     private githubService: GithubService,
     private ngxSpinnerService: NgxSpinnerService,
+    private toastrService: ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -51,6 +53,7 @@ export class DevEditComponent implements OnInit {
         },
         (err) => {
           this.ngxSpinnerService.hide();
+          this.toastrService.error('Falha ao editar desenvolvedor.');
           console.error(err);
         }
       );
@@ -64,6 +67,7 @@ export class DevEditComponent implements OnInit {
       },
       (err) => {
         this.ngxSpinnerService.hide();
+        this.toastrService.error('Falha ao salvar desenvolvedor.');
         console.error(err);
       }
     );
@@ -79,6 +83,7 @@ export class DevEditComponent implements OnInit {
       },
       err => {
         this.ngxSpinnerService.hide();
+        this.toastrService.error('Desenvolvedor não encontrado.');
         console.error(err);
       }
     );
@@ -94,6 +99,7 @@ export class DevEditComponent implements OnInit {
       },
       err => {
         this.ngxSpinnerService.hide();
+        this.toastrService.info('Perfil ' + githubUsername + ' não encontrado no GitHub.');
         console.error(err);
       }
     );
