@@ -19,7 +19,7 @@ $custom-theme:         mat-light-theme((
             color: mat-color($custom-theme-primary);
         }
         input, textarea {
-            background-color: mat-color($mat-white);
+            background-color: white;
             &.ng-invalid:not(.ng-untouched) {
                 &:not(:focus) {
                     border: 1px solid mat-color($custom-theme-warn) !important;
