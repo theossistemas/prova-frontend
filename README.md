@@ -1,5 +1,24 @@
 ## Programador Frontend
      
+### Checklist dos Requisitos
+
+- [x] Formulário reativo.
+- [x] Utilize a api do github https://developer.github.com/v3/,  como opção para preenchimento automático de alguns campos do formulário.
+- [x] Clean Code
+
+### Checklist itens adicionais
+
+- [x] Usar Node.js / Mongo para a persistência dos dados.
+- [x] Criação de docker-compose.yml automaticamente configurar o ambiente.
+  - [x] MongoDB
+  - [x] Mongo Express
+  - [x] Backend Node.js
+  - [ ] Frontend Angular
+- [x] Aplicar conceitos de gerenciamento de estado. (NgRx).
+- [x] Workspaces (Multi projetos)
+- [ ] Lazy Loading.
+- [ ] Executar testes.
+
 ### Desafio
 
 Este desafio tem o objetivo de avaliar melhor suas skills como desenvolvedor, não
