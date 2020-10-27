@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DevInfo } from '../../entities/dev-info';
-import { DevService } from '../../services/dev.service';
-import { GithubService } from '../../services/github.service';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { GithubInfo } from '../../entities/github-info';
 import { ToastrService } from 'ngx-toastr';
+import { DevService } from './../../services/dev.service';
+import { GithubService } from './../../services/github.service';
+import { DevInfo } from './../../models/dev-info';
+import { GithubInfo } from './../../models/github-info';
+import { Store } from '@ngrx/store';
+import * as fromReducer from './../../store/dev-list.reducer';
+import * as fromActions from './../../store/dev-list.actions';
+import { Update } from '@ngrx/entity';
 
 @Component({
   selector: 'app-dev-edit',
@@ -26,6 +30,7 @@ export class DevEditComponent implements OnInit {
     private githubService: GithubService,
     private ngxSpinnerService: NgxSpinnerService,
     private toastrService: ToastrService,
+    private store: Store<fromReducer.DevInfoState>
   ) { }
 
   ngOnInit(): void {
@@ -42,35 +47,25 @@ export class DevEditComponent implements OnInit {
 
   onSubmit(): void {
     this.ngxSpinnerService.show();
-
     this.dev = this.editDevForm.value as DevInfo;
 
-    if (this.id) {
-      this.devService.put(this.id, this.dev).subscribe(
-        () => {
-          this.ngxSpinnerService.hide();
-          this.router.navigateByUrl('/devs');
-        },
-        (err) => {
-          this.ngxSpinnerService.hide();
-          this.toastrService.error('Falha ao editar desenvolvedor.');
-          console.error(err);
+    const createAction = fromActions.addDev({ payload: this.dev });
+    const updateAction = fromActions.updateDev({
+      payload: {
+        id: this.id,
+        changes: {
+          github: this.dev.github,
+          avatarURL: this.dev.avatarURL,
+          name: this.dev.name,
+          email: this.dev.email,
+          city: this.dev.city,
+          graduation: this.dev.graduation,
+          techStack: this.dev.techStack,
         }
-      );
-      return;
-    }
-
-    this.devService.post(this.dev).subscribe(
-      () => {
-        this.ngxSpinnerService.hide();
-        this.router.navigateByUrl('/devs');
-      },
-      (err) => {
-        this.ngxSpinnerService.hide();
-        this.toastrService.error('Falha ao salvar desenvolvedor.');
-        console.error(err);
       }
-    );
+    });
+
+    this.store.dispatch(this.id ? updateAction : createAction);
   }
 
   private loadDev(id: string): void {

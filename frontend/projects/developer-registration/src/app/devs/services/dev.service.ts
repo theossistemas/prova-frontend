@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DevInfo } from './../entities/dev-info';
-import { environment } from '../environments/environment';
+import { DevInfo } from './../models/dev-info';
+import { environment } from './../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +24,8 @@ export class DevService {
     return this.http.post<DevInfo>(this.path, dev);
   }
 
-  put(id: string, dev: DevInfo): Observable<DevInfo> {
-    return this.http.put<DevInfo>(this.path.concat(id), dev);
+  put(id: string | number, dev: any): Observable<DevInfo> {
+    return this.http.put<DevInfo>(this.path.concat(`${id}`), dev);
   }
 
   delete(id: string): Observable<void> {

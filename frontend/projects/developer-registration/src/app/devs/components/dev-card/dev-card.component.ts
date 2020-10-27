@@ -1,10 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DevInfo } from 'projects/developer-registration/src/entities/dev-info';
-import { environment } from '../../environments/environment';
-import { DevService } from '../../services/dev.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { DevInfo } from './../../models/dev-info';
+import { environment } from './../../../../environments/environment';
+import { Store } from '@ngrx/store';
+import * as fromReducer from './../../store/dev-list.reducer';
+import * as fromAction from './../../store/dev-list.actions';
 
 @Component({
   selector: 'app-dev-card',
@@ -13,13 +15,12 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class DevCardComponent implements OnInit {
   @Input() dev: DevInfo;
-  @Input() devList: DevInfo[];
 
   constructor(
     private router: Router,
-    private devService: DevService,
     private ngxSpinnerService: NgxSpinnerService,
     private toastrService: ToastrService,
+    private store: Store<fromReducer.DevInfoState>,
   ) { }
 
   ngOnInit(): void {
@@ -31,23 +32,7 @@ export class DevCardComponent implements OnInit {
 
   deleteDev(): void {
     this.ngxSpinnerService.show();
-
-    this.devService.delete(this.dev.id).subscribe(
-      () => this.completeDeleteAction(),
-      err => {
-        this.ngxSpinnerService.hide();
-        this.toastrService.error('Falha ao deletar desenvolvedor.');
-        console.error(err);
-      }
-    );
-  }
-
-  private completeDeleteAction(): void {
-    this.ngxSpinnerService.hide();
-    const index = this.devList.findIndex(d => d.id === this.dev.id);
-    const deletedDev = this.devList[index];
-    this.devList.splice(index, 1);
-    this.toastrService.success('Desenvolvedor ' + deletedDev.name + ' excluído.');
+    this.store.dispatch(fromAction.deleteDev({ id: this.dev.id }));
   }
 
   defaultAvatarURL(): string {
