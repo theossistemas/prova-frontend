@@ -17,18 +17,27 @@ export const initialState: DevInfoState = adapter.getInitialState({
 
 export const reducer = createReducer(
   initialState,
+  on(fromActions.requestLoadDevs, (state) =>
+    adapter.setAll([], {
+      ...state,
+      isLoading: true
+    })
+  ),
   on(fromActions.loadDevs, (state, action) =>
     adapter.setAll(action.payload, {
       ...state,
       isLoading: false
     })
   ),
-  on(fromActions.requestLoadDevs, (state) =>
-    adapter.setAll([], {
-      ...state,
-      isLoading: true
-    })
-  )
+  on(fromActions.addDev,
+    (state, action) => adapter.addOne(action.payload, state)
+  ),
+  on(fromActions.updatedev,
+    (state, action) => adapter.updateOne(action.payload, state)
+  ),
+  on(fromActions.deleteDev,
+    (state, action) => adapter.removeOne(action.id, state)
+  ),
 );
 
 export const { selectAll } = adapter.getSelectors();
