@@ -1,12 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { DevInfo } from './../../entities/dev-info';
-import { DevService } from './../../services/dev.service';
 import { Observable, of } from 'rxjs';
 import { Store } from '@ngrx/store';
-import * as DevListActions from './../../actions/dev-list.actions';
-import { DevInfoState } from './../../reducers/dev-list.reducer';
-import * as fromSelector from './../../selectors/dev-list.selectors';
+import * as fromActions from './../../store/dev-list.actions';
+import * as fromReducer from './../../store/dev-list.reducer';
+import * as fromSelector from './../../store/dev-list.selectors';
+import { DevInfo } from './../../models/dev-info';
 
 @Component({
   selector: 'app-dev-list',
@@ -18,16 +16,16 @@ export class DevListComponent implements OnInit {
   devList$: Observable<DevInfo[]>;
 
   constructor(
-    private store: Store<DevInfoState>,
-    private devService: DevService,
-    private ngxSpinnerService: NgxSpinnerService,
+    private store: Store<fromReducer.DevInfoState>,
+    // private devService: DevService,
+    // private ngxSpinnerService: NgxSpinnerService,
   ) { }
 
   ngOnInit(): void {
-    // this.ngxSpinnerService.show();
-    this.store.dispatch(DevListActions.requestLoadDevs());
+    this.store.dispatch(fromActions.requestLoadDevs());
     this.devList$ = this.store.select(fromSelector.devList);
 
+    // this.ngxSpinnerService.show();
     // this.devService.getAll().subscribe(
     //   result => {
     //     this.ngxSpinnerService.hide();

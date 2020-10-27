@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DevInfo } from 'projects/developer-registration/src/entities/dev-info';
-import { environment } from '../../environments/environment';
-import { DevService } from '../../services/dev.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { DevInfo } from './../../models/dev-info';
+import { DevService } from './../../services/dev.service';
+import { environment } from './../../../../environments/environment';
 
 @Component({
   selector: 'app-dev-card',

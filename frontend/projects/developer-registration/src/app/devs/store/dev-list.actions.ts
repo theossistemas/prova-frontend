@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { DevInfo } from '../entities/dev-info';
+import { DevInfo } from './../models/dev-info';
 
 export const requestLoadDevs = createAction(
   '[Devs/API] Request Load Devs',

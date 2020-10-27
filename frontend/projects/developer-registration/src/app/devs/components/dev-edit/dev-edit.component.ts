@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DevInfo } from '../../entities/dev-info';
-import { DevService } from '../../services/dev.service';
-import { GithubService } from '../../services/github.service';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { GithubInfo } from '../../entities/github-info';
 import { ToastrService } from 'ngx-toastr';
+import { DevService } from './../../services/dev.service';
+import { GithubService } from './../../services/github.service';
+import { DevInfo } from './../../models/dev-info';
+import { GithubInfo } from './../../models/github-info';
 
 @Component({
   selector: 'app-dev-edit',

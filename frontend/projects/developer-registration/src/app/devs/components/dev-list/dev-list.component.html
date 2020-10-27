@@ -1,0 +1,5 @@
+<div class="devs-container" *ngIf="(devList$ | ngrxPush) as devList">
+  <div *ngFor="let dev of devList">
+      <app-dev-card [dev]="dev"></app-dev-card>
+  </div>
+</div>

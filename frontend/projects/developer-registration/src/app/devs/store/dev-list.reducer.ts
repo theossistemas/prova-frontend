@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
-import { DevInfo } from '../entities/dev-info';
-import * as DevListActions from './../actions/dev-list.actions';
+import { DevInfo } from './../models/dev-info';
+import * as fromActions from './dev-list.actions';
 
 export const devListFeatureKey = 'devList';
 
@@ -13,12 +13,12 @@ export const initialState: DevInfoState = adapter.getInitialState();
 
 export const reducer = createReducer(
   initialState,
-  on(DevListActions.loadDevs, (state, action) =>
+  on(fromActions.loadDevs, (state, action) =>
     adapter.setAll(action.payload, {
       ...state,
     })
   ),
-  on(DevListActions.requestLoadDevs, (state, action) =>
+  on(fromActions.requestLoadDevs, (state, action) =>
     adapter.setAll([], {
       ...state,
     })
