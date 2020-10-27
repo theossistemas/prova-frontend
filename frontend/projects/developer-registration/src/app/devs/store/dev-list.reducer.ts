@@ -32,7 +32,7 @@ export const reducer = createReducer(
   on(fromActions.addDev,
     (state, action) => adapter.addOne(action.payload, state)
   ),
-  on(fromActions.updatedev,
+  on(fromActions.updateDev,
     (state, action) => adapter.updateOne(action.payload, state)
   ),
   on(fromActions.deleteDev,
