@@ -1,0 +1,78 @@
+<div class="grid-container">
+  <mat-grid-list cols="3" rowHeight="350px">
+    <mat-grid-tile [colspan]="1" [rowspan]="2">
+      <div class="dashboard-card colorful">
+        <img class="image-icon"
+          src="https://cdn0.iconfinder.com/data/icons/bitcoin-cryptocurrency-lavender-vol-2-1/512/cypherpunk-512.png"
+          width="65" height="65">
+
+        <div>
+          
+          <h2 class="colorful-title">Cadastro</h2>
+          <hr width="70%" size="20" color="blue" noshade>
+          <form [formGroup]="form" class="form">
+
+            <p>
+              <mat-form-field class="example-full-width">
+                <mat-label>Nome</mat-label>
+                <input matInput placeholder="Ex. Pizza" formControlName="nome">
+              </mat-form-field>
+            </p>
+
+            <p>
+              <mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+              </mat-form-field>
+            </p>
+
+            <p>
+              <mat-form-field class="example-full-width">
+                <mat-label>Cidade</mat-label>
+                <input matInput placeholder="Ex. Pizza" formControlName="cidade">
+              </mat-form-field>
+            </p>
+
+            <p>
+              <mat-form-field class="example-full-width">
+                <mat-label>Formacao</mat-label>
+                <input matInput placeholder="Ex. Pizza" formControlName="formacao">
+              </mat-form-field>
+            </p>
+
+            <p>
+              <mat-form-field class="example-full-width">
+                <mat-label>Tecnologias</mat-label>
+                <textarea matInput placeholder="Ex. It makes me feel..." formControlName="tecnologias"></textarea>
+              </mat-form-field>
+            </p>
+
+            <button mat-raised-button color="accent">Salvar</button>
+            <button mat-button color="accent">Cancelar</button>
+          </form>
+        </div>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="2" [rowspan]="2">
+      <mat-card class="dashboard-card">
+        <h1 class="mat-h1">Dashboard</h1>
+        <mat-card-header>
+          <mat-card-title>
+            aaaa
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>Expand</button>
+              <button mat-menu-item>Remove</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>Card Content Here</div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
