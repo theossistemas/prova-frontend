@@ -1,0 +1,36 @@
+<mat-grid-list cols="2" rowHeight="2:1">
+    <div *ngFor="let i of desenvolvedores">
+        <mat-grid-tile [colspan]="1" [rowspan]="2">
+
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title>{{i.nome}}</mat-card-title>
+                    <mat-card-subtitle>{{i.email}}</mat-card-subtitle>
+                </mat-card-header>
+                
+                <mat-card-content>
+                        <img class="image-avatar" [src]="i.avatar">
+                    <p class="content-text">
+                        <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+                        {{i.cidade}}
+                    </p>
+                    <p class="content-text">
+                        <mat-icon aria-hidden="false" aria-label="Example home icon">dvr</mat-icon>
+                        {{i.formacao}}
+                    </p>
+                    <p>
+                        <mat-chip-list #chipList>
+                            <div *ngFor="let t of i.tecnologias">
+
+                                <mat-chip color="primary" selected>{{t}}</mat-chip>
+                            </div>
+                          </mat-chip-list>  
+                    </p>
+                </mat-card-content>
+                <mat-card-actions class="button-git">
+                    <button mat-stroked-button color="accent">GitHub</button>
+                </mat-card-actions>
+            </mat-card>
+        </mat-grid-tile>
+    </div>
+</mat-grid-list>

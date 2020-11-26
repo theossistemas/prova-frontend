@@ -1,5 +1,6 @@
+import { DesenvolvedorService } from './../desenvolvedor/desenvolvedor.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,24 +10,16 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 export class DashboardComponent implements OnInit {
 
   form: FormGroup;
+  desenvolvedores: any[] = [];
+
+  constructor(private desenvolvedoresService: DesenvolvedorService) { }
 
   ngOnInit() {
-    this.form = this.createForm();
+    this.desenvolvedoresService.getDesenvolvedores().subscribe(result => this.desenvolvedores = result);
   }
 
-  createForm(): FormGroup {
-    
-    const form = new FormGroup({
-      usuarioGit: new FormControl(),
-      avatar: new FormControl(),
-      nome: new FormControl(),
-      email: new FormControl(),      
-      cidade: new FormControl(),
-      formacao: new FormControl(),
-      tecnologias: new FormControl()
-    });
-
-    return form;
+  addNewDesenvolvedor(value: any) {
+    this.desenvolvedores.push(value);
   }
-  
+
 }

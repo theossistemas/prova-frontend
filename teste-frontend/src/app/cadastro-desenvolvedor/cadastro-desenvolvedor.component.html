@@ -1,0 +1,67 @@
+<div class="dashboard-card colorful">
+    <img class="image-icon"
+        src="https://cdn0.iconfinder.com/data/icons/bitcoin-cryptocurrency-lavender-vol-2-1/512/cypherpunk-512.png"
+        width="65" height="65">
+
+    <div>
+        <form [formGroup]="form" class="form">
+
+            <p>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Nome Completo</mat-label>
+                    <input matInput placeholder="Ex. Mayu" formControlName="nome">
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field class="example-full-width">
+                    <mat-label>URL GitHub</mat-label>
+                    <input matInput formControlName="usuarioGit" placeholder="Ex. https://github.com/Mayu">
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field class="example-full-width">
+                    <mat-label>URL avatar</mat-label>
+                    <input matInput formControlName="avatar" placeholder="Ex. www.avatar.com/...">
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Cidade</mat-label>
+                    <input matInput placeholder="Ex. Pizza" formControlName="cidade">
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Formação</mat-label>
+                    <input matInput placeholder="Ex. Pizza" formControlName="formacao">
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Tecnologias</mat-label>
+                    <mat-select formControlName="tecnologias" multiple>
+                        <mat-option *ngFor="let tec of tecList" [value]="tec">{{tec}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </p>
+
+            <div class="center">
+                <button mat-raised-button color="accent" (click)="onSave()">Salvar</button>
+                <button mat-button color="accent" (click)="onCancel()">Cancelar</button>
+            </div>
+
+        </form>
+    </div>
+</div>
