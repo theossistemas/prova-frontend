@@ -1,0 +1,13 @@
+<div class="grid-container">
+  <mat-grid-list cols="3">
+    <mat-grid-tile [colspan]="1" [rowspan]="2">
+      <app-cadastro-desenvolvedor (addNew)="addNewDesenvolvedor($event)"></app-cadastro-desenvolvedor>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="2" [rowspan]="2">
+      <mat-card class="dashboard-card">
+        <app-lista-desenvolvedor [desenvolvedores]="desenvolvedores"></app-lista-desenvolvedor>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

@@ -1,0 +1,27 @@
+
+.dashboard-card {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  border: none;
+  width: 100%;
+  height: auto;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}
+

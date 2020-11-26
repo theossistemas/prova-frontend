@@ -1,0 +1,101 @@
+<div class="dashboard-card colorful">
+    <img class="image-icon"
+        src="https://cdn0.iconfinder.com/data/icons/bitcoin-cryptocurrency-lavender-vol-2-1/512/cypherpunk-512.png"
+        width="65" height="65">
+
+    <mat-vertical-stepper [linear]="true" #stepper class="colorful">
+        <mat-step>
+            <form [formGroup]="form">
+                <ng-template matStepLabel>
+                    <div class="step-color">
+                        Cadastro inicial
+                    </div>
+                </ng-template>
+                <p>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Nome Completo</mat-label>
+                        <input matInput placeholder="Ex. Mayu" formControlName="nome">
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Email</mat-label>
+                        <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>URL avatar</mat-label>
+                        <input matInput formControlName="avatar" placeholder="Ex. www.avatar.com/...">
+                    </mat-form-field>
+                </p>
+
+                <div>
+                    <button mat-button matStepperNext class="step-color">Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step >
+            <form [formGroup]="form">
+                <ng-template matStepLabel>
+                    <div class="step-color">
+                        Informações GitHub
+                    </div>
+                </ng-template>
+                <p>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>URL GitHub</mat-label>
+                        <input matInput formControlName="usuarioGit" placeholder="Ex. https://github.com/Mayu">
+                    </mat-form-field>
+                </p>
+
+
+                <p>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Cidade</mat-label>
+                        <input matInput placeholder="Ex. Pizza" formControlName="cidade">
+                    </mat-form-field>
+                </p>
+                <div>
+                    <button mat-button matStepperPrevious class="step-color">Back</button>
+                    <button mat-button matStepperNext class="step-color">Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step>
+            <form [formGroup]="form">
+                <ng-template matStepLabel>
+                    <div class="step-color">
+                        Conhecimento e Formação
+                    </div>
+                </ng-template>
+
+                <p>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Formação</mat-label>
+                        <input matInput placeholder="Ex. Pizza" formControlName="formacao">
+                    </mat-form-field>
+                </p>
+
+                <p>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Tecnologias</mat-label>
+                        <mat-select formControlName="tecnologias" multiple>
+                            <mat-option *ngFor="let tec of tecList" [value]="tec">{{tec}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </p>
+
+
+            </form>
+            <div>
+                <button mat-button matStepperPrevious class="step-color">Back</button>
+                <button mat-button (click)="stepper.reset()" class="step-color">Reset</button>
+                <button mat-raised-button color="accent" (click)="onSave()" [disabled]="form.invalid">Salvar</button>
+            </div>
+        </mat-step>
+    </mat-vertical-stepper>
+
+</div>
