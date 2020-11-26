@@ -13,6 +13,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSelectModule } from '@angular/material/select';
+import {MatStepperModule} from '@angular/material/stepper';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -41,7 +42,8 @@ import { ListaDesenvolvedorComponent } from './lista-desenvolvedor/lista-desenvo
     ReactiveFormsModule,
     MatInputModule,
     MatChipsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatStepperModule
   ],
   providers: [DesenvolvedorService],
   bootstrap: [AppComponent]
