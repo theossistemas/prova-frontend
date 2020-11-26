@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { AppModule } from './../app.module';
 import { ListaDesenvolvedorComponent } from './lista-desenvolvedor.component';
 
 describe('ListaDesenvolvedorComponent', () => {
@@ -8,7 +9,10 @@ describe('ListaDesenvolvedorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListaDesenvolvedorComponent ]
+      declarations: [ ListaDesenvolvedorComponent ],
+      imports: [
+        AppModule
+      ]
     })
     .compileComponents();
   });

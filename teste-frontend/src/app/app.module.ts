@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { LayoutModule } from '@angular/cdk/layout';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -43,7 +43,8 @@ import { ListaDesenvolvedorComponent } from './lista-desenvolvedor/lista-desenvo
     MatInputModule,
     MatChipsModule,
     MatSelectModule,
-    MatStepperModule
+    MatStepperModule,
+    FormsModule
   ],
   providers: [DesenvolvedorService],
   bootstrap: [AppComponent]

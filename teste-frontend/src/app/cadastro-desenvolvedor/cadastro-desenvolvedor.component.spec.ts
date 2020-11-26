@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { AppModule } from './../app.module';
 import { CadastroDesenvolvedorComponent } from './cadastro-desenvolvedor.component';
 
 describe('CadastroDesenvolvedorComponent', () => {
@@ -8,7 +9,10 @@ describe('CadastroDesenvolvedorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CadastroDesenvolvedorComponent ]
+      declarations: [ CadastroDesenvolvedorComponent ],
+      imports: [
+        AppModule
+      ]
     })
     .compileComponents();
   });
@@ -21,5 +25,12 @@ describe('CadastroDesenvolvedorComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should emit event', () => {
+
+    let spy = spyOn(fixture.componentInstance.addNew, 'emit');
+    fixture.componentInstance.onSave(); 
+    expect(spy).toHaveBeenCalled();
   });
 });

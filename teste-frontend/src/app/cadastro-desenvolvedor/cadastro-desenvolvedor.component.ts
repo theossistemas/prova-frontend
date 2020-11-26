@@ -42,8 +42,4 @@ export class CadastroDesenvolvedorComponent implements OnInit {
     this.addNew.emit(this.form.value);
   }
 
-  onCancel() {
-    this.form = this.createForm();
-  }
-
 }
