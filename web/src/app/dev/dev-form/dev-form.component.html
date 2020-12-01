@@ -1,0 +1,65 @@
+<div id="formContainer">
+    <button id="buttonGit">
+        <img src="../../../../assets/images/icons/github-icon.png" alt="GitHub">
+        Cadastrar com GitHub
+    </button>
+    <form id="dev-form">
+
+        <div class="inputFormDevGit">
+            <label>Usuário GitHub</label>
+            <input disabled class="inputUserGit" name="gitHubURL" />
+            <!-- "dev.gitHubURL" -->
+        </div>
+
+        <fieldset>
+
+            <hr class="solid">
+
+            <div>
+                <label>Avatar (URL)</label>
+                <input placeholder="Ex:https://github.com/Chrcastilho.png" name="avatarURL" />
+                <!-- "dev.avatarURL" -->
+            </div>
+
+            <div>
+                <label>Nome</label>
+                <input placeholder="Ex:Christian Andrade Fernandes Castilho" name="nome" />
+                <!-- "dev.nome" -->
+            </div>
+
+            <div>
+                <label>Email</label>
+                <input placeholder="Ex. chrcastilho@gmail.com" name="email" />
+                <!-- "dev.email" -->
+            </div>
+            <div>
+                <label>Cidade</label>
+                <input placeholder="Ex: Maringá" name="cidade" />
+                <!-- "dev.cidade" -->
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <hr id="diverSolid">
+            <div class="labelProfissional">
+                <legend>PROFISSIONAL</legend>
+            </div>
+            <label>Formação</label>
+            <div>
+                <input placeholder="Ex: Bacharel Ciencia da Computação" name="formacao" />
+                <!-- "dev.formacao" -->
+
+            </div>
+            <div id="textarea-block">
+                <label>Tecnologias</label>
+                <textarea placeholder="Ex. HTML/CSS, Vue, Angular etc." rows="11" name="tecnologias"></textarea>
+            </div>
+        </fieldset>
+    </form>
+
+    <div class="ButtonRegister" type="submit">
+        <button id="buttonRegister" onclick="">
+            Cadastrar
+        </button>
+    </div>
+</div>

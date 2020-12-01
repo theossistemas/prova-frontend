@@ -1,0 +1,31 @@
+#content {
+    margin: -20px auto;
+    width: 80%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 400px 2fr;
+}
+
+.gridCards {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 250px;
+}
+
+@media screen and (max-width: 1750px) {
+    .gridCards {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .gridCards {
+        grid-template-columns: auto;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #content {
+        display: block;
+    }
+}
