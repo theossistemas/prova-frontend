@@ -2,8 +2,14 @@
 <div id="content">
         <app-dev-form class="dev-form"></app-dev-form>
     <div class="gridCards">
-        <app-list-card class="list-card"></app-list-card>
-        <app-list-card class="list-card"></app-list-card>
-        <app-list-card class="list-card"></app-list-card>
+        <app-list-card 
+        *ngFor = "let cardDev of cardsDevs"
+        [name]="cardDev.name"
+        [avatarUrl]="cardDev.avatarUrl"
+        [name]="cardDev.name"
+        [city]="cardDev.city"
+        [technologies]="cardDev.technologies"
+        [linkGit]="cardDev.linkGit"
+        ></app-list-card>
     </div>
 </div>

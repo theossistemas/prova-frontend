@@ -1,21 +1,28 @@
 <div class="list-card-Dev">
     <div class="imgGit">
-    <img src="https://github.com/Chrcastilho.png" alt="avatar">
-</div>
+        <img [src]="avatarUrl" alt="avatar">
+    </div>
     <div class="cardContent">
         <div class="cardContainer">
             <section>
                 <strong>
-                    <p>Christian Castilho</p>
+                    <p>{{name}}</p>
                 </strong>
-                <p>Maringá-PR</p>
-                <p>Anuglar, Jquery, Vue</p>
+                <p>{{city}}</p>
+                <p>{{technologies}}</p>
             </section>
-            <div class="side-right">           
-            <strong><a href="https://github.com/Chrcastilho">Acessar Github</a></strong>
-                <a class="fas fa-trash" href=""></a>
+            <div class="footer">
+                <strong><a [href]="linkGit">Acessar GitHub</a></strong>
+                <div class="side-right">
+                <button (click)="handleUpdateCard()">
+                    <img src="/assets/images/icons/edit-icon.svg" alt="edit-image">
+                </button>
+                <button (click)="handleExcludeCard()">
+                    <img src="/assets/images/icons/remove-icon.svg" alt="remove-image">
+                </button>
             </div>
-            <br>
+            </div>
         </div>
     </div>
+    <br>
 </div>

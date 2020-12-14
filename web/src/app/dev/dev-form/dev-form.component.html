@@ -1,41 +1,61 @@
 <div id="formContainer">
-    <button id="buttonGit">
+    <button id="buttonGit"
+    (click)="handleGithubRegister()"
+    >
         <img src="../../../../assets/images/icons/github-icon.png" alt="GitHub">
         Cadastrar com GitHub
-    </button>
-    <form id="dev-form">
+            </button>
+    <form [formGroup]="devForm" id="dev-form">
 
-        <div class="inputFormDevGit">
+        <div class="gitHub-URL">
             <label>Usuário GitHub</label>
-            <input disabled class="inputUserGit" name="gitHubURL" />
-            <!-- "dev.gitHubURL" -->
+            <input disabled 
+            id="input-Git" 
+            name="gitHubURL" 
+            [formControlName] = "'githubUser'"
+            />
         </div>
 
         <fieldset>
 
             <hr class="solid">
 
-            <div>
+            <div id="avatar-URL">
                 <label>Avatar (URL)</label>
-                <input placeholder="Ex:https://github.com/Chrcastilho.png" name="avatarURL" />
-                <!-- "dev.avatarURL" -->
+                <input 
+                placeholder="Ex:https://github.com/Chrcastilho.png" 
+                name="avatarURL" 
+                [formControlName] = "'avatarUrl'"
+                />
             </div>
 
             <div>
                 <label>Nome</label>
-                <input placeholder="Ex:Christian Andrade Fernandes Castilho" name="nome" />
-                <!-- "dev.nome" -->
+                <input 
+                id="name-Git" 
+                placeholder="Ex:Christian Andrade Fernandes Castilho" 
+                name="nome" 
+                [formControlName] = "'nome'"
+                />
             </div>
 
             <div>
                 <label>Email</label>
-                <input placeholder="Ex. chrcastilho@gmail.com" name="email" />
-                <!-- "dev.email" -->
+                <input 
+                id="email-Git" 
+                placeholder="Ex. chrcastilho@gmail.com" 
+                name="email" 
+                [formControlName] = "'email'"
+                />
             </div>
             <div>
                 <label>Cidade</label>
-                <input placeholder="Ex: Maringá" name="cidade" />
-                <!-- "dev.cidade" -->
+                <input 
+                id="city-Git" 
+                placeholder="Ex: Maringá" 
+                name="cidade"
+                [formControlName] = "'cidade'"
+                />
             </div>
         </fieldset>
 
@@ -46,20 +66,35 @@
             </div>
             <label>Formação</label>
             <div>
-                <input placeholder="Ex: Bacharel Ciencia da Computação" name="formacao" />
-                <!-- "dev.formacao" -->
+                <input 
+                id="formacao-Git" 
+                placeholder="Ex: Bacharel Ciencia da Computação" 
+                name="formacao"
+                [formControlName] = "'formacao'"
+                />
 
             </div>
-            <div id="textarea-block">
+            <div id="textarea-Git">
                 <label>Tecnologias</label>
-                <textarea placeholder="Ex. HTML/CSS, Vue, Angular etc." rows="11" name="tecnologias"></textarea>
+                <textarea 
+                placeholder="Ex. HTML/CSS, Vue, Angular etc." 
+                rows="11" 
+                name="tecnologias"
+                [formControlName] = "'tecnologias'"
+                ></textarea>
             </div>
         </fieldset>
     </form>
 
     <div class="ButtonRegister" type="submit">
-        <button id="buttonRegister" onclick="">
+        <button id="button-Register"
+        (click)="handleDevFormRegister()">
             Cadastrar
         </button>
     </div>
+    <section #dialog class="dialog">
+        <div class="dialogContent"
+             [innerHTML]="githubAuthHTML">
+        </div>
+    </section>
 </div>

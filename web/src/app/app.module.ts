@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { DevFormComponent } from './dev/dev-form/dev-form.component';
 import { ListCardComponent } from './dev/list-card/list-card.component';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,12 +15,13 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     DevFormComponent,
     ListCardComponent,
-    // FormBuilder,
-    // ReactiveFormsModule
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

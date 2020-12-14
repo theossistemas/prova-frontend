@@ -4,12 +4,12 @@
     height: auto;
     display: grid;
     grid-template-columns: 400px 2fr;
+        grid-auto-rows: 250px;
 }
 
 .gridCards {
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-template-rows: 250px;
 }
 
 @media screen and (max-width: 1750px) {
@@ -27,5 +27,18 @@
 @media screen and (max-width: 1000px) {
     #content {
         display: block;
+    }
+
+    .gridCards {
+        grid-template-columns: auto auto;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .gridCards {
+        width: 75vw;
+        justify-items: center;
+        grid-template-columns: auto;
     }
 }
