@@ -1,0 +1,49 @@
+<div class="box-form" [formGroup]="devForm">
+    <div class="from-github">
+        <i class="fab fa-github"></i> Cadastrar com GitHub
+    </div>
+    <div>
+        <label for="userGitHub">Usuário GitHub</label>
+        <input id="userGitHub" formControlName="login" (keyup)="searchFromGitHub()">
+        <app-control-error [control]="devForm.get('login')"></app-control-error>
+    </div>
+    <div class="personal-information">
+        <div>
+            <label for="avatar">Avatar (URL)</label>
+            <input formControlName="avatar_url" id="avatar">
+            <app-control-error [control]="devForm.get('avatar_url')"></app-control-error>
+        </div>
+        <div>
+            <label for="name">Nome</label>
+            <input formControlName="name" id="name">
+            <app-control-error [control]="devForm.get('name')"></app-control-error>
+        </div>
+        <div>
+            <label for="email">E-mail</label>
+            <input formControlName="email" type="email" id="email">
+            <app-control-error [control]="devForm.get('email')"></app-control-error>
+        </div>
+        <div>
+            <label for="city">Cidade</label>
+            <input formControlName="city" id="city">
+            <app-control-error [control]="devForm.get('city')"></app-control-error>
+        </div>
+    </div>
+
+    <div class="professional-information">
+        <h3>PROFISSIONAL</h3>
+        <div>
+            <label for="professional-qualification">Formação</label>
+            <input formControlName="bio" id="professional-qualification">
+            <app-control-error [control]="devForm.get('bio')"></app-control-error>
+        </div>
+        <div>
+            <label for="technology">Tecnologias</label>
+            <textarea formControlName="techs" id="technology" rows="5">
+            </textarea>
+            <app-control-error [control]="devForm.get('techs')"></app-control-error>
+        </div>
+    </div>
+    <button [disabled]="devForm.invalid || loading" (click)="addDev()">Cadastrar</button>
+
+</div>

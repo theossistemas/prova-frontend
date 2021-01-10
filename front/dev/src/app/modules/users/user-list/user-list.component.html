@@ -1,0 +1,35 @@
+<div class="header">
+    <div class="title">Cadastro DEV</div>
+    <div>
+        <input (keyup)="searchDev()" [formControl]="query" class="search" placeholder="Buscar DEV por tecnologia"><i
+            class="fas fa-search"></i>
+    </div>
+</div>
+
+<div class="box">
+    <app-user-form></app-user-form>
+    <div class="list-users">
+        <img *ngIf="loading" src="./assets/loading.svg" alt="loading">
+        <h3 *ngIf="!loading && !devs.length">Nenhum Dev enconotrado!</h3>
+        <div class="card-user" *ngFor="let dev of devs; let i=index">
+            <img [src]="dev.avatar_url" alt="">
+            <div class="card-body">
+                <div class="name">{{ dev.name }}</div>
+                <div>{{dev.city}}</div>
+                <div>{{dev.techs}}</div>
+            </div>
+            <div class="card-footer">
+                <div>
+                    <a [href]="'https://github.com/'+dev.login" target="_black">
+                        Acessar GitHub
+                    </a>
+                </div>
+                <div>
+                    <i class="far fa-edit"> </i>
+                    <i (click)="getdeleteDevDevs(dev, i)" class="far fa-trash-alt"></i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

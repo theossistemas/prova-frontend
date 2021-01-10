@@ -1,0 +1,37 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "baseUrl": "./",
+        "paths": {
+            "*": [
+                "./*"
+            ],
+            "lib": [
+                "src/"
+            ]
+        },
+        "target": "ES2019",
+        "noImplicitAny": true,
+        "module": "CommonJS",
+        "outDir": "./dist",
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "Node",
+        "sourceMap": true,
+        "strict": true,
+        "noUnusedLocals": false,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+    },
+    "compileOnSave": true,
+    "include": [
+        "src/**/*.ts",
+        "env.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "src/**/?(*.)+(spec|test).[tj]s?(x)",
+        "src/**/__tests__/**/*.[jt]s?(x)"
+    ]
+}
