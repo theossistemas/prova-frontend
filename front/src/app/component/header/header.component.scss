@@ -1,0 +1,16 @@
+nav {
+    background-color: #1b212d ;
+}
+
+span {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.form-control-lg {
+    width: 20%;
+}
+
+option:disabled {
+    color: -internal-light-dark(graytext, rgb(59, 59, 59));
+}
