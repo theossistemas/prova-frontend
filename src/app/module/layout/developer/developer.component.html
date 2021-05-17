@@ -1,0 +1,29 @@
+<mat-toolbar>
+  <mat-form-field class="col-6 center">
+    <mat-label>BUSCAR POR DADOS PROFISSIONAIS</mat-label>
+    <input type="text" matInput placeholder="EX: Angular" [(ngModel)]="search">
+    <mat-icon class="pointer font-15 text-primary" matSuffix (click)="getBySearch()">search</mat-icon>
+  </mat-form-field>
+</mat-toolbar>
+<mat-card class="col-4 card" style="float:left" *ngFor="let dev of devsFiltered">
+  <mat-card-header>
+    <div mat-card-avatar class="avatar" [ngStyle]="{'background-image': 'url(' + (dev.avatarUrl ? dev.avatarUrl : './../../../../../assets/profileavatar.png') + ')'}"></div>
+    <mat-card-title>{{dev.name}}</mat-card-title>
+    <mat-card-subtitle>{{getCityAndState(dev)}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <h5>Formação Acadêmica</h5>
+    <p class="text-muted">
+      <ng-container *ngFor="let formation of dev.formations"> {{formation.formation}} <br></ng-container>
+    </p>
+    <!-- <mat-divider></mat-divider> -->
+    <h5>Profissional</h5>
+    <p class="text-muted">
+      <ng-container *ngFor="let technology of dev.technologies"> {{technology.name}} <br></ng-container>
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <a *ngIf="dev.userGitHub" mat-button color="primary" href="https://github.com/{{dev.userGitHub}}" target="_blank"><i class="fab fa-github"></i> Acessar GitHub</a>
+  </mat-card-actions>
+</mat-card>
+

@@ -1,0 +1,99 @@
+<section>
+  <div class="center container-cadastro">
+    <h4 *ngIf="!user">
+      <mat-icon class="icon">person_add</mat-icon> Novo Cadastro
+    </h4>
+    <h4 *ngIf="user">
+      <div class="avatar" [ngStyle]="{'background-image': 'url(' + (user.avatarUrl ? user.avatarUrl : './../../../../../assets/profileavatar.png') + ')'}"></div>
+       Meus Dados
+    </h4>
+
+    <form [formGroup]="devForm">
+      <mat-form-field class="col-12">
+        <mat-label>Usuário GitHub</mat-label>
+        <input type="text" (input)="getUserGitHub(devForm.get('userGitHub')?.value)" matInput placeholder="EX: giovanek1" formControlName="userGitHub">
+      </mat-form-field>
+
+      <h5 class="col-12">Dados Pessoais</h5>
+      <mat-divider></mat-divider>
+      <mat-form-field class="col-6">
+        <mat-label>Nome Completo</mat-label>
+        <input type="text" matInput placeholder="EX: Giovane M Zarembski" formControlName="name">
+        <mat-error *ngIf="devForm.get('name')?.invalid">Campo obrigatório e com no minimo 3 caracters!</mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-6">
+        <mat-label>E-mail</mat-label>
+        <input type="text" matInput placeholder="EX: giovane@mail.com" formControlName="email">
+        <mat-error *ngIf="devForm.get('email')?.invalid">Campo obrigatório e deve ser um endereço de e-mail válido!</mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-6">
+        <mat-label>Estado</mat-label>
+        <mat-select placeholder="Paraná" formControlName="stateId">
+          <mat-option *ngFor="let state of states" [value]="state.id">{{state.name}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="devForm.get('stateId')?.invalid">Campo obrigatório!</mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-6">
+        <mat-label>Cidade</mat-label>
+        <mat-select placeholder="Guarapuava" formControlName="cityId">
+          <mat-option *ngFor="let city of getCitiesByState()" [value]="city.id">{{city.name}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="devForm.get('cityId')?.invalid">Campo obrigatório!</mat-error>
+      </mat-form-field>
+
+      <h5 class="col-12">Formação Acadêmica
+        <mat-icon class="float-right font-15 pointer text-success" matSuffix (click)="addFormations()">add_circle</mat-icon>
+      </h5>
+      <mat-divider></mat-divider>
+      <ng-container formArrayName="formations">
+
+        <mat-form-field class="col-12" *ngFor="let array of arrayFormations.controls; let i=index"
+          formGroupName="{{i}}">
+          <mat-label>Formação</mat-label>
+          <input type="text" matInput placeholder="EX: Tecnologia em Análise e Desenvolvimento de Sistemas"
+            formControlName="formation">
+          <mat-icon *ngIf="arrayFormations.controls.length > 1" class="pointer font-15 text-danger" matSuffix
+            (click)="removeFormations(i)">cancel</mat-icon>
+          <mat-error *ngIf="devForm.get('formations')?.get(i+'')?.get('formation')?.invalid">Campo obrigatório!
+          </mat-error>
+        </mat-form-field>
+      </ng-container>
+
+      <h5 class="col-12">Profissional</h5>
+      <mat-divider></mat-divider>
+      <mat-form-field class="col-12">
+        <mat-label>Tecnologias</mat-label>
+        <mat-chip-list #chipList aria-label="Tecnologias">
+          <mat-chip *ngFor="let technology of arrayTechnologies.controls; let i=index" [selectable]="selectable"
+            [removable]="removable" (removed)="remove(i)">
+            {{technology.value.name }}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          <input placeholder="EX: Angular" [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+            (matChipInputTokenEnd)="addTechnologies($event)">
+        </mat-chip-list>
+        <mat-error *ngIf="devForm.get('technologies')?.invalid">Campo obrigatório!</mat-error>
+      </mat-form-field>
+
+      <h5 class="col-12">Dados de Acesso</h5>
+      <mat-divider></mat-divider>
+      <mat-form-field class="col-6">
+        <mat-label>Login</mat-label>
+        <input type="text" matInput placeholder="EX: giovanek1" formControlName="login">
+        <mat-error *ngIf="devForm.get('login')?.invalid">Campo obrigatório e com no minimo 3 caracters!</mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-6">
+        <mat-label>Senha</mat-label>
+        <input [type]="!showPassword ? 'password' : 'text'" matInput placeholder="******" formControlName="password">
+        <mat-icon class="pointer font-15 text-primary" matSuffix (click)="showPassword = !showPassword">{{showPassword ?
+          'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-error *ngIf="devForm.get('password')?.invalid">Campo obrigatório e com no minimo 6 caracters!</mat-error>
+      </mat-form-field>
+      <div class="col-12">
+          <button mat-raised-button color="primary" (click)="save()" class="btn-send"
+          aria-label="Botão para realizar a tentiva de login">Salvar</button>
+        </div>
+    </form>
+  </div>
+</section>

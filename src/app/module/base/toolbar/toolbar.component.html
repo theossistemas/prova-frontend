@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+  <a [routerLink]="['/devs']" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <span class="text-center"> CADASTRO DEV</span>
+  </a>
+  <span class="example-spacer"></span>
+  <ng-container *ngIf="!user">
+    <a mat-icon-button class="example-icon" [routerLink]="['novo-cadastro']"
+      aria-label="Botão para adicionar novo cadastro" matTooltip="Cadastre-se">
+      <mat-icon>add_box</mat-icon>
+    </a>
+  </ng-container>
+  <ng-container *ngIf="user">
+    <button mat-icon-button class="example-icon" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      {{user.name}}<mat-icon>person</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <a [routerLink]="['/meus-dados']" mat-menu-item>
+        <mat-icon>person</mat-icon>
+        <span>Meus Dados</span>
+      </a>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Sairs</span>
+      </button>
+    </mat-menu>
+  </ng-container>
+</mat-toolbar>

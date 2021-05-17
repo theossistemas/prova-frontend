@@ -1,0 +1,21 @@
+
+<section >
+  <div class="center container-login">
+    <h4><mat-icon class="icon">account_circle</mat-icon> Acesse sua conta</h4>
+    <form [formGroup]="loginForm" >
+      <mat-form-field class="example-full-width">
+        <mat-label>Login</mat-label>
+        <input type="text" matInput placeholder="EX: giovanek1" formControlName="login">
+        <mat-error *ngIf="loginForm.get('login')?.invalid">Campo obrigatório e com no minimo 3 caracters!</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Senha</mat-label>
+        <input [type]="!showPassword ? 'password' : 'text'" matInput placeholder="******" formControlName="password">
+        <mat-icon class="pointer font-15 text-primary"  matSuffix (click)="showPassword = !showPassword">{{showPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-error *ngIf="loginForm.get('password')?.invalid">Campo obrigatório e com no minimo 6 caracters!</mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="login()" aria-label="Botão para realizar a tentiva de login">Acessar</button>
+    </form>
+  </div>
+</section>

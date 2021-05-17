@@ -1,0 +1,71 @@
+section{
+  width:100%
+}
+.center{
+  margin: auto;
+}
+.container-cadastro{
+  width: 700px;
+  margin-top: 30px;
+}
+form{
+  padding: 30px 20px;
+  border-radius: 10px;
+  background-color: rgb(226, 226, 226);
+}
+.icon{
+  vertical-align: text-top;
+  font-size: 20pt;
+}
+
+mat-divider{
+  margin: 0 2% !important;
+  width: 96%;
+}
+
+h5{
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+h4{
+  text-align: center;
+  margin-bottom: 30px;
+  font-size:18pt;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+
+
+.btn-send{
+margin-left: 564px;
+margin-top: 5px;
+}
+
+@media screen and (max-width: 992px) {
+  .container-cadastro {
+      margin-top: 20px !important;
+      width: 350px;
+  }
+  .btn-send{
+    margin-left: 0px;
+    width: 100%;
+  }
+}
+
+
+@media screen and (max-width: 350px) {
+  .container-cadastro{
+    width: 250px;
+  }
+  .icon{
+    font-size: 18pt;
+  }
+  h4{
+    font-size:16pt;
+    margin-bottom: 20px;
+  }
+
+}

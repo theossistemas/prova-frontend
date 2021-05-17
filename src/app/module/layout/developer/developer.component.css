@@ -1,0 +1,27 @@
+.card {
+  height : 310px;
+}
+mat-card-content{
+  height :200px;
+}
+.example-header-image {
+  background-image : url ( 'https://material.angular.io/assets/img/examples/shiba1.jpg' );
+}
+h5{
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 7.5pt;
+  margin: 10px 0;
+}
+.text-muted{
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 7pt;
+  color: rgb(65, 64, 64);
+}
+
+.fab{
+  vertical-align: text-top;
+}
