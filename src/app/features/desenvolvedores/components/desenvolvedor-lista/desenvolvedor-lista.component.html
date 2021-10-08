@@ -1,0 +1,32 @@
+<section>
+    <div class="row d-flex justify-content-around">
+        <ng-template [ngForOf]="desenvolvedores" let-desenvolvedor ngFor>
+            <mat-card class="col-5 mt-5" style="background-color: #3f51b5">
+                <mat-card-title-group>
+                    <mat-card-subtitle style="color: white">{{ desenvolvedor.nome }}</mat-card-subtitle>
+                    <mat-card-subtitle style="color: white">{{ desenvolvedor.cidade }}</mat-card-subtitle>
+                    <mat-card-subtitle style="color: white">{{ desenvolvedor.tecnologia }}</mat-card-subtitle>
+                    <img style="position: relative; top: -50px; border-radius: 50px" mat-card-sm-image
+                         [src]="desenvolvedor.avatar">
+                </mat-card-title-group>
+                <mat-card-content style="color: white">
+                    <div class="row d-flex">
+                        <div class="col-6 d-flex align-items-center">
+                            <ng-container *ngIf="desenvolvedor.github">
+                                <a class="btn-github" href="https://github.com/{{desenvolvedor.github}}" target="_blank">acessar github</a>
+                            </ng-container>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                            <button mat-icon-button style="color: #f6f499">
+                                <i class="fas fa-edit" (click)="aoEditar(desenvolvedor)"></i>
+                            </button>
+                            <button mat-icon-button style="color: #db1717" (click)="aoDeletar(desenvolvedor)">
+                                <i class="far fa-trash-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </ng-template>
+    </div>
+</section>

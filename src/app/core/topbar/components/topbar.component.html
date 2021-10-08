@@ -1,0 +1,15 @@
+<mat-toolbar color="primary" style="height: 80px">
+    <mat-toolbar-row>
+        <div class="espaco d-flex col-xl-8 col-md-7 col-sm-12 justify-content-center">
+            <span>Cadastro DEV</span>
+        </div>
+        <div class="d-flex col-xl-4 col-md-5 col-sm-12 justify-content-end">
+            <ng-template [ngIf]="!isEditando">
+                <form [formGroup]="formulario" (ngSubmit)="aoLocalizar()" class="d-flex">
+                    <button mat-raised-button color="accent" class="mr-1">Buscar</button>
+                    <input matInput formControlName="busca" id="busca" placeholder="Digite sua busca..." style="background-color: white; color: black">
+                </form>
+            </ng-template>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

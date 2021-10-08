@@ -1,0 +1,15 @@
+<app-topbar [isEditando]="true"></app-topbar>
+
+<ng-container>
+    <div class="container p-3" style="background-color: white">
+        <div class="row">
+            <div class="col-xl-12 col-sm-12 d-flex justify-content-end">
+                <button mat-raised-button color="primary" [routerLink]="['../']"><i class="fas fa-arrow-left pr-2"></i> Voltar</button>
+            </div>
+            <div class="col-xl-12 col-sm-12">
+                <app-desenvolvedor-cadastro-formulario [desenvolvedor]="desenvolvedor"
+                                                       (salvar)="salvarFormulario($event)"></app-desenvolvedor-cadastro-formulario>
+            </div>
+        </div>
+    </div>
+</ng-container>
