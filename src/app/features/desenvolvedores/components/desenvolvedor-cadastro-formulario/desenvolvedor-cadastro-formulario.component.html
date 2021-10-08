@@ -1,0 +1,48 @@
+<section class="m-4">
+    <button mat-raised-button mat-stroked-button style="width: 100%" (click)="cadastrarPeloGithub()">
+        <i class="fab fa-github fa-2x"></i> Cadastrar com GitHub
+    </button>
+    <div class="mt-3 ">
+        <form [formGroup]="formulario" (ngSubmit)="aoSalvar()">
+            <ng-template [ngIf]="isPeloGithub">
+                <app-campo-input label="Usuário GitHub" formControlName="github" id="github"
+                                 [control]="obterControleDoCampo('github')"></app-campo-input>
+                <div class="row d-flex justify-content-around" >
+                    <div>
+                        <button mat-raised-button class="btn-success" type="button" (click)="fecharOpcaoPeloGit()">Cancelar</button>
+                    </div>
+                    <div>
+                        <button mat-raised-button class="btn-success" type="button" [disabled]="!formulario.get('github').value"
+                                (click)="preencherCamposComDadosDoGithub()">Autenticar</button>
+                    </div>
+                </div>
+            </ng-template>
+
+            <hr class="breakline"><h3 class="d-flex justify-content-center">PESSOAIS</h3>
+
+            <app-campo-input label="Avatar (URL)" formControlName="avatar" id="avatar"
+                             [control]="obterControleDoCampo('avatar')"></app-campo-input>
+
+            <app-campo-input label="Nome" formControlName="nome" id="nome"
+                             [control]="obterControleDoCampo('nome')"></app-campo-input>
+
+            <app-campo-input label="Email" formControlName="email" id="email"
+                             [control]="obterControleDoCampo('email')"></app-campo-input>
+
+            <app-campo-input label="Cidade" formControlName="cidade" id="cidade"
+                             [control]="obterControleDoCampo('cidade')"></app-campo-input>
+
+            <hr class="breakline"><h3 class="d-flex justify-content-center">PROFISSIONAL</h3>
+
+            <app-campo-input label="Formação" formControlName="formacao" id="formacao"
+                             [control]="obterControleDoCampo('formacao')"></app-campo-input>
+
+            <app-campo-textarea label="Tecnologias" placeholder="ex: HTML/CSS, Vue, Angular etc." id="tecnologia"
+                                formControlName="tecnologia" [control]="obterControleDoCampo('tecnologia')"></app-campo-textarea>
+
+            <button mat-raised-button class="btn-success" [disabled]="!formularioValido">Cadastrar</button>
+        </form>
+    </div>
+</section>
+
+

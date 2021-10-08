@@ -59,3 +59,14 @@ https://www.figma.com/file/bSqhBBS9LdOehdEkJ6frDz/Teste-Frontend?node-id=0%3A1
     2. Realize o teste;
     3. Adicione seu currículo na raiz do repositório;
     4. Envie-nos o PULL-REQUEST para que seja avaliado;
+
+
+## Instalação
+
+Primeira vez antes de correr o sistema digite `npm install` para instalar os pacotes e dependencias do sistema.
+
+## Correr o sistema
+
+No terminal dentro digite `ng serve` para correr o server. Navege através de `http://localhost:4200/`. 
+Em outra aba do terminal digite `json-server db.json` para subir o json server com o fake back-end.
+

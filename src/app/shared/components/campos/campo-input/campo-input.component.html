@@ -1,0 +1,20 @@
+<app-campo-wrapper [label]="label" [forId]="id" [classesCss]="classesCss" [control]="control">
+    <ng-container *ngIf="formControlName; else templateDriven">
+        <div class="col-12 p-0">
+            <mat-form-field appearance="outline" [style]="estilo">
+                <input matInput [formControlName]="formControlName" [id]="id"  [attr.aria-describedby]="id + '-help'"
+                       on-focusout="registerOnTouched({})" [placeholder]="placeholder">
+            </mat-form-field>
+        </div>
+        <small [id]="id + '-help'" *ngIf="helper">{{helper}}</small>
+    </ng-container>
+    <ng-template #templateDriven>
+        <div class="col p-0">
+            <mat-form-field appearance="outline" [style]="estilo" >
+                <input matInput [placeholder]="placeholder" [id]="id" [(ngModel)]="valorDoCampo"
+                       [attr.aria-describedby]="id + '-help'" on-focusout="registerOnTouched({})">
+            </mat-form-field>
+        </div>
+        <small [id]="id + '-help'" *ngIf="helper">{{helper}}</small>
+    </ng-template>
+</app-campo-wrapper>

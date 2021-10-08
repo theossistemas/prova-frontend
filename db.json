@@ -1,0 +1,34 @@
+{
+  "desenvolvedores": [
+    {
+      "id": 1,
+      "nome": "João da Silva",
+      "github": "",
+      "avatar": "https://www.primefaces.org/california-ng/assets/layout/images/avatar-john.png",
+      "email": "j.silva@demo.com.br",
+      "cidade": "Maringá - PR",
+      "formacao": "Superior",
+      "tecnologia": "Vue, Angular, HTML5"
+    },
+    {
+      "id": 2,
+      "nome": "Maria da Silva Junior",
+      "github": "",
+      "avatar": "https://www.primefaces.org/california-ng/assets/layout/images/avatar.png",
+      "email": "maria.silva@demo.com.br",
+      "cidade": "Maringá - PR",
+      "formacao": "Superior",
+      "tecnologia": "Typescript"
+    },
+    {
+      "id": 3,
+      "nome": "Jefferson Ricardo Mendonca",
+      "github": "jefferson206",
+      "avatar": "https://avatars.githubusercontent.com/u/43391113?v=4",
+      "email": "jeffersonrmendonca@hotmail.com",
+      "cidade": "Maringá",
+      "formacao": "superior",
+      "tecnologia": "Typescript, Angular, Python, Java, Spring Boot, Docker, Docker-compose"
+    }
+  ]
+}
