@@ -1,27 +1,8 @@
-.titulo{
-  position: absolute;
-  top: .8vh;
-  left: 16.5vw;
-  font-weight: bold;
-  color: #fff;
-  place-content: center;
-  padding-left: 5px;
 
-}
-.titulo::before {
-  content: ''; /* Cria um pseudo-elemento vazio */
-  position: absolute; /* Posiciona o pseudo-elemento de forma absoluta */
-  left: 0; /* Alinha o pseudo-elemento à esquerda do elemento pai */
-  top: 50%; /* Posiciona o topo do pseudo-elemento no meio do elemento pai */
-  transform: translateY(-50%); /* Ajusta o pseudo-elemento para que fique centralizado verticalmente */
-  width: 3px; /* Define a largura da linha */
-  height: 50%; /* Define a altura da linha, você pode ajustar este valor conforme necessário */
-  background-color: #4ecfc3; /* Define a cor da linha */
-}
 
 .form-container {
   position: absolute;
-  top: 6.5vh;
+  top: -2.5vh;
   left: 12vw;
   width: 26vw;
   padding: 20px;
@@ -72,7 +53,7 @@ button:hover {
 .linha
 {
   background: #4ecfc3;
-  width: 2px;
+  width: 3px;
   height: 20px;
 }
 
@@ -81,8 +62,17 @@ button:hover {
   box-shadow: 0 2px 0 0 #ddd;
 }
 
-#profissional{
+#profissionalTitulo{
   text-align: center;
   font-weight: bold;
   font-size: large;
+}
+
+.has-error input,
+.has-error textarea {
+  border-color: red;
+}
+
+.text-danger {
+  color: red;
 }

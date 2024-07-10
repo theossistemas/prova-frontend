@@ -1,0 +1,44 @@
+<section class="container editar-desenvolvedores ff-inter">
+  <header class="header">
+    <h2>Adicione um <br> Desenvovledor novo:</h2>
+  </header>
+  <form formGroup="formulario" *ngIf="formulario">
+    <label for="tecnologias">Tecnologias</label>
+    <input
+      type="textarea"
+      class="input"
+      id="tecnologias"
+      formControlName="nome"
+      placeholder="Digite as tecnologias"
+      >
+      <div class="mensagem__erro" *ngIf="formulario.get('tecnologias')?.errors
+      && formulario.get('tecnologias')?.touched
+      ">
+       As tecnologias são obrigatórias!
+      </div>
+    <label for="nome">Nome</label>
+    <input
+      type="text"
+      class="input"
+      id="nome"
+      formControlName="nome"
+      placeholder="Digite o nome do desenvolvedor"
+      >
+      <div class="mensagem__erro"
+      *ngIf="formulario.get('nome')?.errors?.['required']
+      && formulario.get('nome')?.touched
+      ">
+        O nome é obrigatório!
+      </div>
+    <div class="acoes">
+      <button
+      [disabled]="!formulario.valid"
+      (click)="editarDesenvolvedor()"
+      ngClass="{{habilitarBotao()}}"
+       >Salvar
+      </button>
+      <button (click)="cancelar()"  class="botao button-cancelar">Cancelar</button>
+    </div>
+  </form>
+
+</section>

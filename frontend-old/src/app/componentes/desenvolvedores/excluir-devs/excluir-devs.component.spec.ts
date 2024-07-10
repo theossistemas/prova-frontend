@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DesenvolvedoresComponent } from './desenvolvedores.component';
+import { ExcluirDevsComponent } from './excluir-devs.component';
 
-describe('DesenvolvedoresComponent', () => {
-  let component: DesenvolvedoresComponent;
-  let fixture: ComponentFixture<DesenvolvedoresComponent>;
+describe('ExcluirDevsComponent', () => {
+  let component: ExcluirDevsComponent;
+  let fixture: ComponentFixture<ExcluirDevsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DesenvolvedoresComponent]
+      imports: [ExcluirDevsComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DesenvolvedoresComponent);
+    fixture = TestBed.createComponent(ExcluirDevsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

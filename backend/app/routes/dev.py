@@ -1,4 +1,4 @@
-from fastapi import APIRouter 
+from fastapi import APIRouter, Query 
 from models.desenvolvedores import DesenvolvedorModel, AtualizarDesenvolvedorModel
 from config.config import devs_Collections
 from serializers.dev import decodeDevs, decodeDev
@@ -20,16 +20,24 @@ def newDev(dev:DesenvolvedorModel):
 
 # get desenvolvedores
 @dev_root.get("/all/devs")
-def allDevs():
-    devs = devs_Collections.find()
-    decoded_data = decodeDevs(devs)
-    return {"status": "ok", "data": decoded_data}
+def allDevs(page: int = Query(1, description="Número da página"), limit: int = Query(10, description="Limite de desenvolvedores a serem retornados por página")):
+    if page < 1:
+        page = 1
+    if limit < 1:
+        limit = 10
+    
+    skip = (page - 1) * limit
+    
+    devs = devs_Collections.find().skip(skip).limit(limit)
 
-@dev_root.get("/dev/{dev_id}")
-def getDev(dev_id:str):
-    dev = devs_Collections.find_one({"_id": dev_id})
-    decoded_data = decodeDev(dev)
-    return {"status": "ok", "data": decoded_data}
+    decoded_data = decodeDevs(devs)
+    return [decoded_data]
+
+@dev_root.get("/dev/{_id}")
+def Getblog(_id:str) :
+    res = devs_Collections.find_one({"_id" : ObjectId(_id) }) 
+    decoded_dev = decodeDev(res)
+    return decoded_dev
 
 # atualizando devs
 @dev_root.put("/update/dev/{dev_id}")
@@ -42,4 +50,4 @@ def atualizandoDev(dev_id:str, dev:AtualizarDesenvolvedorModel):
 @dev_root.delete("/delete/dev/{dev_id}")
 def deletandoDev(dev_id:str):
     devs_Collections.find_one_and_delete({"_id": ObjectId(dev_id)})
-    return {"status": "ok", "message": "Desenvolvedor deletado com sucesso"}
+    return {"status": "ok", "message": dev_id}

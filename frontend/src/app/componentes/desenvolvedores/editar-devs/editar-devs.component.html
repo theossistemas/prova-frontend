@@ -1,0 +1,83 @@
+<section class="container editar-desenvolvedores ff-inter">
+  <header class="header">
+    <h2>Editando programador:</h2>
+  </header>
+  <form [formGroup]="formulario" *ngIf="formulario">
+    <label for="nome">Nome</label>
+    <input
+      type="textarea"
+      class="input"
+      id="nome"
+      formControlName="nome"
+      placeholder="Digite o Nome"
+      >
+      <div class="mensagem__erro" *ngIf="formulario.get('nome')?.errors
+      && formulario.get('nome')?.touched
+      ">
+       O nome é obrigatório!
+      </div>
+    <label for="email">Email</label>
+    <input
+      type="text"
+      class="input"
+      id="email"
+      formControlName="email"
+      placeholder="Digite o Email do desenvolvedor"
+      >
+      <div class="mensagem__erro"
+      *ngIf="formulario.get('email')?.errors?.['required']
+      && formulario.get('email')?.touched
+      ">
+        O Email é obrigatório!
+      </div>
+      <label for="cidade">Cidade</label>
+    <input
+      type="textarea"
+      class="input"
+      id="cidade"
+      formControlName="cidade"
+      placeholder="Digite a Cidade"
+      >
+      <div class="mensagem__erro" *ngIf="formulario.get('cidade')?.errors
+      && formulario.get('cidade')?.touched
+      ">
+       A cidade é obrigatória!
+      </div>
+      <label for="profissao">Profissão</label>
+    <input
+      type="textarea"
+      class="input"
+      id="profissao"
+      formControlName="profissao"
+      placeholder="Digite as Formações"
+      >
+      <div class="mensagem__erro" *ngIf="formulario.get('profissao')?.errors
+      && formulario.get('profissao')?.touched
+      ">
+       As Formações são obrigatorias!
+      </div>
+      <label for="tecnologias">Tecnologias</label>
+    <input
+      type="textarea"
+      class="input"
+      id="tecnologias"
+      formControlName="tecnologias"
+      placeholder="Digite as Tecnologias"
+      >
+      <div class="mensagem__erro" *ngIf="formulario.get('tecnologias')?.errors
+      && formulario.get('tecnologias')?.touched
+      ">
+       As tecnologias são obrigatorias!
+      </div>
+    <div class="acoes">
+      <button
+      [disabled]="!formulario.valid"
+      (click)="editarDesenvolvedor()"
+      ngClass="{{habilitarBotao()}}"
+       >Salvar
+      </button>
+      <button (click)="cancelar()"  class="botao button-cancelar">Cancelar</button>
+    </div>
+  </form>
+
+</section>

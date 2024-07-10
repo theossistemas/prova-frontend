@@ -1,0 +1,32 @@
+<section class="container-fluid vh-100">
+  <div class="row">
+    <div class="col-md-5">
+      <app-cadastro-devs></app-cadastro-devs>
+    </div>
+    <div class="col-md-7">
+      <div class="mural" *ngIf="listaDesenvolvedores.length > 0, else semDesenvolvedores">
+        <div *ngFor="let desenvolvedor of listaDesenvolvedores">
+          <app-desenvolvedor [desenvolvedor]="desenvolvedor"></app-desenvolvedor>
+        </div>
+      </div>
+      <app-botao-carregar-mais
+      [haMaisDesenvolvedores]="haMaisDesenvolvedores"
+      (click)="carregarMaisDesenvolvedores()">
+
+      </app-botao-carregar-mais>
+      <ng-template #semDesenvolvedores>
+        <div class="ff-inter sem-desenvolvedores">
+          <p>Ainda não há Desenvolvedores cadastrados!</p>
+        </div>
+      </ng-template>
+
+    </div>
+  </div>
+
+
+
+
+
+
+</section>
+

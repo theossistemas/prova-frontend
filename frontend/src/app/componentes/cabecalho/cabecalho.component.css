@@ -24,4 +24,10 @@ background-color: rgba(26,32,44,255) ;
   margin-top: 10px;
 }
 
-
+#titulo{
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  top: 0;
+  margin-right: 3vw;
+}

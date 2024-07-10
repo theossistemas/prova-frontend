@@ -9,6 +9,7 @@ class DesenvolvedorModel(BaseModel):
     profissao: str
     tecnologias: str
     avatar: str
+    github: str
 
 class AtualizarDesenvolvedorModel(BaseModel):
     nome: Optional[str] = None
@@ -17,6 +18,6 @@ class AtualizarDesenvolvedorModel(BaseModel):
     profissao: Optional[str] = None
     tecnologias: Optional[str] = None
     avatar: Optional[str] = None
-
+    github: Optional[str] = None
  
 

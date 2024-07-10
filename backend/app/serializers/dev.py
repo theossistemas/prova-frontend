@@ -6,7 +6,9 @@ def decodeDev(dev) -> dict:
         'profissao': dev["profissao"],
         'tecnologias': dev["tecnologias"],
         'avatar': dev["avatar"],
-        'data_criacao': dev["data_criacao"]
+        'data_criacao': dev["data_criacao"],
+        'github': dev["github"],
+        'email': dev["email"]
     }
 
 # todos os desenvolvedores

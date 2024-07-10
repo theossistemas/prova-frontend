@@ -1,0 +1,6 @@
+<div class="center" *ngIf="haMaisDesenvolvedores; else semMaisDesenvolvedores">
+  <button class="botao carregar-mais">Carregar mais</button>
+</div>
+<ng-template #semMaisDesenvolvedores>
+  <p class="mensagem-center ff-inter"> Não há mais desenvolvedores para exibir</p>
+</ng-template>
