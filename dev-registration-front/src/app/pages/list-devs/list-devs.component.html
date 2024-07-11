@@ -1,0 +1,20 @@
+<div class="container">
+
+  <input class="form-control me-2" type="search" style="margin-top: 8px;" placeholder="Search" (input)="search($event)" aria-label="Search">
+
+  <h5 *ngIf="notFund" class="card-title">Not found</h5>
+  
+  <div class="card" style="width: 18rem;" *ngFor="let dev of filteredDevs">
+    <img *ngIf="dev.avatarUrl != ''" src="{{dev.avatarUrl}}" class="card-img-top" alt="...">
+    <img *ngIf="dev.avatarUrl == ''"  src="../../../assets/avatar.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{dev.name}}</h5>
+      <p class="card-text">{{dev.technologies}}</p>
+      <p class="card-text">{{dev.education}}</p>
+      <p class="card-text">{{dev.location}}</p>
+      <p class="card-text" *ngIf="dev.htmlUrl != ''"><small class="text-body-secondary"> <a href="{{dev.htmlUrl}}"
+        target="_blank">Github</a></small></p>
+    </div>
+  </div>
+
+</div>
