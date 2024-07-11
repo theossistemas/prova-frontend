@@ -1,0 +1,68 @@
+{
+  "devs": [
+    {
+      "id": "6340",
+      "githubUsername": "Marfjr",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/75595083?v=4",
+      "name": "Marco Aurélio",
+      "email": "marcoaur.ferr@gmail.com",
+      "location": "Maringá",
+      "education": "Superior de Tecnologia em Sistemas para Internet",
+      "technologies": "Angular, JavaScript, TypeScript, Node",
+      "htmlUrl": "https://github.com/Marfjr"
+    },
+    {
+      "id": "419a",
+      "avatarUrl": "",
+      "name": "Carla Reis",
+      "email": "carla@email.com",
+      "location": "Londrina",
+      "education": "Ciência da Computação",
+      "technologies": "Vue, React, Flutter",
+      "htmlUrl": ""
+    },
+    {
+      "id": "1361",
+      "githubUsername": "loiane",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/59545?v=4",
+      "name": "Loiane Groner",
+      "email": null,
+      "location": "Florida, US",
+      "education": "Software Engineer",
+      "technologies": "Angular, Java",
+      "htmlUrl": "https://github.com/loiane"
+    },
+    {
+      "id": "32b1",
+      "githubUsername": "leonardomleitao",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/1732820?v=4",
+      "name": "Leonardo Moura Leitão",
+      "email": null,
+      "location": "São Paulo",
+      "education": "Arquiteto Software",
+      "technologies": "Php, Java, Node",
+      "htmlUrl": "https://github.com/leonardomleitao"
+    },
+    {
+      "id": "4756",
+      "githubUsername": "gustavoguanabara",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/8683378?v=4",
+      "name": "Gustavo Guanabara",
+      "email": null,
+      "location": "Rio de Janeiro, Brazil",
+      "education": "Arquitetura de Software",
+      "technologies": "C#, C++, Python",
+      "htmlUrl": "https://github.com/gustavoguanabara"
+    },
+    {
+      "id": "e7df",
+      "avatarUrl": "",
+      "name": "Ricardo Dias",
+      "email": "",
+      "location": "Curitiba",
+      "education": "Redes de Computadores",
+      "technologies": "Ruby, Go (Golang)",
+      "htmlUrl": ""
+    }
+  ]
+}

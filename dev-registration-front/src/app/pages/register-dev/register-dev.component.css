@@ -1,0 +1,12 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fcfbfb;
+    color: rgb(7, 7, 7);
+    border: none;
+    border-radius: 8px;
+}
