@@ -16,20 +16,6 @@
       ">
        O nome é obrigatório!
       </div>
-    <label for="email">Email</label>
-    <input
-      type="text"
-      class="input"
-      id="email"
-      formControlName="email"
-      placeholder="Digite o Email do desenvolvedor"
-      >
-      <div class="mensagem__erro"
-      *ngIf="formulario.get('email')?.errors?.['required']
-      && formulario.get('email')?.touched
-      ">
-        O Email é obrigatório!
-      </div>
       <label for="cidade">Cidade</label>
     <input
       type="textarea"

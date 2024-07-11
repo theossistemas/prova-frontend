@@ -24,21 +24,22 @@
   font-size: 18px;
   font-weight: bold;
   color: white ;
-  width: 20vw;
+  width: 30vw;
 
 }
 
 .fixed-header {
-  position: fixed;
-  top: 0;
-  right: 20vw;
-  width: auto;
-  z-index: 1050;
+  position: relative;
+  z-index: 1000;
+  top: -4.5vw;
+}
 
-  padding: 1rem;
+.buscar-pensamentos{
+  align-self: end;
+  margin-right: 15vw;
 }
 
 
-.content-with-header {
-  padding-top: 70px; 
-}
+.cadastro{
+  margin-top: -1.5vw;
+  }

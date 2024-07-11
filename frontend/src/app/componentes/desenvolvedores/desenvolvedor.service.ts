@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Desenvolvedor } from './desenvolvedor';
 import { Observable } from 'rxjs';
-
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class DesenvolvedorService {
 
-  private readonly API = 'http://localhost:8000';
+  private readonly API = environment.api;
+  private username = environment.githubUsername;
+  private password = environment.githubPassword;
   constructor(private http: HttpClient) { }
 
   listar(pagina: number, filtro?: string): Observable<any[]>{
@@ -41,7 +43,11 @@ export class DesenvolvedorService {
   }
 
   buscarFotoGithub(github: string): Observable<any>{
-    return this.http.get(`https://api.github.com/users/${github}`);
+    const headers = new HttpHeaders({
+      'Authorization': 'Basic ' + btoa(`${this.username}:${this.password}`)
+    });
+
+    return this.http.get(`https://api.github.com/users/${github}`, { headers });
   }
 
 

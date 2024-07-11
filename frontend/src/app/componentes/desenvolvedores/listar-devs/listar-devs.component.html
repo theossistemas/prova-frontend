@@ -14,7 +14,7 @@
   </header>
 
   <div class="row content-with-header">
-    <div class="col-md-5">
+    <div class="col-md-5 cadastro">
       <app-cadastro-devs></app-cadastro-devs>
     </div>
     <div class="col-md-7">
@@ -24,7 +24,7 @@
         </div>
       </div>
       <app-botao-carregar-mais
-        *ngIf="listaDesenvolvedores.length > 0"
+        *ngIf="listaDesenvolvedores.length == exibidosAtualmente"
         [haMaisDesenvolvedores]="haMaisDesenvolvedores"
         (click)="carregarMaisDesenvolvedores()">
       </app-botao-carregar-mais>

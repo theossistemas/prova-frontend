@@ -17,6 +17,16 @@ Instalando com npm:
 npm i -g @angular/cli@14
 ```
 
+* Necessario definir as variaveis de ambiente no environment.ts dentro da pasta environments
+  
+  ```typescript
+  export const environment = {
+    production: false,
+    api: 'http://localhost:8000',
+    githubUsername: 'seu_usuario',
+    githubPassword: 'seu_token_github'
+  };
+  ```
 
 ### Passo 1 - Instalando as dependencias
 

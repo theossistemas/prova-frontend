@@ -11,6 +11,7 @@ export class ListarDevsComponent implements OnInit {
   paginaAtual: number = 1
   haMaisDesenvolvedores: boolean = true;
   filtro: string = ''
+  exibidosAtualmente = 6
 
   constructor(private service: DesenvolvedorService) { }
   ngOnInit(): void {
@@ -26,6 +27,8 @@ export class ListarDevsComponent implements OnInit {
         this.haMaisDesenvolvedores = false;
       }
     })
+    this.exibidosAtualmente += 6
+
   }
 
   pesquisarDesenvolvedores() {

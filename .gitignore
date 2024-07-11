@@ -1,3 +1,6 @@
+db/data
+environments/
+
 .DS_Store
 client/node_modules
 client/e2e

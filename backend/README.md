@@ -33,6 +33,8 @@ $ pip install -r requirements.txt
 
 ```
 
+* executar o docker antes de rodar o projeto
+
 ## Exemplos
 
 ### Documentação

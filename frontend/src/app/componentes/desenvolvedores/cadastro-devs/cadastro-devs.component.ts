@@ -26,6 +26,9 @@ export class CadastroDevsComponent {
   errorNotification(){
     Swal.fire('ERRO', 'Desenvolvedor já cadastrado', 'error')
   }
+  errorNaoEncontradoNotification(){
+    Swal.fire('ERRO', 'Desenvolvedor não possui GitHub', 'error')
+  }
 
   confirmarInsercao(){
     Swal.fire({
@@ -47,10 +50,13 @@ export class CadastroDevsComponent {
   preencherGitHub() {
     const github = this.devForm.get('github')?.value;
     if (github) {
-
       fetch(`https://api.github.com/users/${github}`)
         .then((res) => res.json())
         .then((data) => {
+          if(data.status == 404){
+            this.errorNaoEncontradoNotification()
+            return
+          }
           if (data.avatar_url != null) {
             this.devForm.patchValue({ avatar: data.avatar_url });
           }
@@ -68,7 +74,7 @@ export class CadastroDevsComponent {
           }
         })
         .catch((err) => {
-          console.log(err);
+          this.errorNaoEncontradoNotification()
         });
     }
   }
