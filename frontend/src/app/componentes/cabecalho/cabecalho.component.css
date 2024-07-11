@@ -31,3 +31,30 @@
 .titulo-lista {
   flex-grow: 1;
 }
+
+
+
+@media (max-width: 1080px) {
+  #titulo{
+    color: white;
+    font-size: 1rem;
+    margin-left: -2vw;
+  }
+  .cadastro{
+    margin-top: -6vw;
+
+    }
+}
+
+@media (max-width: 1080px) {
+  #titulo{
+    color: white;
+    font-size: 1.3rem;
+    margin-left: -2vw;
+  }
+  .cadastro{
+    margin-top: -6vw;
+
+    }
+}
+

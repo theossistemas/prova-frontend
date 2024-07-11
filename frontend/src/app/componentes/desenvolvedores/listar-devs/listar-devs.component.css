@@ -18,21 +18,8 @@
 }
 
 
-#label_pesquisar
-{
-  background-color: rgba(45,55,71,255);
-  font-size: 18px;
-  font-weight: bold;
-  color: white ;
-  width: 30vw;
 
-}
 
-.fixed-header {
-  position: relative;
-  z-index: 1000;
-  top: -4.5vw;
-}
 
 .buscar-pensamentos{
   align-self: end;
@@ -41,5 +28,44 @@
 
 
 .cadastro{
-  margin-top: -1.5vw;
+  margin-top: -3vw;
+  }
+
+  @media (max-width: 1080px) {
+    .fixed-header {
+      position: relative;
+      z-index: 1000;
+      top: -7vw;
+    }
+    .cadastro{
+      margin-top: -6vw;
+      }
+
+    #label_pesquisar
+    {
+      background-color: rgba(45,55,71,255);
+      font-size: 15px;
+      font-weight: bold;
+      width: 30vw;
+
+    }
+  }
+  @media (min-width: 1600px) {
+    .cadastro{
+      margin-top: -1.4vw;
+
+      }
+      .fixed-header {
+        position: relative;
+        z-index: 1000;
+        top: -4.4vw;
+      }
+      #label_pesquisar
+    {
+      background-color: rgba(45,55,71,255);
+      font-size: 20px;
+      font-weight: bold;
+      width: 30vw;
+
+    }
   }
