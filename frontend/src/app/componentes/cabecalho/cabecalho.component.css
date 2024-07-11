@@ -1,0 +1,60 @@
+#navbar{
+  background-color: rgba(26,32,44,255) ;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+#pesquisa_cabecalho
+{
+  position: relative;
+  float: right;
+  margin-right: 30vw;
+}
+
+.logo-topo{
+  width: 9vw;
+  height: 5vh;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+#titulo{
+  color: white;
+  font-size: 2rem;
+  align-items: center;
+}
+
+.navbar-brand {
+  margin-right: 7vw;
+}
+
+.titulo-lista {
+  flex-grow: 1;
+}
+
+
+
+@media (max-width: 1080px) {
+  #titulo{
+    color: white;
+    font-size: 1rem;
+    margin-left: -2vw;
+  }
+  .cadastro{
+    margin-top: -6vw;
+
+    }
+}
+
+@media (max-width: 1080px) {
+  #titulo{
+    color: white;
+    font-size: 1.3rem;
+    margin-left: -2vw;
+  }
+  .cadastro{
+    margin-top: -6vw;
+
+    }
+}
+

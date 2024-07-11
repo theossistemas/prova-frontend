@@ -1,0 +1,77 @@
+.acoes {
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.botao-excluir {
+  border: none;
+  cursor: pointer;
+  margin-left: 5px;
+  margin-top: 10px;
+  background-color: #1a202c;
+}
+
+.tamanho-imagens-botao {
+  width: 32px;
+  height: 32px;
+}
+
+.botao-editar {
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-top: 10px;
+  background-color: #1a202c;
+}
+
+.desenvolvedor {
+  background-color: #1a202c;
+  padding: 1rem;
+  box-sizing: border-box;
+  color: #e2e3e4;
+}
+
+.desenvolvedor .conteudo {
+  margin: 1rem auto;
+  word-wrap: break-word;
+}
+
+.desenvolvedor .autoria {
+  word-wrap: break-word;
+}
+
+.card-desenvolvedor {
+  box-shadow: 8px 8px 0px #154580;
+  width: 262px;
+}
+
+@media screen and (max-width: 768px) {
+  .desenvolvedor-g {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 426px) {
+  .desenvolvedor-p {
+    width: 100%;
+  }
+}
+
+.profile-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; /* Ajuste conforme necessário */
+}
+
+.profile-image {
+  width: 100px; /* Ajuste o tamanho conforme necessário */
+  height: 100px; /* Ajuste o tamanho conforme necessário */
+  object-fit: cover;
+}
+
+.acesso-github{
+  color: green;
+  align-content: center;
+  margin-right: 10px;
+}

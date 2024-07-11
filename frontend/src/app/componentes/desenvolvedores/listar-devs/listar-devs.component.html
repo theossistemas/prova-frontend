@@ -1,0 +1,38 @@
+<section class="container-fluid vh-100">
+  <header class="header d-flex fixed-header">
+    <div class="buscar-pensamentos">
+      <input
+        type="search"
+        class="form-control mr-sm-2"
+        id="label_pesquisar"
+        placeholder="Nome, Profissão, linguagem, ETC..."
+        autofocus
+        [(ngModel)]="filtro"
+        (keyup)="pesquisarDesenvolvedores()"
+      >
+    </div>
+  </header>
+
+  <div class="row content-with-header">
+    <div class="col-md-5 cadastro">
+      <app-cadastro-devs></app-cadastro-devs>
+    </div>
+    <div class="col-md-7">
+      <div class="mural" *ngIf="listaDesenvolvedores.length > 0; else semDesenvolvedores">
+        <div *ngFor="let desenvolvedor of listaDesenvolvedores">
+          <app-desenvolvedor [desenvolvedor]="desenvolvedor"></app-desenvolvedor>
+        </div>
+      </div>
+      <app-botao-carregar-mais
+        *ngIf="listaDesenvolvedores.length == exibidosAtualmente"
+        [haMaisDesenvolvedores]="haMaisDesenvolvedores"
+        (click)="carregarMaisDesenvolvedores()">
+      </app-botao-carregar-mais>
+      <ng-template #semDesenvolvedores>
+        <div class="ff-inter sem-desenvolvedores">
+          <p>Ainda não há Desenvolvedores cadastrados!</p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</section>

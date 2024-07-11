@@ -1,0 +1,66 @@
+<div class="form-container">
+  <form [formGroup]="devForm" (ngSubmit)="cadastrarDev()">
+    <div class="form-group">
+      <button class="btn btn-custom" type="button" (click)="confirmarInsercao()">
+        <img src="assets/imagens/github.png" class="btn-icon">
+        Cadastrar com GitHub
+      </button>
+    </div>
+    <div class="form-group separador" [ngClass]="{'has-error': devForm.get('github')?.invalid && devForm.get('github')?.touched}">
+      <label for="github">Usuário GitHub</label>
+      <input type="text" class="form-control" id="github" formControlName="github" placeholder="Usuário GitHub">
+      <div *ngIf="devForm.get('github')?.invalid && devForm.get('github')?.touched" class="text-danger">
+        Usuário GitHub é obrigatório.
+      </div>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error': devForm.get('avatar')?.invalid && devForm.get('avatar')?.touched}">
+      <label for="avatar">Avatar (URL)</label>
+      <input type="text" class="form-control" id="avatar" formControlName="avatar" placeholder="Avatar (URL)">
+      <div *ngIf="devForm.get('avatar')?.invalid && devForm.get('avatar')?.touched" class="text-danger">
+        Avatar (URL) é obrigatório.
+      </div>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error': devForm.get('nome')?.invalid && devForm.get('nome')?.touched}">
+      <label for="nome">Nome</label>
+      <input type="text" class="form-control" id="nome" formControlName="nome" placeholder="Nome">
+      <div *ngIf="devForm.get('nome')?.invalid && devForm.get('nome')?.touched" class="text-danger">
+        Nome é obrigatório.
+      </div>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error': devForm.get('email')?.invalid && devForm.get('email')?.touched}">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" formControlName="email" placeholder="Email">
+      <div *ngIf="devForm.get('email')?.invalid && devForm.get('email')?.touched" class="text-danger">
+        <div *ngIf="devForm.get('email')?.errors?.['required']">
+          Email é obrigatório.
+        </div>
+        <div *ngIf="devForm.get('email')?.errors?.['email']">
+          Email inválido.
+        </div>
+      </div>
+    </div>
+    <div class="form-group separador" [ngClass]="{'has-error': devForm.get('cidade')?.invalid && devForm.get('cidade')?.touched}">
+      <label for="cidade">Cidade</label>
+      <input type="text" class="form-control" id="cidade" formControlName="cidade" placeholder="Cidade">
+      <div *ngIf="devForm.get('cidade')?.invalid && devForm.get('cidade')?.touched" class="text-danger">
+        Cidade é obrigatório.
+      </div>
+    </div>
+    <div id="profissionalTitulo">PROFISSIONAL</div>
+    <div class="form-group" [ngClass]="{'has-error': devForm.get('profissao')?.invalid && devForm.get('profissao')?.touched}">
+      <label for="profissao">Formação</label>
+      <input type="text" class="form-control" id="profissao" formControlName="profissao" placeholder="Formação">
+      <div *ngIf="devForm.get('profissao')?.invalid && devForm.get('profissao')?.touched" class="text-danger">
+        Formação é obrigatório.
+      </div>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error': devForm.get('tecnologias')?.invalid && devForm.get('tecnologias')?.touched}">
+      <label for="tecnologias">Tecnologias</label>
+      <textarea class="form-control" id="tecnologias" formControlName="tecnologias" rows="3" placeholder="ex: HTML/CSS, Vue, Angular etc."></textarea>
+      <div *ngIf="devForm.get('tecnologias')?.invalid && devForm.get('tecnologias')?.touched" class="text-danger">
+        Tecnologias é obrigatório.
+      </div>
+    </div>
+    <button type="submit" id="botao_cadastar" class="btn btn-success">Cadastrar</button>
+  </form>
+</div>

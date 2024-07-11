@@ -1,0 +1,78 @@
+
+
+.form-container {
+  position: absolute;
+  top: -9vh;
+  left: 12vw;
+  width: 26vw;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  border-radius: 5px;
+}
+
+.form-group input{
+  box-shadow: 1px 1px 1px 1px #ddddddb3;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 100%;
+  place-content: center;
+}
+
+button img {
+  width: 24px; /* Ajuste o tamanho da imagem conforme necessário */
+  height: 24px; /* Ajuste o tamanho da imagem conforme necessário */
+  margin-right: 8px; /* Espaçamento entre a imagem e o texto */
+}
+
+button:hover {
+  background-color: #908e8e;
+}
+
+#botao_cadastar
+{
+  background-color: #4CAF50;
+  color: white;
+  margin-top: 10px;
+  width: 100%;
+  place-content: center;
+}
+
+#botao_cadastar:hover
+{
+  background-color: #38833c;
+}
+
+.linha
+{
+  background: #4ecfc3;
+  width: 3px;
+  height: 20px;
+}
+
+.separador{
+  padding-bottom: 20px;
+  box-shadow: 0 2px 0 0 #ddd;
+}
+
+#profissionalTitulo{
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+}
+
+.has-error input,
+.has-error textarea {
+  border-color: red;
+}
+
+.text-danger {
+  color: red;
+}
