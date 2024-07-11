@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Desenvolvedor } from '../desenvolvedor';
 import { DesenvolvedorService } from '../desenvolvedor.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-desenvolvedor',
@@ -29,5 +30,24 @@ export class DesenvolvedorComponent implements OnInit{
     }
     )
 
+  }
+  confirmarExclusao(){
+    Swal.fire({
+      title: "Voce tem certeza?",
+      text: "Não podera recuperar os dados!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sim, delete isso!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.service.excluir(this.desenvolvedor._id).subscribe(() => {
+          Swal.fire("Deletado!", "Seu arquivo foi deletado.", "success").then(() =>
+          window.location.href = '/listarDesenvolvedores'
+          );
+        });
+      }
+    });
   }
 }

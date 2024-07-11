@@ -12,6 +12,8 @@ import { ExcluirDevsComponent } from './componentes/desenvolvedores/excluir-devs
 import { EditarDevsComponent } from './componentes/desenvolvedores/editar-devs/editar-devs.component';
 import { BotaoCarregarMaisComponent } from './componentes/desenvolvedores/listar-devs/botao-carregar-mais/botao-carregar-mais.component';
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

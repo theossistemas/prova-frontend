@@ -2,7 +2,6 @@
   <div class="profile-image-container">
     <img src="{{ foto_github }}" alt="Perfil" class="profile-image rounded-circle">
   </div>
-  <p class="camposComuns">ID: {{ desenvolvedor._id }}</p>
   <p class="nome"><b>{{ desenvolvedor.nome.toUpperCase() }} </b></p>
   <p class="nome">{{ desenvolvedor.profissao }}</p>
   <p class="camposComuns"> {{ desenvolvedor.cidade.toUpperCase() }}</p>
@@ -12,7 +11,7 @@
     <button class="botao-editar" >
       <img src="assets/imagens/icone-editar.png"  alt="Icone de editar" [routerLink]="['/editarDesenvolvedor', desenvolvedor._id]">
     </button>
-    <button class="botao-excluir" [routerLink]="['/excluirDesenvolvedor',desenvolvedor._id]">
+    <button class="botao-excluir" (click)="confirmarExclusao()">
       <img src="/assets/imagens/icone-excluir.png" alt="Icone de excluir">
     </button>
   </div>

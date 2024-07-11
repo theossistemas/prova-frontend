@@ -1,5 +1,8 @@
 #navbar{
-background-color: rgba(26,32,44,255) ;
+  background-color: rgba(26,32,44,255) ;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
 }
 #pesquisa_cabecalho
 {
@@ -27,7 +30,13 @@ background-color: rgba(26,32,44,255) ;
 #titulo{
   color: white;
   font-size: 2rem;
-  margin-bottom: 1rem;
-  top: 0;
-  margin-right: 3vw;
+  align-items: center;
+}
+
+.navbar-brand {
+  margin-right: 9vw;
+}
+
+.titulo-lista {
+  flex-grow: 1;
 }

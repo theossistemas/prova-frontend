@@ -1,3 +1,4 @@
+from typing import Optional
 from fastapi import APIRouter, Query 
 from models.desenvolvedores import DesenvolvedorModel, AtualizarDesenvolvedorModel
 from config.config import devs_Collections
@@ -20,7 +21,11 @@ def newDev(dev:DesenvolvedorModel):
 
 # get desenvolvedores
 @dev_root.get("/all/devs")
-def allDevs(page: int = Query(1, description="Número da página"), limit: int = Query(10, description="Limite de desenvolvedores a serem retornados por página")):
+def allDevs(
+    page: int = Query(1, description="Número da página"), 
+    limit: int = Query(10, description="Limite de desenvolvedores a serem retornados por página"),
+    filtro: Optional[str] = Query(None, description="Filtro para nome dos desenvolvedores")
+    ):
     if page < 1:
         page = 1
     if limit < 1:
@@ -28,7 +33,24 @@ def allDevs(page: int = Query(1, description="Número da página"), limit: int =
     
     skip = (page - 1) * limit
     
-    devs = devs_Collections.find().skip(skip).limit(limit)
+    query = {}
+    
+    if filtro:
+        regex = {"$regex": filtro, "$options": "i"}  # Regex para busca insensível a maiúsculas/minúsculas
+        query = {
+            "$or": [
+                {"nome": regex},
+                {"cidade": regex},
+                {"profissao": regex},
+                {"tecnologias": regex},
+                {"avatar": regex},
+                {"data_criacao": regex},
+                {"github": regex},
+                {"email": regex}
+            ]
+        }
+    
+    devs = devs_Collections.find(query).skip(skip).limit(limit)
 
     decoded_data = decodeDevs(devs)
     return [decoded_data]

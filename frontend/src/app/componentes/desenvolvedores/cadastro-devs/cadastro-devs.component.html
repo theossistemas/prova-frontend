@@ -1,22 +1,22 @@
 <div class="form-container">
   <form [formGroup]="devForm" (ngSubmit)="cadastrarDev()">
     <div class="form-group">
-      <button class="btn btn-custom" type="button" (click)="preencherGitHub()">
+      <button class="btn btn-custom" type="button" (click)="confirmarInsercao()">
         <img src="assets/imagens/github.png" class="btn-icon">
         Cadastrar com GitHub
       </button>
     </div>
-    <div class="form-group separador" [ngClass]="{'has-error': devForm.get('githubUser')?.invalid && devForm.get('githubUser')?.touched}">
-      <label for="githubUser">Usuário GitHub</label>
-      <input type="text" class="form-control" id="githubUser" formControlName="githubUser" placeholder="Usuário GitHub">
-      <div *ngIf="devForm.get('githubUser')?.invalid && devForm.get('githubUser')?.touched" class="text-danger">
+    <div class="form-group separador" [ngClass]="{'has-error': devForm.get('github')?.invalid && devForm.get('github')?.touched}">
+      <label for="github">Usuário GitHub</label>
+      <input type="text" class="form-control" id="github" formControlName="github" placeholder="Usuário GitHub">
+      <div *ngIf="devForm.get('github')?.invalid && devForm.get('github')?.touched" class="text-danger">
         Usuário GitHub é obrigatório.
       </div>
     </div>
-    <div class="form-group" [ngClass]="{'has-error': devForm.get('avatarUrl')?.invalid && devForm.get('avatarUrl')?.touched}">
-      <label for="avatarUrl">Avatar (URL)</label>
-      <input type="text" class="form-control" id="avatarUrl" formControlName="avatarUrl" placeholder="Avatar (URL)">
-      <div *ngIf="devForm.get('avatarUrl')?.invalid && devForm.get('avatarUrl')?.touched" class="text-danger">
+    <div class="form-group" [ngClass]="{'has-error': devForm.get('avatar')?.invalid && devForm.get('avatar')?.touched}">
+      <label for="avatar">Avatar (URL)</label>
+      <input type="text" class="form-control" id="avatar" formControlName="avatar" placeholder="Avatar (URL)">
+      <div *ngIf="devForm.get('avatar')?.invalid && devForm.get('avatar')?.touched" class="text-danger">
         Avatar (URL) é obrigatório.
       </div>
     </div>

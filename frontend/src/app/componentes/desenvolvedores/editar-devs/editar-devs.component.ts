@@ -25,7 +25,7 @@ export class EditarDevsComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.service.buscarPorId(id!).subscribe((desenvolvedor) => {
       this.formulario = this.formBuilder.group({
-        id: [desenvolvedor._id],
+        _id: [desenvolvedor._id],
         nome: [desenvolvedor.nome, Validators.compose([
           Validators.required,
           Validators.pattern(/(.|\s)*\S(.|\s)*/)

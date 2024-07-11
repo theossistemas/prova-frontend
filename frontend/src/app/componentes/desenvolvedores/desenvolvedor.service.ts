@@ -11,12 +11,15 @@ export class DesenvolvedorService {
   private readonly API = 'http://localhost:8000';
   constructor(private http: HttpClient) { }
 
-  listar(pagina: number): Observable<any[]>{
+  listar(pagina: number, filtro?: string): Observable<any[]>{
     const itensPorPagina = 6;
 
     let params = new HttpParams()
     .set("page", pagina.toString())
     .set("limit", itensPorPagina.toString());
+    if (filtro && filtro.trim() !== '') {
+      params = params.set('filtro', filtro);
+    }
 
     return this.http.get<Desenvolvedor[]>(this.API+"/all/devs", { params });
   }
@@ -40,5 +43,7 @@ export class DesenvolvedorService {
   buscarFotoGithub(github: string): Observable<any>{
     return this.http.get(`https://api.github.com/users/${github}`);
   }
+
+
 
 }

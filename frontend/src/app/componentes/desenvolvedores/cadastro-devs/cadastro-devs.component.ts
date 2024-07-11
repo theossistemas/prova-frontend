@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DesenvolvedorService } from '../desenvolvedor.service';
+import { Component, ViewContainerRef } from '@angular/core';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Component({
   selector: 'app-cadastro-devs',
@@ -9,10 +11,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CadastroDevsComponent {
   devForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private service: DesenvolvedorService) {
     this.devForm = this.fb.group({
-      githubUser: ['', Validators.required],
-      avatarUrl: ['', Validators.required],
+      github: ['', Validators.required],
+      avatar: ['', Validators.required],
       nome: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       cidade: ['', Validators.required],
@@ -21,15 +23,36 @@ export class CadastroDevsComponent {
     });
   }
 
+  errorNotification(){
+    Swal.fire('ERRO', 'Desenvolvedor já cadastrado', 'error')
+  }
+
+  confirmarInsercao(){
+    Swal.fire({
+      title: "Inserir utilizando usuario github?",
+      text: "ao clicar em sim, os campos serão preenchidos automaticamente!",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "green",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sim, Auto Preencher!",
+      cancelButtonText: "Não, Vou Preencher!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.preencherGitHub();
+      }
+    });
+  }
 
   preencherGitHub() {
-    const github = this.devForm.get('githubUser')?.value;
+    const github = this.devForm.get('github')?.value;
     if (github) {
+
       fetch(`https://api.github.com/users/${github}`)
         .then((res) => res.json())
         .then((data) => {
           if (data.avatar_url != null) {
-            this.devForm.patchValue({ avatarUrl: data.avatar_url });
+            this.devForm.patchValue({ avatar: data.avatar_url });
           }
 
           if (data.name != null) {
@@ -50,41 +73,28 @@ export class CadastroDevsComponent {
     }
   }
 
+
   cadastrarDev() {
     if (this.devForm.valid) {
       const formValues = this.devForm.value;
-      console.log(formValues);
+      this.service.listar(0).subscribe((devs) => {
+        const dev = devs[0].find((d: { github: any; }) => d.github == formValues.github);
+        if (dev) {
+          this.errorNotification()
 
-    fetch('http://localhost:8000/new/dev', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        nome: this.devForm.get('nome')?.value,
-        email: this.devForm.get('email')?.value,
-        cidade: this.devForm.get('cidade')?.value,
-        profissao: this.devForm.get('profissao')?.value,
-        tecnologias: this.devForm.get('tecnologias')?.value,
-        avatar: this.devForm.get('avatarUrl')?.value,
-        github: this.devForm.get('githubUser')?.value
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.error) {
-          throw new Error(data.error);
-        }else if(data.status == "ok"){
-        window.location.href = '/listarDesenvolvedores';
+        } else {
+          this.service.criar(formValues).subscribe(() => {
+            window.location.href = '/listarDesenvolvedores';
+          });
         }
-      })
-      .catch((err) => {
-        console.log(err);
-        alert('Erro ao cadastrar desenvolvedor!');
       });
+
 
   }else{
     this.devForm.markAllAsTouched();
   }
 }
 }
+
+
+

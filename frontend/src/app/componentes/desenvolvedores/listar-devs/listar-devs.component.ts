@@ -10,6 +10,7 @@ export class ListarDevsComponent implements OnInit {
   listaDesenvolvedores: Desenvolvedor[] = [];
   paginaAtual: number = 1
   haMaisDesenvolvedores: boolean = true;
+  filtro: string = ''
 
   constructor(private service: DesenvolvedorService) { }
   ngOnInit(): void {
@@ -25,5 +26,13 @@ export class ListarDevsComponent implements OnInit {
         this.haMaisDesenvolvedores = false;
       }
     })
+  }
+
+  pesquisarDesenvolvedores() {
+    this.paginaAtual = 1;
+    this.service.listar(this.paginaAtual, this.filtro)
+      .subscribe(listaDesenvolvedores => {
+        this.listaDesenvolvedores = listaDesenvolvedores[0]
+      })
   }
 }

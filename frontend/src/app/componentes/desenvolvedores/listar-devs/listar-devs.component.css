@@ -17,4 +17,35 @@
   padding: 2rem 0 5rem;
 }
 
+#pesquisa_cabecalho
+{
+  position: relative;
+  float: right;
+  margin-right: 30vw;
+}
 
+#label_pesquisar
+{
+  background-color: rgba(45,55,71,255);
+  font-size: 18px;
+  font-weight: bold;
+  color: white ;
+  width: 20vw;
+
+}
+
+/* Define o header como fixo no topo da página */
+.fixed-header {
+  position: fixed;
+  top: 0;
+  right: 15vw;
+  width: auto; /* Ajusta a largura conforme o conteúdo */
+  z-index: 1050; /* Garante que o header fique acima de outros elementos */
+
+  padding: 1rem; /* Espaçamento interno */
+}
+
+/* Adiciona um padding-top ao conteúdo para evitar que fique escondido atrás do header */
+.content-with-header {
+  padding-top: 70px; /* Ajuste a altura conforme a altura do header */
+}
