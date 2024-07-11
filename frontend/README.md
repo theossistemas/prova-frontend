@@ -1,27 +1,46 @@
-# Frontend
+<p align="center">
+  <a href="https://po-ui.io">
+    <img width="250" src="https://github.com/angular/angular/blob/main/adev/src/assets/images/press-kit/angular_icon_gradient.gif">
+  </a>
+</p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
+# Frontend criado com Angular 14
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Pré-requisitos
 
-## Code scaffolding
+Para começar a utilizar o **Cadastro Devs** é pré-requisito ter o `Node.js` instalado (versão 20.* ou acima) e o seu gerenciador de pacote favorito na versão mais atual. Caso você ainda não tenha instalado o pacote `@angular/cli`, instale-o via `npm`.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Instalando com npm:
+```
+npm i -g @angular/cli@14
+```
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Passo 1 - Instalando as dependencias
 
-## Running unit tests
+> Para executar esse projeto, é necessario ter todas as dependencias do package.json instaladas. Para isso, execute o comando abaixo:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+```
+npm install
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Após a instalação, execute o backend para que o frontend possa se comunicar com o backend.
 
-## Further help
+### Passo 2 - Build e execução do projeto
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Apos a instalação das dependencias, execute o comando abaixo para rodar o projeto:
+
+```	
+ng serve
+```
+
+Abra o *browser* e acesse a url http://localhost:4200. Pronto!
+
+
+
+### E agora?
+
+A partir dai é so aproveitar o projeto \o/

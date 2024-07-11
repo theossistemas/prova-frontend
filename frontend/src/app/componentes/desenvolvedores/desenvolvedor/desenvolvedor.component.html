@@ -9,10 +9,10 @@
   <div class="acoes">
     <a href="https:/github.com/{{ desenvolvedor.github }}" class="acesso-github">Acessar GitHub</a>
     <button class="botao-editar" >
-      <img src="assets/imagens/icone-editar.png"  alt="Icone de editar" [routerLink]="['/editarDesenvolvedor', desenvolvedor._id]">
+      <img src="assets/imagens/icone-editar.png"  alt="Icone de editar" class="tamanho-imagens-botao" [routerLink]="['/editarDesenvolvedor', desenvolvedor._id]">
     </button>
     <button class="botao-excluir" (click)="confirmarExclusao()">
-      <img src="/assets/imagens/icone-excluir.png" alt="Icone de excluir">
+      <img src="/assets/imagens/icone-excluir.png" class="tamanho-imagens-botao" alt="Icone de excluir">
     </button>
   </div>
 </div>

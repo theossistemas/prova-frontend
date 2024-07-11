@@ -12,6 +12,11 @@
   background-color: #1a202c;
 }
 
+.tamanho-imagens-botao {
+  width: 32px;
+  height: 32px;
+}
+
 .botao-editar {
   border: none;
   cursor: pointer;
