@@ -1,0 +1,55 @@
+<div class="form-cad">
+    <mat-card>
+        <form [formGroup]="developerForm" (ngSubmit)="onSubmit()">
+            <mat-card-content>
+                <mat-form-field class="full-width">
+                    <mat-label>Usuário GitHub</mat-label>
+                    <input matInput formControlName="githubUsername" (keydown.enter)="loginWithGitHub()">
+                </mat-form-field>
+
+                <mat-divider></mat-divider>
+                <mat-form-field class="full-width">
+                    <mat-label>Avatar URL</mat-label>
+                    <input matInput formControlName="avatarUrl">
+                </mat-form-field><br>
+
+                <mat-form-field class="full-width">
+                    <mat-label>Nome</mat-label>
+                    <input matInput formControlName="name">
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" type="email">
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <mat-label>Cidade</mat-label>
+                    <input matInput formControlName="city">
+                </mat-form-field>
+
+                <mat-divider></mat-divider>
+                <br>
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <h3 style="margin: 0; text-align: center;">Profissional</h3>
+                </div>
+
+                <mat-form-field class="full-width">
+                    <mat-label>Formação</mat-label>
+                    <input matInput formControlName="education">
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <mat-label>Tecnologias</mat-label>
+                    <textarea matInput formControlName="technologies" rows="5"></textarea>
+                </mat-form-field>
+            </mat-card-content>
+
+            <mat-card-actions>
+                <button mat-raised-button color="primary" type="submit">
+                    {{ isEditMode ? 'Atualizar' : 'Cadastrar' }}
+                </button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</div>

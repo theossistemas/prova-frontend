@@ -1,0 +1,21 @@
+<div class="feed-container">
+    <mat-card class="feed-card" *ngFor="let developer of filteredDevelopers">
+        <div class="avatar-container">
+            <img class="avatar" [src]="developer.avatarUrl" alt="Avatar">
+        </div>
+        <div class="info-container">
+            <h2>{{ developer.name }}</h2>
+            <p>{{ developer.city }}</p>
+            <p>{{ developer.technologies }}</p>
+            <a [href]="'https://github.com/' + developer.githubUsername" target="_blank">Acessar GitHub</a>
+        </div>
+        <div class="action-icons">
+            <button mat-icon-button (click)="onEdit(developer)">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="onDelete(developer)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </mat-card>
+</div>
