@@ -1,0 +1,22 @@
+.form-cad {
+  width: 100%;
+}
+
+.full-width {
+  margin-bottom: 16px;
+}
+
+mat-card {
+  margin: 40px;
+  width: 100%;
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,15 @@
+<div class="header">
+    <div class="header-logo">
+        <mat-icon class="icon-header" fontIcon="code"></mat-icon>&nbsp;
+        <h2>{{ headerText }}</h2>
+    </div>
+
+    <div class="search-dev">
+        <form>
+            <mat-form-field>
+                <input type="text" matInput (keyup)="getDev($event)">
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+        </form>
+    </div>
+</div>

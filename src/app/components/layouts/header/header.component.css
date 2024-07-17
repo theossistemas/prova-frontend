@@ -1,0 +1,29 @@
+.header {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 15px;
+    margin: 0;
+    width: 100%;
+    background-color: #1A202C;
+}
+
+.header-logo {
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+}
+
+.icon-header {
+    font-size: 25px;
+}
+
+.search-dev {
+    color: #212734;
+    display: flex;
+    margin-top: 16px;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+}

@@ -1,0 +1,54 @@
+{
+  "developers": [
+    {
+      "githubUsername": "rodrigobranas",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/7491283?v=4",
+      "name": "Rodrigo Branas",
+      "email": "branas@branas.com",
+      "city": "Belo Horizonte",
+      "education": "Full Stack",
+      "technologies": "NodeJS, Java e SQL",
+      "id": "1736"
+    },
+    {
+      "githubUsername": "loiane",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/59545?v=4",
+      "name": "loiane",
+      "email": "loiane@loiane",
+      "city": "Orlando",
+      "education": "Front End ",
+      "technologies": "Angular e Java",
+      "id": "60b8"
+    },
+    {
+      "id": "5dae",
+      "githubUsername": "gustavoguanabara",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/8683378?v=4",
+      "name": "gustavoguanabara",
+      "email": "cursoemvideo@gmail.com",
+      "city": "Rio de Janeiro",
+      "education": "Professor",
+      "technologies": "PHP, SQL e Java"
+    },
+    {
+      "id": "2c55",
+      "githubUsername": "brunosuarez",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/40122748?v=4",
+      "name": "Bruno Pereira Soares",
+      "email": "contatobrunosuarez@gmail.com",
+      "city": "Maringá",
+      "education": "FrontEnd",
+      "technologies": "Angular"
+    },
+    {
+      "id": "6be8",
+      "githubUsername": "mojombo",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/1?v=4",
+      "name": "mojombo",
+      "email": "gmail@gmail.com",
+      "city": "Dallas",
+      "education": "Front",
+      "technologies": "React"
+    }
+  ]
+}
