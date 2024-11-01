@@ -28,43 +28,43 @@
 
   <main>
     <div class="form-container">
-      <form>
+      <form [formGroup]="devForm" (ngSubmit)="addOrUpdateDev()">
         <button type="button" id="fetch-github-data" class="github-btn" (click)="fetchGitHubData()">
           <i class="fab fa-github" style="margin-right: 8px; font-size: 1.5em;"></i>
           Cadastrar com GitHub
         </button>
         <div class="input-group" style="padding-bottom: 10px;">
-          <label for="github-username" style="font-size: 0.8rem; font-weight: bold;">Usuário GitHub</label>
-          <input type="text" id="github-username" placeholder="Usuário GitHub">
+          <label for="username" style="font-size: 0.8rem; font-weight: bold;">Usuário GitHub</label>
+          <input type="text" id="username" formControlName="username" placeholder="Usuário GitHub">
         </div>
         <hr>
         <div class="input-group" style="padding-top: 20px;">
           <label for="avatar" style="font-size: 0.8rem; font-weight: bold;">Avatar (URL)</label>
-          <input type="url" id="avatar" placeholder="Link do seu Avatar">
+          <input type="url" id="avatar" formControlName="avatar" placeholder="Link do seu Avatar">
         </div>
         <div class="input-group">
           <label for="name" style="font-size: 0.8rem; font-weight: bold;">Nome</label>
-          <input type="text" id="name" placeholder="Insira seu Nome">
+          <input type="text" id="name" formControlName="name" placeholder="Insira seu Nome">
         </div>
         <div class="input-group">
           <label for="email" style="font-size: 0.8rem; font-weight: bold;">Email</label>
-          <input type="email" id="email" placeholder="Insira seu Email">
+          <input type="email" id="email" formControlName="email" placeholder="Insira seu Email">
         </div>
         <div class="input-group" style="padding-bottom: 10px;">
           <label for="city" style="font-size: 0.8rem; font-weight: bold;">Cidade</label>
-          <input type="text" id="city" placeholder="Insira sua Cidade">
+          <input type="text" id="city" formControlName="city" placeholder="Insira sua Cidade">
         </div>
         <hr>
         <h2 style="text-align: center; padding-top: 20px;">Profissional</h2>
         <div class="input-group">
           <label for="formation" style="font-size: 0.8rem; font-weight: bold;">Formação</label>
-          <input type="text" id="formation" placeholder="Insira sua Formação">
+          <input type="text" id="formation" formControlName="formation" placeholder="Insira sua Formação">
         </div>
         <div class="input-group">
           <label for="technologies" style="font-size: 0.8rem; font-weight: bold;">Tecnologias</label>
-          <textarea id="technologies" placeholder="ex: HTML/CSS, Vue, Angular etc."></textarea>
+          <textarea id="technologies" formControlName="technologies" placeholder="ex: HTML/CSS, Vue, Angular etc."></textarea>
         </div>
-        <button type="button" class="submit-btn" (click)="addOrUpdateDev()">Cadastrar</button>
+        <button type="submit" class="submit-btn">Cadastrar</button>
       </form>
     </div>
 

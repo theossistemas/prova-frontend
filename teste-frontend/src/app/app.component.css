@@ -114,14 +114,14 @@ input, textarea {
     background: #1b1f23;
     color: white;
     border-radius: 10px;
-    padding: 10px; /* Reduzido o padding */
+    padding: 10px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Alinha todos os itens à esquerda */
+    align-items: flex-start;
     text-align: left;
-    width: 350px; /* Ajuste de largura, se necessário */
-    height: 250px; /* Altura fixa menor */
-    overflow-y: auto; /* Permite rolar o conteúdo se necessário */
+    width: 350px;
+    height: 250px;
+    overflow-y: auto;
 }
 
 .card img {
@@ -176,11 +176,11 @@ input, textarea {
     align-items: center;
     gap: 130px;
     margin-top: 45px;
-    opacity: 0; /* Inicialmente invisível */
-    transition: opacity 0.3s ease; /* Transição suave */
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 
 .card:hover .actions-container {
-    opacity: 1; /* Torna os botões visíveis ao passar o mouse */
+    opacity: 1;
 }
