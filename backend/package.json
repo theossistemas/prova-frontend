@@ -1,0 +1,23 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend para o teste frontend da Thèos.",
+  "main": "server.js",
+  "scripts": {
+    "lint": "eslint .",
+    "dev": "nodemon ./server.js"
+  },
+  "author": "Fernando Ogata",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "mongoose": "^8.8.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.14.0",
+    "eslint": "^9.14.0",
+    "globals": "^15.11.0",
+    "nodemon": "^3.1.7"
+  }
+}

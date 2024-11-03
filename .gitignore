@@ -1,0 +1,4 @@
+#node modules do backend
+/backend/node_modules
+#volume docker do mongodb
+/db/db_data
