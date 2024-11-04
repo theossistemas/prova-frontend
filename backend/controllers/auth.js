@@ -1,4 +1,3 @@
-const User = require('../models/user')
 const bcrypt = require('bcrypt')
 const env = require('dotenv')
 const Token = require('../auth/token')
