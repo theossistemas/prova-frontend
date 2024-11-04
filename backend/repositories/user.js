@@ -12,8 +12,16 @@ const UserRepository = {
     return await newUser.save()
   },
 
-  findByEmail: async (user) => {
-    return await User.findOne({email: user.email})
+  findByEmail: async (email) => {
+    return await User.findOne({email: email})
+  },
+
+  findById: async (_id) => {
+    return await User.findOne({_id: _id})
+  },
+
+  deleteById: async (_id) => {
+    return await User.deleteOne({_id: _id})
   }
 }
 
