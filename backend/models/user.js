@@ -5,19 +5,19 @@ const UserSchema = mongoose.Schema(
     {
       name: {
         type: String,
-        required: [true, "Nome é obrigatório."]
+        required: [true, 'Nome é obrigatório.']
       }
     },
     {
       email: {
         type: String,
-        required: [true, "E-mail é obrigatório."]
+        required: [true, 'E-mail é obrigatório.']
       }
     },
     {
       password: {
         type: String,
-        required: false
+        required: [true, 'Senha é obrigatória.']
       }
     },
     {
