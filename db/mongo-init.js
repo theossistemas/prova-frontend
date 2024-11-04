@@ -1,11 +1,11 @@
-console.log('\nMONGODB FIRST INITIALIZATION...\n')
+console.log('\nPRIMEIRA INICIALIZAÇÃO DO BANCO MONGODB...\n')
 
-console.log('\nCREATING DATABASE...\n')
+console.log('\nCRIANDO BANCO DE DADOS...\n')
 
 // cria database no mongo.
 db_test_frontend = db.getSiblingDB('dbTestFrontend')
 
-console.log('\nCREATING USER...\n')
+console.log('\nCRIANDO USUÁRIO...\n')
 
 // cria usuário com permissão para ler e escrever no database criado.
 db_test_frontend.createUser({
@@ -22,4 +22,4 @@ db_test_frontend.createUser({
 // cria coleção de usuários.
 db_test_frontend.createCollection('users')
 
-console.log('\nFINISHED INITIALIZATION...\n')
+console.log('\nINICIALIZAÇÃO FINALIZADA...\n')
