@@ -1,10 +1,11 @@
 const app = require('./app')
-const mongoose = require('mongoose')
+const env = require('dotenv')
+const dbConnection = require('../db/mongodb')
 
-const PORT = 8080
-const HOST = '127.0.0.1'
+env.config()
 
-app.listen(PORT, HOST, () => {
-  mongoose.connect('mongodb://user:pass@127.0.0.1:27030/dbTestFrontend')
-  console.log(`API iniciada em ${HOST}:${PORT}`)
+dbConnection()
+
+app.listen(process.env.API_PORT, process.env.API_HOST, () => {
+  console.log(`API iniciada em ${process.env.API_HOST}:${process.env.API_PORT}`)
 })
