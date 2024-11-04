@@ -11,7 +11,8 @@ const UserController = {
           expires: new Date(Date.now() + 86400000),
           secure: false,
           httpOnly: true,
-          sameSite: 'None'
+          sameSite: 'None',
+          maxAge: new Date(Date.now() + 86400000)
         })
         res.status(201).send()
       })
@@ -19,9 +20,15 @@ const UserController = {
   },
 
   delete: (req, res) => {
-    UserService.deleteById(req.path)
+    UserService.deleteById(req.params._id)
       .then(() => res.status(204).send())
       .catch((err) => res.status(409).send(err.message))
+  },
+
+  findAll: (req, res) => {
+    UserService.findAll()
+      .then((response) => res.status(200).json(response))
+      .catch((err) => res.status(400).send(err.message))
   }
 }
 

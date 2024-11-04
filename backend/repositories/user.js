@@ -22,6 +22,10 @@ const UserRepository = {
 
   deleteById: async (_id) => {
     return await User.deleteOne({_id: _id})
+  },
+
+  findAll: async() => {
+    return await User.find({})
   }
 }
 

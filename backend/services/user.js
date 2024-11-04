@@ -13,7 +13,11 @@ const UserService = {
 
   deleteById: async (_id) => {
     return await UserRepository.deleteById(_id)
+  },
+
+  findAll: async() => {
+    return await UserRepository.findAll()
   }
-}
+} 
 
 module.exports = UserService

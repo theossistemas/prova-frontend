@@ -20,7 +20,8 @@ const AuthController = {
       expires: new Date(Date.now() + 86400000),
       secure: false,
       httpOnly: true,
-      sameSite: 'None'
+      sameSite: 'None',
+      maxAge: new Date(Date.now() + 86400000)
     })
     res.status(201).send()
   },
