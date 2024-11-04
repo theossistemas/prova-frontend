@@ -3,7 +3,7 @@ console.log('\nMONGODB FIRST INITIALIZATION...\n')
 console.log('\nCREATING DATABASE...\n')
 
 // cria database no mongo.
-db_test_frontend = db.getSiblingDB('db_test_frontend')
+db_test_frontend = db.getSiblingDB('dbTestFrontend')
 
 console.log('\nCREATING USER...\n')
 
@@ -14,7 +14,7 @@ db_test_frontend.createUser({
   roles: [
     {
       role: 'readWrite',
-      db: 'db_test_frontend'
+      db: 'dbTestFrontend'
     }
   ]
 })
