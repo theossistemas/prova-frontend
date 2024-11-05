@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-admin',
   standalone: true,
   imports: [
     MatCardModule,
@@ -17,18 +17,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  templateUrl: './admin.component.html',
+  styleUrl: './admin.component.scss'
 })
-export class LoginComponent {
+export class AdminComponent {
 
   router = inject(Router)
 
-  signUp(): void {
-    this.router.navigate(['register'])
-  }
-
-  login(): void {
+  home(): void {
     this.router.navigate(['home'])
   }
 }
