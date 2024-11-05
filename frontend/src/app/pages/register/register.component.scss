@@ -1,0 +1,65 @@
+main {
+  display: flex;
+  flex-direction: row;
+  min-height: 100%;
+  background-color: #1a202c;
+}
+
+mat-card {
+  padding: 10px;
+  width: 500px;
+  min-height: 100%;
+  justify-content: center;
+}
+
+mat-card-header,
+mat-card-title,
+mat-card-subtitle {
+  display: flex;
+  justify-content: center;
+}
+
+mat-card-header {
+  margin-bottom: 16px;
+}
+
+mat-card-title,
+mat-card-subtitle {
+  margin-bottom: 16px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  p {
+    align-self: center;
+  }
+}
+
+button {
+  border-radius: 5px;
+}
+
+mat-divider {
+  margin-bottom: 20px;
+}
+
+.sign-up-button {
+  background-color: #38A169 !important;
+}
+
+.background-section {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  .background-image {
+    max-height: 50vh;
+  }
+}
+
+@media (max-width: 1024px) {
+  .background-section {
+    display: none;
+  }
+}
