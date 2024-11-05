@@ -1,1 +1,12 @@
-<p>user-card works!</p>
+<mat-card>
+  <mat-card-header>
+    <img mat-card-avatar src="/svg/avatar.svg" class="avatar" />
+  </mat-card-header>
+  <mat-card-content>
+    <section>
+      <p class="name-text">{{cardData?.name}}</p>
+      <p class="city-text">{{cardData?.city}}</p>
+      <p class="stack-text">{{cardData?.stack}}</p>
+    </section>
+  </mat-card-content>
+</mat-card>

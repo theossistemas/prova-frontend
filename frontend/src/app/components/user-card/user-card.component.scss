@@ -1,0 +1,48 @@
+@use '@angular/material' as mat;
+
+mat-card {
+  @include mat.elevation(0);
+  width: 300px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+mat-card-header {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+mat-card-content {
+  height: 130px;
+  background-color: #1a202c;
+  border-radius: 8px;
+  color: #fff;
+}
+
+section {
+  margin-top: 60px;
+  font-size: 1rem;
+}
+
+p {
+  margin: 5px 0 0 0;
+  text-overflow: ellipsis;
+}
+
+.avatar {
+  margin-bottom: -40px;
+  z-index: 999;
+  width: 80px;
+  height: 80px;
+  outline: 2px solid #1a202c;
+  background-color: #fff;
+}
+
+.name-text {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.city-text, .stack-text {
+  font-size: 0.8rem;
+}

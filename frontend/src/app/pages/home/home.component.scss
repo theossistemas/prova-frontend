@@ -1,6 +1,11 @@
-main {
-  display: flex;
-  flex-direction: row;
-  min-height: 100%;
+mat-toolbar {
   background-color: #1a202c;
+  color: #fff;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 10px;
 }

@@ -1,3 +1,8 @@
 <main>
-  
+  <mat-toolbar>Cadastro DEV</mat-toolbar>
+  <div class="card-grid">
+    @for(card of cards(); track card.name) {
+      <app-user-card [cardData]="card"/>
+    }
+  </div>
 </main>
