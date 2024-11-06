@@ -1,61 +1,96 @@
-## Programador Frontend
-     
-### Desafio
+# TESTE FRONTEND THÈOS
 
-Este desafio tem o objetivo de avaliar melhor suas skills como desenvolvedor, não
-apenas raciocínio lógico, mas também organização, capacidade de resolver
-problemas, engenhosidade, clareza do código, detalhamento visual, etc.
+Segue abaixo as instruções para rodar o projeto e ao final algumas considerações e TODOS para o projeto.
+<br>
 
-O que esperamos é que seja desenvolvido um pequeno projeto contendo os
-elementos básicos de front-end, porém que aplique o máximo do seu conhecimento em conceitos e padrões.
+## RODANDO O PROJETO
 
-O desafio proposto consiste em implementar uma aplicação onde temos um cadastro de desenvolvedores e suas habilidades, e que possam ser encontrados por uma pesquisa feita com base em habilidades (ex: React, Vue, Angular), formação acadêmica e cidade.
+- ### BANCO DE DADOS:
+
+O banco de dados MongoDB está com um arquivo docker-compose.yml configurado para o mesmo, tendo um script em JavaScript para a criação de usuário e database. Para iniciar o docker compose navegue ate a pasta teste-frontend/db/ e execute no terminal o comando:
+
+> docker compose up -d
+
+*Note que o mesmo não funcionará em instalações muito antigas do docker compose.
+<br>
+
+**MongoDB está configurado para a porta 27030.
+<br>
+
+- ### BACKEND:
+
+Para o backend precisamos utilizar a versão 20 do node (foi desenvolvido mais especificamente na versão 20.18.0). Pode-se utilizar versões 18, 20 e 22 do node, atentando-se para as versões minimas a seguir: 
+
+> ^18.19.1 || ^20.11.1 || ^22.0.0
+
+Tal fato se da pela versão minima de compatibilidade com a versão do angular utilizada (18.2.0).
+<br>
+
+Navegue até a pasta teste-frontend/backend e execute o comando:
+
+> npm run dev
+
+*O backend está configurado para rodar na porta 8080.
+
+- ### FRONTEND:
+Para o frontend foi utiliza a versão 18.2.0 do angular juntamente da versão 20.18.0 do node, como dito anteriormente.
+<br>
+
+Para rodar o projeto certifique-se que a versão latest do angular está instalada globalmente no node especificado.
+<br>
+
+Navegue para a pasta teste-frontend/frontend/ e execute o comando:
+
+> ng serve
+
+*A aplicação estará rodando na porta padrão do angular (4200).
+
+## CONSIDERAÇÕES
+
+### **FRONTEND:**
+
+- Para o frontend foi utilizado Angular na versão latest (18.2.0 até o momento), com bibliotéca de componentes Angular Material, para estilização e criação de componentes.
+<br>
+
+- Foi decidido utilizar standalone components para o mesmo visto que é um projeto pequeno, com possibilidade de lazy loading nos componentes ao invés dos modulos como comumente se era feito.
+<br>
+
+- O projeto consiste basicamente de uma tela de login, tela de cadastro e uma pagina home aonde podem ser vistos os cards dos desenvolvedores cadastrados no mesmo.
+<br>
+
+- Foi pensado em uma validação de 'Role' de usuário, aonde o mesmo seria enviado como dado no cookie e seria utilizado como estado global pelo NgRx, porém o mesmo não foi implementado pois houveram problemas na utilização/gravação dos cookies como descrito na sessão do backend. O mesmo se da à tela de cadastro de Admins que seria acessada somente pelos mesmos através de verificação de Role contida no cookie como estado global.
+<br>
+
+* Poderia ter sido salvo o token no localstorage visto que o mesmo já foi gerado como jwt no backend, porém o mesmo não foi implementado por questões de tempo.
+<br>
 
 
-### Instruções
 
-Queremos que nos mostre todo seu conhecimento, com isso, toda regra de negócio, fluxo de navegação, validações de formulários, noções de usabilidade, infra e layout ficará a seu critério.
+### **BACKEND:**
 
-Use e abuse de seus conhecimentos e sugestões.
-##
+- Para o projeto foi utilizado Node.JS com JavaScript, Express para requisições Http e Mongoose com MongoDB para persistência de dados, dentre outras dependências como bcript, jsonwebtoken, cookie-parser, cors, dotenv e nodemon.
+<br>
 
-Abaixo, você tem o link do protótipo a ser seguido ou para servir de inspiração.
-https://www.figma.com/file/bSqhBBS9LdOehdEkJ6frDz/Teste-Frontend?node-id=0%3A1
-     
-     Não se limite ao protótipo a cima. 
-     Sugestões ou novas funcionalidades será um diferencial.
+- Foi utilizado o padrão MVC com repository.
+<br>
 
-##
+- Foi implementada geração de token jwt com dados a serem enviados ao backend por meio de cookies (para invalidar a manipulação de dados do mesmo) mas por problemas com CORS e o fato dos projetos estarem rodando em localhost, com portas diferentes e sem https, não conseguimos salvar o cookie para requisições futuras e por isso a validação do mesmo foi desabilitada do middleware do backend (ainda envia para o front porém não é salvo. Pode ser visto pelo insômnia ou postman).
+<br>
 
+- Criadas as operações básicas de crud para usuário bem como login e logout do mesmo.
 
-### Requisitos
+### **BANCO DE DADOS:**
 
-- Formulário reativo.
-- Utilize a api do github https://developer.github.com/v3/,  como opção para preenchimento automático de alguns campos do formulário.
-- Clean Code
+- Foi utilizado o MongoDB versão 8.0.3 (latest até o momento da realização do teste) rodando em docker através de um docker-compose e com criação de usuário e tabelas na primeira inicialização do mesmo, através de script JS.
+<br>
 
+## **TODOS**
 
+- Para melhorias futuras do projeto, poderia ser implementada a questão do token sendo enviado num header pelo backend e salvo em localstorage no frontend para futuras utilizações, abrindo espaço para validação com guarda de rota e redirecionamento em caso de falta de token.
+<br>
 
-### Será um diferencial
+- Faltaram a integração dos botões de edição e exclusão do card com chamadas para o backend (rotas funcionam porém não foram implementadas no frontend) visto que não temos salvo o usuário logado (poderia ser guardado no momento do login ou cadastro mas a intenção e que fosse salvo o cookie e o ID do usuário ser utilizado de lá), o que atrapalha no reconhecimento de role/usuário logado, deixando aberto o botão de edição e exclusão aberto para todos.
+<br>
 
-- Usar Node.js / Mongo para a persistência dos dados.
-- Aplicar conceitos de gerenciamento de estado. (NgRx).
-- Lazy Loading.
-- Executar testes.
-- Workspaces (Multi projetos)
-
-
-
-### O que será avaliado?
-
-- Boas práticas, organização do código, arquitetura
-- Bom uso da linguagem e ferramentas.
-
-
-
-## Como deverá ser entregue:
-
-    1. Faça um fork deste repositório;
-    2. Realize o teste;
-    3. Adicione seu currículo na raiz do repositório;
-    4. Envie-nos o PULL-REQUEST para que seja avaliado;
+- Poderia ser implementada a possibilidade de escolha de tema para o site.
+<br>
