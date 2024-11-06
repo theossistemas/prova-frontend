@@ -3,9 +3,34 @@ mat-toolbar {
   color: #fff;
 }
 
+mat-form-field.search {
+  --mat-form-field-container-height: 20px;
+  --mat-form-field-container-vertical-padding: 10px;
+  margin-top: 20px;
+}
+
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 24px;
   padding: 10px;
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.exit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  :hover {
+    cursor: pointer;
+  }
+}
+
+.logout {
+  margin-left: 5px;
 }

@@ -3,13 +3,25 @@ import { UserCardComponent } from '../../components/user-card/user-card.componen
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { UserService } from '../../services/user.service';
 import { User } from '../../interfaces/user';
+import { MatIconModule } from '@angular/material/icon';
+import { Router } from '@angular/router';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
     UserCardComponent,
-    MatToolbarModule
+    MatToolbarModule,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatButtonModule
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
@@ -17,36 +29,35 @@ import { User } from '../../interfaces/user';
 export class HomeComponent implements OnInit {
 
   userService = inject(UserService)
+  router = inject(Router)
+  fb = inject(FormBuilder)
 
-  cards = signal<User[]>([])
+  searchForm = this.fb.group({
+    search: [''],
+  })
 
-  names = [
-    'Teste 1',
-    'Teste 2',
-    'Teste 3',
-    'Teste 4',
-    'Teste 5',
-    'Teste 6',
-    'Teste 7',
-    'Teste 8',
-    'Teste 9',
-    'Teste 10',
-    'Teste 11',
-    'Teste 12',
-  ]
+  users: User[] = new Array<User>
+  cards: User[] = new Array<User>
 
-  constructor() {}
   async ngOnInit(): Promise<void> {
     (await this.userService.getAllUsers()).subscribe({
       next: (response) => {
-        const cards: User[] = []
         response.forEach((user: User) => {
-          cards.push(user)
+          this.users.push(user)
+          this.cards.push(user)
         })
-        this.cards.set(cards)
       },
       error: (error) => console.log('error:', error.error.message)
     })
   }
 
+  logout(): void {
+    this.router.navigate(['login'])
+  }
+
+  filter(): void {
+    this.cards = this.users.filter((search) => {
+      return search.stacks.toLowerCase().includes(this.searchForm.value.search!) || search.city.toLowerCase().includes(this.searchForm.value.search!) || search.academic.toLowerCase().includes(this.searchForm.value.search!)
+    })
+  }
 }

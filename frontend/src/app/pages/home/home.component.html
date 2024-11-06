@@ -1,7 +1,18 @@
 <main>
-  <mat-toolbar>Cadastro DEV</mat-toolbar>
+  <mat-toolbar class="toolbar">
+    <div>Cadastro DEV</div>
+    <form [formGroup]="searchForm">
+      <mat-form-field class="search">
+        <input matInput formControlName="search" placeholder="Buscar">
+          <button class="visibility-icon" mat-icon-button matSuffix type="button">
+            <mat-icon fontIcon="search" (click)="filter()"/>
+          </button>
+      </mat-form-field>
+    </form>
+    <div class="exit">Logout<mat-icon fontIcon="logout" class="logout" (click)="logout()"/></div>
+  </mat-toolbar>
   <div class="card-grid">
-    @for(card of cards(); track card.name) {
+    @for(card of cards; track card._id) {
       <app-user-card [cardData]="card"/>
     }
   </div>
