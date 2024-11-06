@@ -61,10 +61,11 @@ Navegue para a pasta teste-frontend/frontend/ e execute o comando:
 - Foi pensado em uma validação de 'Role' de usuário, aonde o mesmo seria enviado como dado no cookie e seria utilizado como estado global pelo NgRx, porém o mesmo não foi implementado pois houveram problemas na utilização/gravação dos cookies como descrito na sessão do backend. O mesmo se da à tela de cadastro de Admins que seria acessada somente pelos mesmos através de verificação de Role contida no cookie como estado global.
 <br>
 
-* Poderia ter sido salvo o token no localstorage visto que o mesmo já foi gerado como jwt no backend, porém o mesmo não foi implementado por questões de tempo.
+- Poderia ter sido salvo o token no localstorage visto que o mesmo já foi gerado como jwt no backend, porém o mesmo não foi implementado por questões de tempo.
 <br>
 
-
+- Ao realizar o cadastro de um novo usuário, caso o campo de usuário do github tenha sido preenchido corretamente, será realizada uma busca pela api do github e então salvos os dados de avatar_url e html_url. Caso os dados estejam preenchidos, serão exibidos no card do usuário, caso contrário o link para o github não existirá e uma imagem default de avatar será carregada.
+<br>
 
 ### **BACKEND:**
 
