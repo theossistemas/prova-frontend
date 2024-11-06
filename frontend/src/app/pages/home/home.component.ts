@@ -1,7 +1,8 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { UserCardComponent } from '../../components/user-card/user-card.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { CardContent } from '../../interfaces/card';
+import { UserService } from '../../services/user.service';
+import { User } from '../../interfaces/user';
 
 @Component({
   selector: 'app-home',
@@ -13,8 +14,11 @@ import { CardContent } from '../../interfaces/card';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
-  cards = signal<CardContent[]>([])
+export class HomeComponent implements OnInit {
+
+  userService = inject(UserService)
+
+  cards = signal<User[]>([])
 
   names = [
     'Teste 1',
@@ -31,12 +35,18 @@ export class HomeComponent {
     'Teste 12',
   ]
 
-  constructor() {
-    const cards: CardContent[] = []
-    this.names.forEach(name => {
-      cards.push({name: name, city: name, stack: name})
+  constructor() {}
+  async ngOnInit(): Promise<void> {
+    (await this.userService.getAllUsers()).subscribe({
+      next: (response) => {
+        const cards: User[] = []
+        response.forEach((user: User) => {
+          cards.push(user)
+        })
+        this.cards.set(cards)
+      },
+      error: (error) => console.log('error:', error.error.message)
     })
-    this.cards.set(cards)
   }
 
 }

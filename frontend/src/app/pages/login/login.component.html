@@ -6,14 +6,14 @@
         <mat-card-subtitle>Cadastro DEV</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
-        <form (ngSubmit)="login()">
+        <form (ngSubmit)="login()" [formGroup]="loginForm">
           <mat-form-field appearance="outline">
             <mat-label>Login</mat-label>
-            <input matInput>
+            <input matInput formControlName="email">
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>Senha</mat-label>
-            <input matInput>
+            <input matInput formControlName="password">
           </mat-form-field>
           <button mat-flat-button>Login</button>
         </form>

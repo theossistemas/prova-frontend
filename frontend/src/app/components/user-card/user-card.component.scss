@@ -13,6 +13,8 @@ mat-card-header {
 }
 
 mat-card-content {
+  display: flex;
+  flex-direction: row;
   height: 130px;
   background-color: #1a202c;
   border-radius: 8px;
@@ -20,13 +22,17 @@ mat-card-content {
 }
 
 section {
-  margin-top: 60px;
+  margin-top: 40px;
   font-size: 1rem;
 }
 
 p {
   margin: 5px 0 0 0;
   text-overflow: ellipsis;
+}
+
+.info-section {
+  width: 100%;
 }
 
 .avatar {
@@ -43,6 +49,24 @@ p {
   font-weight: bold;
 }
 
-.city-text, .stack-text {
+.city-text, .stack-text, .git-text {
   font-size: 0.8rem;
+}
+
+.git-text {
+  color: green;
+}
+
+.icons-section {
+  display: flex;
+  justify-content: flex-end;
+  align-items: end;
+  width: 25%;
+  .icon-delete {
+    color: rgb(247, 60, 60);
+  }
+  .icon-edit {
+    color: rgb(85, 85, 233);
+    margin-right: 5px;
+  }
 }

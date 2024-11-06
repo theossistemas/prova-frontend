@@ -1,12 +1,19 @@
 <mat-card>
   <mat-card-header>
-    <img mat-card-avatar src="/svg/avatar.svg" class="avatar" />
+    <img mat-card-avatar [src]="cardData?.avatar !== '' ? cardData?.avatar : '/svg/avatar.svg'" class="avatar" />
   </mat-card-header>
   <mat-card-content>
-    <section>
+    <section class="info-section">
       <p class="name-text">{{cardData?.name}}</p>
       <p class="city-text">{{cardData?.city}}</p>
-      <p class="stack-text">{{cardData?.stack}}</p>
+      <p class="stack-text">{{cardData?.stacks}}</p>
+      @if(cardData?.github_url !== '') {
+        <a href="{{cardData?.github_url}}" class="git-text">Acessar GitHub</a>
+      }
+    </section>
+    <section class="icons-section">
+      <mat-icon fontIcon="edit" class="icon-edit"></mat-icon>
+      <mat-icon fontIcon="delete" class="icon-delete"></mat-icon>
     </section>
   </mat-card-content>
 </mat-card>
