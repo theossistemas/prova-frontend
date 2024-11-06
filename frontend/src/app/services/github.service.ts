@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,6 @@ export class GithubService {
   constructor() { }
 
   async getUserData(username: string): Promise<Observable<any>> {
-    return await this.http.get(`https://api.github.com/users/${username}`,)
+    return await this.http.get(`${environment.GITHUB_URL}/${username}`,)
   }
 }
