@@ -3,7 +3,7 @@ const UserRepository = require('../repositories/user')
 const UserService = {
   create: async (user) => {
     const existingUser = await UserRepository.findByEmail(user.email)
-    if(existingUser) throw Error('Usuário já existente.')
+    if(existingUser) throw Error('E-mail já cadastrado.')
     return await UserRepository.create(user)
   },
 

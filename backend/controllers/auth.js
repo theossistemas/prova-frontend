@@ -18,8 +18,8 @@ const AuthController = {
       path: '/',
       expires: new Date(Date.now() + 86400000),
       secure: false,
-      httpOnly: true,
-      sameSite: 'None',
+      httpOnly: false,
+      sameSite: 'lax',
       maxAge: new Date(Date.now() + 86400000)
     })
     res.status(201).send()

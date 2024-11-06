@@ -16,19 +16,19 @@ const UserController = {
         })
         res.status(201).send()
       })
-      .catch((err) => res.status(409).send(err.message))
+      .catch((err) => res.status(409).json({message: err.message}))
   },
 
   delete: (req, res) => {
     UserService.deleteById(req.params._id)
       .then(() => res.status(204).send())
-      .catch((err) => res.status(409).send(err.message))
+      .catch((err) => res.status(409).json({message: err.message}))
   },
 
   findAll: (req, res) => {
     UserService.findAll()
       .then((response) => res.status(200).json(response))
-      .catch((err) => res.status(400).send(err.message))
+      .catch((err) => res.status(400).json({message: err.message}))
   }
 }
 

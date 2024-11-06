@@ -21,6 +21,24 @@ const UserSchema = mongoose.Schema(
       }
     },
     {
+      city: {
+        type: String,
+        required: [true, 'Cidade é obrigatória.']
+      }
+    },
+    {
+      academic: {
+        type: String,
+        required: [true, 'Formação é obrigatória.']
+      }
+    },
+    {
+      stacks: {
+        type: String,
+        required: [true, 'Tecnologias são necessárias.']
+      }
+    },
+    {
       avatar: {
         type: String,
         required: false
